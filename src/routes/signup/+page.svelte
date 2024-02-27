@@ -10,7 +10,7 @@
     async function signup() {
         try {
             // Validate input
-            if (!email || !password || password !== confirmPassword) {
+            if (!username || !email || !password || password !== confirmPassword) {
                 errorMessage = 'Please fill in all fields and ensure passwords match.';
                 return;
             }
