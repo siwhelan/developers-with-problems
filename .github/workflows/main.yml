@@ -29,9 +29,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install Dependencies
         run: npm install
+      - name: Set up .env for tests
+        run: echo "MONGO_URI=mongodb://localhost:27017/dwp_test" > .env.test
       - name: Run Lint
         run: npm run lint
       - name: Run Tests
         env:
-          MONGODB_URI: mongodb://localhost:27017/dwp_test
+          NODE_ENV: test
         run: npm test
