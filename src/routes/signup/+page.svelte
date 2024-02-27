@@ -20,24 +20,24 @@
             } 
 
             const db = await dbConnect();
-            const users = db.collection('users');
+            const user = db.collection('user');
 
             // Check if username already exists
-            const existingUsername = await users.findOne({ username });
+            const existingUsername = await user.findOne({ username });
             if (existingUsername) {
                 errorMessage = 'Username already exists';
                 return;
             }
 
             // Check if email already exists
-            const existingEmail = await users.findOne({ email });
+            const existingEmail = await user.findOne({ email });
             if (existingEmail) {
                 errorMessage = 'Email address already exists';
                 return;
             }
 
             // Insert user into the database
-            await users.insertOne({ username, email, password });
+            await user.insertOne({ username, email, password });
 
             // Redirect or show success message
             console.log('User signed up successfully');
