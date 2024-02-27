@@ -7,7 +7,7 @@ const EventSchema = new mongoose.Schema({
 	location: { type: String, required: true },
 	link: String,
 	description: { type: String, required: true },
-	cost: { type: String, required: true }, // "free" or "paid"
+	free: { type: Boolean, required: true }, // true is "free", false is "paid"
 	attending: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
 	interested: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
 });
