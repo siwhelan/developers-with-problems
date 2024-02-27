@@ -1,5 +1,5 @@
 <script>
-	import { dbConnect } from '$lib/utils/db';
+	import { connectDB } from '$lib/utils/db';
 
 	let username = '';
 	let email = '';
@@ -19,7 +19,7 @@
 				return;
 			}
 
-			const db = await dbConnect();
+			const db = await connectDB();
 			const user = db.collection('User');
 
 			// Check if username already exists
