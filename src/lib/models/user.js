@@ -1,6 +1,4 @@
-// const mongoose = require('mongoose');
 import mongoose from 'mongoose';
-// const bcrypt = require(bcrypt);
 import bcrypt from 'bcrypt';
 const hashCost = 12;
 
