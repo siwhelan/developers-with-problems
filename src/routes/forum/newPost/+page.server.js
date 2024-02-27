@@ -1,14 +1,4 @@
-import { PostSchema } from '../../..//lib/models/post';
-
-export const load = async () => {
-	let posts = await PostSchema.find();
-
-	posts = JSON.parse(JSON.stringify(posts));
-	posts = posts.reverse();
-	return {
-		posts
-	};
-};
+import { PostSchema } from '../../../lib/models/post';
 
 export const actions = {
 	create: async ({ request }) => {
