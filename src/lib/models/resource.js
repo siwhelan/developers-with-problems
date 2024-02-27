@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const ResourceSchema = new mongoose.Schema({
 	title: { type: String, required: true },
@@ -11,6 +12,4 @@ const ResourceSchema = new mongoose.Schema({
 	userID: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
 });
 
-const Resource = mongoose.model('Resource', ResourceSchema);
-
-module.exports = Resource;
+export const Resource = mongoose.model('Resource', ResourceSchema);

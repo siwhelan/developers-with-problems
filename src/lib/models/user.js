@@ -1,5 +1,7 @@
-const mongoose = require('mongoose');
-const bcrypt = require(bcrypt);
+// const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+// const bcrypt = require(bcrypt);
+import bcrypt from 'bcrypt';
 const hashCost = 12;
 
 const UserSchema = new mongoose.Schema({
@@ -26,6 +28,4 @@ const UserSchema = new mongoose.Schema({
 // 	});
 // });
 
-const User = mongoose.model('User', UserSchema);
-
-module.exports = User;
+export const User = mongoose.model('User', UserSchema);
