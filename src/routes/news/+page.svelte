@@ -33,33 +33,39 @@
 	});
 </script>
 
-<main>
-	<h1>Top Tech News Stories</h1>
-	<h2 class="font-bold underline">Hacker News Top Stories</h2>
-	{#if topStories.length > 0}
-		<ul>
-			{#each topStories as story}
-				<li>
-					<a href={story.url} target="_blank" rel="noopener noreferrer">{story.title}</a>
-					<!-- by {story.by} ## OPTIONAL ## -->
-				</li>
-			{/each}
-		</ul>
-	{:else}
-		<p>Loading top stories from Hacker News...</p>
-	{/if}
+<div class="flex justify-center items-center min-h-screen">
+	<main class="text-center">
+		<h1 class="font-bold underline">Top Tech News Stories</h1>
+		<br />
+		<h2 class="font-bold underline">Hacker News Top Stories</h2>
+		<br />
+		{#if topStories.length > 0}
+			<ul>
+				{#each topStories as story}
+					<li>
+						<a href={story.url} target="_blank" rel="noopener noreferrer">{story.title}</a>
+						<!-- by {story.by} ## OPTIONAL ## -->
+					</li>
+				{/each}
+				<br />
+			</ul>
+		{:else}
+			<p>Loading top stories from Hacker News...</p>
+		{/if}
 
-	<h2 class="font-bold underline">Reddit /r/technology Top Posts</h2>
-	{#if topRedditPosts.length > 0}
-		<ul>
-			{#each topRedditPosts as post}
-				<li>
-					<a href={post.url} target="_blank" rel="noopener noreferrer">{post.title}</a>
-					<!-- by {post.author} ## OPTIONAL ## -->
-				</li>
-			{/each}
-		</ul>
-	{:else}
-		<p>Loading top posts from Reddit...</p>
-	{/if}
-</main>
+		<h2 class="font-bold underline">Reddit /r/technology Top Posts</h2>
+		<br />
+		{#if topRedditPosts.length > 0}
+			<ul>
+				{#each topRedditPosts as post}
+					<li>
+						<a href={post.url} target="_blank" rel="noopener noreferrer">{post.title}</a>
+						<!-- by {post.author} ## OPTIONAL ## -->
+					</li>
+				{/each}
+			</ul>
+		{:else}
+			<p>Loading top posts from Reddit...</p>
+		{/if}
+	</main>
+</div>
