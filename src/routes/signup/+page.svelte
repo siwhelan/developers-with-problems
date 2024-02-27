@@ -20,7 +20,7 @@
             } 
 
             const db = await dbConnect();
-            const user = db.collection('user');
+            const user = db.collection('User');
 
             // Check if username already exists
             const existingUsername = await user.findOne({ username });
