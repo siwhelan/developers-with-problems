@@ -4,7 +4,7 @@
 		fetchTopStories,
 		fetchStoryDetails,
 		fetchTopRedditTechnology
-	} from '../../services/apiService';
+	} from '../../services/fetchNews';
 
 	let topStories = [];
 	let topRedditPosts = [];
