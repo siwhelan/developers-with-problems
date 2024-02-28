@@ -1,8 +1,8 @@
 <script>
 	import { enhance } from '$app/forms';
 
-	let link = true;
-	function handleOptionChange(event) {
+	let link = false;
+	function handleOptionChange() {
 		link = !link;
 	}
 	export let form;
@@ -11,7 +11,7 @@
 <form
 	method="POST"
 	action="?/create"
-	use:enhance={({ formElement, formData, action, cancel, submitter }) => {
+	use:enhance={() => {
 		return async ({ result, update }) => {
 			console.log(result);
 			update();
