@@ -11,13 +11,20 @@ export const actions = {
 		const existingUser = await User.findOne({ $or: [{ username: username }, { email: email }] });
 
 		if (existingUser) {
-			console.error('Username or email already exists');
-			return {
-				success: false,
-				error: 'Username or email already exists'
-			};
+			if (existingUser.username == username) {
+				console.error('Username already exists');
+				return {
+					success: false,
+					error: 'Username already exists'
+				};
+			} else if (existingUser.email == email) {
+				console.error('Email already exists');
+				return {
+					success: false,
+					error: 'Email already exists'
+				};
+			}
 		}
-
 		const newUser = {
 			username: username,
 			email: email,
