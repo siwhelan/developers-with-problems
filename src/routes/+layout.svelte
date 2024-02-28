@@ -1,5 +1,9 @@
 <script>
 	import '../app.css';
+	import Navigation from '../components/navigation.svelte';
 </script>
 
-<slot />
+<div class="flex">
+	<Navigation />
+	<slot />
+</div>
