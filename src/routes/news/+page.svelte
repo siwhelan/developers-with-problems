@@ -33,7 +33,7 @@
 	});
 </script>
 
-<div class="flex justify-center items-center min-h-screen">
+<div class="flex justify-center items-center">
 	<main class="text-center">
 		<h1 class="font-bold underline">Top Tech News Stories</h1>
 		<br />
