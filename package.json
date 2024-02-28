@@ -34,7 +34,6 @@
 		"bcrypt": "^5.1.1",
 		"dotenv": "^16.4.5",
 		"mongodb": "^6.3.0",
-		"mongoose": "^8.2.0",
-		"util.promisify": "^1.1.2"
+		"mongoose": "^8.2.0"
 	}
 }
