@@ -31,29 +31,15 @@ function changeFocus(pageName) {
       background-color: #555;
     }
   </style>
-  
-  <!-- <div class="menu-container">
-    <button class="menu-button" on:click={() => changeFocus('Home')}>Home</button>
-    <button class="menu-button" on:click={() => changeFocus('My Profile')}>My Profile</button>
-    <button class="menu-button" on:click={() => changeFocus('Following')}>Following</button>
-    <button class="menu-button" on:click={() => changeFocus('Forum')}>Forum</button>
-    <button class="menu-button" on:click={() => changeFocus('Events')}>Events</button>
-    <button class="menu-button" on:click={() => changeFocus('Jobs')}>Jobs</button>
-    <button class="menu-button" on:click={() => changeFocus('Learning Resources')}>Learning Resources</button>
-    <button class="menu-button" on:click={() => changeFocus('News')}>News</button>
-    <button class="menu-button" on:click={() => changeFocus('Settings')}>Settings</button>
-    <button class="menu-button" on:click={() => changeFocus('Logout')}>Logout</button>
-  </div> -->
 
   <div class="menu-container">
     <a href="/home" class="menu-button">Home</a>
-    <a href="/profile" class="menu-button">My Profile</a>
-    <a href="/following" class="menu-button">Following</a>
+    <a href="/profile" class="menu-button">My Profile</a> <!--Following will be visible through a button/ link in my profile-->
     <a href="/forum" class="menu-button">Forum</a>
     <a href="/events" class="menu-button">Events</a>
     <a href="/jobs" class="menu-button">Jobs</a>
     <a href="/learning-resources" class="menu-button">Learning Resources</a>
     <a href="/news" class="menu-button">News</a>
     <a href="/settings" class="menu-button">Settings</a>
-    <a href="/logout" class="menu-button">Logout</a>
+    <!--Logout will be at the top of the page-->
   </div>
