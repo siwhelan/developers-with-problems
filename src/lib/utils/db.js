@@ -1,5 +1,6 @@
 // Load environment variables
 import dotenv from 'dotenv';
+
 if (process.env.NODE_ENV === 'test') {
 	dotenv.config({ path: '.env.test' });
 } else {
@@ -16,7 +17,12 @@ let db;
 export async function connectDB() {
 	if (db) return db;
 	const client = new MongoClient(uri);
-	await client.connect();
-	db = client.db();
-	return db;
+	try {
+		console.log('I get this far');
+		await client.connect();
+		console.log("And I'm connected!!!!");
+		db = client.db();
+	} catch (error) {
+		console.error('Error connecting to the database:', error);
+	}
 }
