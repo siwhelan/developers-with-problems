@@ -1,5 +1,5 @@
 import { Post } from '../../../lib/models/post.js';
-import { invalid, redirect } from '@sveltejs/kit';
+import { redirect, fail } from '@sveltejs/kit';
 
 export const actions = {
 	create: async ({ request }) => {
@@ -9,7 +9,9 @@ export const actions = {
 		console.log(postContent);
 		const postUrl = formData.get('link');
 		const user = '65ddf5f9020ec1c2c53a796f';
-
+		if (!postTitle || !postContent) {
+			return fail(400, { error: 'Error, missing' });
+		}
 		const newPost = {
 			title: postTitle,
 			content: postContent,

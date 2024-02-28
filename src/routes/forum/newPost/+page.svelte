@@ -1,20 +1,38 @@
 <script>
+	import { enhance } from '$app/forms';
+
 	let link = true;
 	function handleOptionChange(event) {
 		link = !link;
 	}
+	export let form;
 </script>
 
-<form method="POST" action="?/create" class="flex flex-col items-center h-screen">
+<form
+	method="POST"
+	action="?/create"
+	use:enhance={({ formElement, formData, action, cancel, submitter }) => {
+		return async ({ result, update }) => {
+			console.log(result);
+			update();
+		};
+	}}
+	class="flex flex-col items-center h-screen"
+>
 	<div class="flex">
-		<label>
-			Title
-			<input
-				class=" rounded-lg bg-gray-50 border focus:ring-blue-500 focus:border-blue-500 text-sm border-gray-300 p-2.5"
-				type="Title"
-				name="title"
-			/>
-		</label>
+		<div class="flex-col">
+			<div class="pt-3 pb-3 block">
+				{#if form?.error}<p class="error">Please check all fields are filled in</p>{/if}
+			</div>
+			<label>
+				Title
+				<input
+					class=" rounded-lg bg-gray-50 border focus:ring-blue-500 focus:border-blue-500 text-sm border-gray-300 p-2.5"
+					type="Title"
+					name="title"
+				/>
+			</label>
+		</div>
 	</div>
 	<label>
 		<input type="checkbox" value="link" on:change={handleOptionChange} />
