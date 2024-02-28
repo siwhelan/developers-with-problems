@@ -25,7 +25,7 @@
 						id="attending-checkbox"
 						type="checkbox"
 						value=""
-						class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+						class="w-4 h-4 text-blue-400 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
 					/>
 				</div>
 
@@ -54,12 +54,54 @@
 						>
 					{/each}
 				</div>
-				<div class="absolute bottom-0 right-0 mb-2 mr-2">
-					<button class="bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-						Share
-					</button>
+				<div class="relative">
+					<!-- Share Icon -->
+					<div class="absolute bottom-0 right-0 mb-2 mr-2">
+						<img src="/share-icon.png" alt="Share" class="w-5 h-5 cursor-pointer" id="shareIcon" />
+					</div>
+
+					<!-- Share Menu (hidden by default) -->
+					<div class="absolute bottom-0 right-0 mb-10 mr-2 hidden" id="shareMenu">
+						<div class="w-40 bg-white shadow-lg rounded-lg">
+							<div class="py-2">
+								<a
+									href="https://en-gb.facebook.com/"
+									target="_blank"
+									class="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700"
+									>Share on Facebook</a
+								>
+								<a
+									href="https://twitter.com"
+									target="_blank"
+									class="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700"
+									>Share on Twitter</a
+								>
+								<a
+									href="https://www.linkedin.com"
+									target="_blank"
+									class="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700"
+									>Share on LinkedIn</a
+								>
+							</div>
+						</div>
+					</div>
 				</div>
 			</li>
 		{/each}
 	</ul>
+	<script>
+		// Share Menu Toggle
+		document.getElementById('shareIcon').addEventListener('click', function () {
+			var shareMenu = document.getElementById('shareMenu');
+			shareMenu.classList.toggle('hidden');
+		});
+
+		// Add event listener to each share option
+		document.querySelectorAll('#shareMenu a').forEach(function (item) {
+			item.addEventListener('click', function () {
+				// Hide the share menu when any option is clicked
+				document.getElementById('shareMenu').classList.add('hidden');
+			});
+		});
+	</script>
 </div>
