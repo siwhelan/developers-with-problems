@@ -7,12 +7,14 @@
 
 <div class="menu-container bg-blue-900 rounded-lg p-5 m-10 max-w-xs">
   <h1 class={sectionStyles}>User Profile</h1>
+  <p class={sectionStyles}>{user.avatar || 'avatar: nothing'}</p>
   <p class={sectionStyles}>Name: {user.username}</p>
   <p class={sectionStyles}>Email: {user.email}</p>
+  <p class={sectionStyles}>Bio: {user.bio || 'nothing'}</p>
+  <p class={sectionStyles}>Socials: {user.social || 'nothing'}</p>
   <p class={sectionStyles}>Followers: {user.followers}</p>
   <p class={sectionStyles}>Following: {user.following}</p>
   <a
   class={linkStyles}
-		href="/profile/changePassword">Change Password</a
-	>
+		href="/profile/changePassword">Change Password</a>
   </div>
