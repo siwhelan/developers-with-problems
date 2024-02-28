@@ -1,5 +1,6 @@
 // Load environment variables
 import dotenv from 'dotenv';
+import mongoose from 'mongoose';
 
 if (process.env.NODE_ENV === 'test') {
 	dotenv.config({ path: '.env.test' });
@@ -9,20 +10,13 @@ if (process.env.NODE_ENV === 'test') {
 
 console.log(`URI HERE!!! ${process.env.MONGO_URI}`); // should output test database URI
 
-// Import MongoClient from mongodb using ESM syntax
-import { MongoClient } from 'mongodb';
-const uri = process.env.MONGO_URI;
-let db;
-
+// Connect to MongoDB using Mongoose
 export async function connectDB() {
-	if (db) return db;
-	const client = new MongoClient(uri);
+	const uri = process.env.MONGO_URI;
 	try {
-		console.log('I get this far');
-		await client.connect();
-		console.log("And I'm connected!!!!");
-		db = client.db();
+		await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+		console.log('MongoDB connected successfully');
 	} catch (error) {
-		console.error('Error connecting to the database:', error);
+		console.error('Error connecting to MongoDB:', error);
 	}
 }

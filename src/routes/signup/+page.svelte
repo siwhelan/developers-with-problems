@@ -52,10 +52,10 @@
 </script>
 
 <form method="POST" action="?/create">
-	<input type="text" name="username" required />
-	<input type="email" name="email" required />
-	<input type="password" name="password" required />
-	<input type="password" name="confirmPassword" required />
+	<input type="text" name="username" value="username" required />
+	<input type="email" name="email" value="email" required />
+	<input type="password" name="password" value="password" required />
+	<input type="password" name="confirmPassword" value="confirmPassword" required />
 
 	<!-- {#if errorMessage}
 		<p class="error">{errorMessage}</p>
