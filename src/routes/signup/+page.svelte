@@ -1,63 +1,113 @@
 <script>
-	import { connectDB } from '$lib/utils/db';
+	import { enhance } from '$app/forms';
+	let errorMessage = null;
+	let successMessage = null;
+	let showLoginForm = false;
 
-	let username = '';
-	let email = '';
-	let password = '';
-	let confirmPassword = '';
-	let errorMessage = '';
-
-	async function signup() {
-		try {
-			// Validate input
-			if (!username || !email || !password || password !== confirmPassword) {
-				errorMessage = 'Please fill in all fields and ensure passwords match.';
-				return;
-			}
-			if (password !== confirmPassword) {
-				errorMessage = "Passwords don't match";
-				return;
-			}
-
-			const db = await connectDB();
-			const user = db.collection('User');
-
-			// Check if username already exists
-			const existingUsername = await user.findOne({ username });
-			if (existingUsername) {
-				errorMessage = 'Username already exists';
-				return;
-			}
-
-			// Check if email already exists
-			const existingEmail = await user.findOne({ email });
-			if (existingEmail) {
-				errorMessage = 'Email address already exists';
-				return;
-			}
-
-			// Insert user into the database
-			await user.insertOne({ username, email, password });
-
-			// Redirect or show success message
-			console.log('User signed up successfully');
-		} catch (error) {
-			// Handle errors
-			console.error('Error signing up user', error);
-			errorMessage = 'An error occurred during signup.';
-		}
-	}
+	const clearErrorMessage = () => {
+		errorMessage = null;
+	};
 </script>
 
-<form on:submit={signup}>
-	<input type="username" bind:value={username} required />
-	<input type="email" bind:value={email} required />
-	<input type="password" bind:value={password} required />
-	<input type="password" bind:value={confirmPassword} required />
+<div class="pt-3 text-center">
+	<form
+		class="max-w-md mx-auto p-4 bg-white shadow-md"
+		method="POST"
+		action="?/create"
+		use:enhance={({ formData, cancel }) => {
+			return async ({ result, update }) => {
+				const password = formData.get('password');
+				const confirmPassword = formData.get('confirmPassword');
 
-	{#if errorMessage}
-		<p class="error">{errorMessage}</p>
-	{/if}
+				if (password !== confirmPassword) {
+					errorMessage = 'Passwords do not match';
+					cancel();
+					return;
+				}
 
-	<button type="submit">Sign Up</button>
-</form>
+				if (result.data.success == true) {
+					successMessage = 'You have signed up successfully!';
+					showLoginForm = true;
+				}
+
+				errorMessage = result.data.error;
+				update();
+			};
+		}}
+	>
+		<div class="mb-4">
+			<label class="block text-gray-700 text-sm font-bold mb-2" for="username">Username:</label>
+			<input
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				type="text"
+				name="username"
+				id="username"
+				value=""
+				placeholder="username"
+				required
+				on:focus={clearErrorMessage}
+			/>
+		</div>
+
+		<div class="mb-4">
+			<label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email:</label>
+			<input
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				type="email"
+				name="email"
+				id="email"
+				value=""
+				placeholder="email"
+				required
+				on:focus={clearErrorMessage}
+			/>
+		</div>
+
+		<div class="mb-4">
+			<label class="block text-gray-700 text-sm font-bold mb-2" for="password">Password:</label>
+			<input
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				type="password"
+				name="password"
+				id="password"
+				value=""
+				placeholder="password"
+				required
+				on:focus={clearErrorMessage}
+			/>
+		</div>
+
+		<div class="mb-4">
+			<label class="block text-gray-700 text-sm font-bold mb-2" for="confirmPassword"
+				>Confirm Password:</label
+			>
+			<input
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+				type="password"
+				name="confirmPassword"
+				id="confirmPassword"
+				value=""
+				placeholder="password"
+				required
+				on:focus={clearErrorMessage}
+			/>
+		</div>
+
+		{#if errorMessage}<p class="text-red-500">{errorMessage}</p>{/if}
+		{#if successMessage}<p class="text-green-500">{successMessage}</p>{/if}
+
+		{#if !showLoginForm}
+			<button
+				class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+				type="submit">Sign Up</button
+			>
+		{:else}
+			<!-- Form will render to login form and button will change to log in -->
+			<button
+				class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+				type="button"
+				on:click={() => (showLoginForm = false)}>Log In</button
+			>
+		{/if}
+	</form>
+</div>
