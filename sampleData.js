@@ -4,16 +4,25 @@ import { Resource } from './src/lib/models/resource.js';
 import { Post } from './src/lib/models/post.js';
 import { Event } from './src/lib/models/event.js';
 import { Comment } from './src/lib/models/comment.js';
+import { Job } from './src/lib/models/job.js';
 import dotenv from 'dotenv';
 dotenv.config();
 const uri = process.env.MONGO_URI;
 
 mongoose
-	.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+	.connect(uri)
 	.then(() => console.log('Connected to MongoDB'))
 	.catch((error) => console.error('Error connecting to MongoDB:', error));
 
 async function insertSampleData() {
+	// delete all data
+	await User.deleteMany({});
+	await Resource.deleteMany({});
+	await Post.deleteMany({});
+	await Event.deleteMany({});
+	await Comment.deleteMany({});
+	await Job.deleteMany({});
+	console.log('Deleted all data');
 	try {
 		// Insert sample users
 		const insertedUsers = await User.insertMany([
@@ -99,6 +108,39 @@ async function insertSampleData() {
 			{ content: 'Comment 3 content', userID: userIds[2], postID: insertedPosts[2]._id }
 		]);
 		console.log(`${insertedComments.length} comments inserted successfully.`);
+
+		// Insert sample jobs
+		const insertedJobs = await Job.insertMany([
+			{
+				title: 'Junior Software Engineer',
+				description: "We're looking for a junior software engineer to join our team.",
+				salary: '£30,000',
+				company: 'Acme Corp',
+				location: 'London',
+				tags: ['JavaScript', 'Node.js', 'React'],
+				userID: userIds[0]
+			},
+			{
+				title: 'Apprentice Software Developer',
+				description: 'UK Apprenticeship in Software Development.',
+				salary: '£29,000',
+				company: 'Tech Co',
+				location: 'Manchester',
+				tags: ['Python', 'Django', 'Flask'],
+				userID: userIds[1]
+			},
+			{
+				title: 'Cyber Security Analyst',
+				description: 'Entry Level Cyber Security Analyst role.',
+				salary: '£35,000',
+				company: 'X Corp',
+				location: 'Birmingham',
+				tags: ['Cyber Security', 'Networking'],
+				userID: userIds[2]
+			}
+		]);
+
+		console.log(`${insertedJobs.length} jobs inserted successfully.`);
 
 		// Close the MongoDB connection
 		await mongoose.connection.close();
