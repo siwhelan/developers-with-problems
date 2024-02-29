@@ -3,15 +3,15 @@ import { redirect } from '@sveltejs/kit';
 import mongoose from 'mongoose';
 import { Lucia } from 'lucia';
 import { MongodbAdapter } from '@lucia-auth/adapter-mongodb';
-import crypto from 'crypto';
+// import crypto from 'crypto';
 
 // Define Mongoose schemas
-const AuthUserSchema = new mongoose.Schema({
-	_id: {
-		type: String,
-		required: true
-	}
-});
+// const AuthUserSchema = new mongoose.Schema({
+// 	_id: {
+// 		type: String,
+// 		required: true
+// 	}
+// });
 
 const SessionSchema = new mongoose.Schema({
 	_id: {
@@ -29,7 +29,7 @@ const SessionSchema = new mongoose.Schema({
 });
 
 // Define Mongoose models
-const AuthUser = mongoose.model('AuthUser', AuthUserSchema);
+// const AuthUser = mongoose.model('AuthUser', AuthUserSchema);
 const Session = mongoose.model('Session', SessionSchema); // Ensure Session is correctly defined
 
 // Connect to MongoDB
