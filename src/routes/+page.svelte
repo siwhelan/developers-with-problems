@@ -124,7 +124,7 @@
 	{#if feedChoice == 'forum'}
 		{#each posts as post}
 			<div class="flex flex-col">
-				<PostLink postTitle={post.title} postContent={post.content} />
+				<PostLink postSlug={post._id} postTitle={post.title} postContent={post.content} />
 			</div>
 		{/each}
 	{/if}
