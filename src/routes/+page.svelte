@@ -2,3 +2,4 @@
 <p class="bg-red-600">
 	Visit <a class="bg-red-600" href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
 </p>
+<a href="/forum">Go to forum</a>
