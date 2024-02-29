@@ -1,5 +1,4 @@
 <script>
-	import Page from '../routes/signup/+page.svelte';
 
 	let session = false;
 </script>
@@ -9,7 +8,7 @@
 		<ul class="flex space-x-4 items-center">
 			<li>
 				<a href="/home">
-					<img src="/dwp.png" class="hover:underline w-25 h-8" />
+					<img src="/dwp.png" alt="logo' class="hover:underline w-25 h-8" />
 				</a>
 			</li>
 		</ul>
