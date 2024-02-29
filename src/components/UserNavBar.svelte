@@ -6,10 +6,10 @@
 
 <div class="bg-gray-800 text-white p-4">
     <nav class="flex justify-between">
-        <ul class="flex space-x-4 items-center"> <!-- Added items-center here -->
+        <ul class="flex space-x-4 items-center">
             <li>
                 <a href="/home">
-                    <img src="/dwp.png" class="hover:underline w-25 h-8"> <!-- Adjusted width and height here -->
+                    <img src="/dwp.png" class="hover:underline w-25 h-8">
                 </a>
             </li>
         </ul>
