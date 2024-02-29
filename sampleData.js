@@ -118,7 +118,6 @@ async function insertSampleData() {
 				company: 'Acme Corp',
 				location: 'London',
 				tags: ['JavaScript', 'Node.js', 'React'],
-				closingDate: new Date(),
 				userID: userIds[0]
 			},
 			{
@@ -128,7 +127,6 @@ async function insertSampleData() {
 				company: 'Tech Co',
 				location: 'Manchester',
 				tags: ['Python', 'Django', 'Flask'],
-				closingDate: new Date(),
 				userID: userIds[1]
 			},
 			{
@@ -138,7 +136,6 @@ async function insertSampleData() {
 				company: 'X Corp',
 				location: 'Birmingham',
 				tags: ['Cyber Security', 'Networking'],
-				closingDate: new Date(),
 				userID: userIds[2]
 			}
 		]);
