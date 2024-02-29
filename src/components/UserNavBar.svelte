@@ -6,7 +6,7 @@
 	<nav class="flex justify-between">
 		<ul class="flex space-x-4 items-center">
 			<li>
-				<a href="/home">
+				<a href="/">
 					<img src="/dwp.png" alt="logo" class="hover:underline w-25 h-8" />
 				</a>
 			</li>
