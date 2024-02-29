@@ -112,35 +112,32 @@ async function insertSampleData() {
 		// Insert sample jobs
 		const insertedJobs = await Job.insertMany([
 			{
-				title: 'Job 1',
-				description: 'Description of Job 1',
-				level: 'Entry',
+				title: 'Junior Software Engineer',
+				description: "We're looking for a junior software engineer to join our team.",
 				salary: '£30,000',
-				company: 'Company 1',
-				location: 'Location of Job 1',
+				company: 'Acme Corp',
+				location: 'London',
 				tags: ['JavaScript', 'Node.js', 'React'],
 				closingDate: new Date(),
 				userID: userIds[0]
 			},
 			{
-				title: 'Job 2',
-				description: 'Description of Job 2',
-				level: 'Mid',
-				salary: '£40,000',
-				company: 'Company 2',
-				location: 'Location of Job 2',
+				title: 'Apprentice Software Developer',
+				description: 'UK Apprenticeship in Software Development.',
+				salary: '£29,000',
+				company: 'Tech Co',
+				location: 'Manchester',
 				tags: ['Python', 'Django', 'Flask'],
 				closingDate: new Date(),
 				userID: userIds[1]
 			},
 			{
-				title: 'Job 3',
-				description: 'Description of Job 3',
-				level: 'Senior',
-				salary: '£50,000',
-				company: 'Company 3',
-				location: 'Location of Job 3',
-				tags: ['Ruby', 'Rails'],
+				title: 'Cyber Security Analyst',
+				description: 'Entry Level Cyber Security Analyst role.',
+				salary: '£35,000',
+				company: 'X Corp',
+				location: 'Birmingham',
+				tags: ['Cyber Security', 'Networking'],
 				closingDate: new Date(),
 				userID: userIds[2]
 			}

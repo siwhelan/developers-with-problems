@@ -21,14 +21,13 @@
 			<li key={job._id}>
 				<h2>{job.title}</h2>
 				<p>{job.description}</p>
-				<p>{job.level}</p>
 				<p>{job.salary}</p>
 				<p>{job.company}</p>
 				<p>{job.location}</p>
 				<p>{job.tags}</p>
-				<p>{formatDate(job.timestamp)}</p>
-				<p>{formatDate(job.closingDate)}</p>
-				<p>{job.userId}</p>
+				<p>Posted on: {formatDate(job.timestamp)}</p>
+				<p>Closing date: {formatDate(job.closingDate)}</p>
+				<p>Contact: {job.userId}</p>
 			</li>
 		{/each}
 	</ul>
