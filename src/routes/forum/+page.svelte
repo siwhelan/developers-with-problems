@@ -16,7 +16,7 @@
 	<ul class="text-left">
 		{#each posts as post}
 			<!-- <li key={post._id}> -->
-			<PostLink postTitle={post.title} postContent={post.content} />
+			<PostLink postSlug={post._id} postTitle={post.title} postContent={post.content} />
 			<!-- <h2>{post.title}</h2>
 				<p>{post.content}</p> -->
 			<!-- </li> -->
