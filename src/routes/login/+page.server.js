@@ -55,7 +55,9 @@ export const actions = {
 
 		if (existingUser) {
 			// Check if the password matches
-			if (password === existingUser.password) {
+			// const hashedPassword = crypto.createHash('sha256').update(password).digest('hex');
+			const hashedPassword = password;
+			if (hashedPassword === existingUser.password) {
 				console.log('User logged in successfully');
 
 				// Convert userId to string
@@ -69,7 +71,10 @@ export const actions = {
 				const session = await lucia.createSession(
 					userIdString // Convert ObjectId to string
 				);
-				console.log(session);
+				console.log(session, 'SESSSIOSOSOOSOSOSOSN');
+				const sessionCookie = lucia.createSessionCookie(session.id);
+				console.log(sessionCookie);
+
 				// Redirect the user upon successful login
 				return redirect(302, '/');
 			} else {

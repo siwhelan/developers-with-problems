@@ -4,6 +4,7 @@ import { redirect } from '@sveltejs/kit';
 export const actions = {
 	cancel: async () => {
 		console.log('cancelled log out');
+
 		redirect(302, '/');
 		//just kick to homepage
 	},
