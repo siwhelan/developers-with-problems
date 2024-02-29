@@ -10,7 +10,6 @@ if (process.env.NODE_ENV === 'test') {
 
 // console.log(`URI HERE!!! ${process.env.MONGO_URI}`); // should output test database URI
 
-
 // Connect to MongoDB using Mongoose
 export async function connectDB() {
 	const uri = process.env.MONGO_URI;
