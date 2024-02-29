@@ -18,7 +18,7 @@
 
 	<ul>
 		{#each jobs as job}
-			<li key={job._id}>
+			<li key={job._id} class="my-4 p-4 rounded-lg shadow-md max-w-2xl mx-auto relative">
 				<h2><b>Title:</b> {job.title}</h2>
 				<p><b>Description:</b> {job.description}</p>
 				<p><b>Salary:</b> {job.salary}</p>
