@@ -14,7 +14,7 @@
 		class="max-w-md mx-auto p-4 bg-white shadow-md"
 		method="POST"
 		action="?/create"
-		use:enhance={({ formElement, formData, action, cancel }) => {
+		use:enhance={({ formData, cancel }) => {
 			return async ({ result, update }) => {
 				const password = formData.get('password');
 				const confirmPassword = formData.get('confirmPassword');
