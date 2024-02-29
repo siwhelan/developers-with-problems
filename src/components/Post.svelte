@@ -7,23 +7,27 @@
 	export let postAuthor;
 	export let upvoteNumber = 1;
 
-	export let userUpvoted = true;
+	export let userUpvoted;
+
+	function upvote() {
+		userUpvoted = !userUpvoted;
+	}
 </script>
 
 <div class="flex flex-row py-5 pr-28 bg-slate-100">
 	<div>
 		{#if !userUpvoted}
-			<div class="flex">
-				<div class="max-h-1">
+			<div class="flex px-3">
+				<button aria-pressed="false" on:click={upvote} class="max-h-1">
 					<Upvote />
-				</div>
+				</button>
 				<p class="text-xl py-2">{upvoteNumber}</p>
 			</div>
 		{:else if userUpvoted}
-			<div class="flex">
-				<div class="max-h-1">
+			<div class="flex px-3">
+				<button aria-pressed="true" on:click={upvote} class="max-h-1">
 					<Upvoted />
-				</div>
+				</button>
 				<p class="text-xl py-2">{upvoteNumber}</p>
 			</div>
 		{/if}

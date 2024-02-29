@@ -17,3 +17,15 @@ export async function load({ params }) {
 	}
 	error(404, 'Not found');
 }
+
+export const actions = {
+	updateLike: async ({ request }) => {
+		const formData = await request.formData();
+		// TODO - hardcoded
+		const postID = formData.get('postID');
+		const userID = '65ddf5f9020ec1c2c53a796f';
+		let result = await Post.findByIdAndUpdate(postID);
+		result.messages.push({ like: userID });
+		await result.save();
+	}
+};
