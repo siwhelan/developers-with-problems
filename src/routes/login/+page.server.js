@@ -1,5 +1,49 @@
 import { User } from '../../lib/models/user.js';
 import { redirect } from '@sveltejs/kit';
+import mongoose from 'mongoose';
+import { Lucia } from 'lucia';
+import { MongodbAdapter } from '@lucia-auth/adapter-mongodb';
+import crypto from 'crypto';
+
+// Define Mongoose schemas
+const AuthUserSchema = new mongoose.Schema({
+	_id: {
+		type: String,
+		required: true
+	}
+});
+
+const SessionSchema = new mongoose.Schema({
+	_id: {
+		type: String,
+		required: true
+	},
+	user_id: {
+		type: String,
+		required: true
+	},
+	expires_at: {
+		type: Date,
+		required: true
+	}
+});
+
+// Define Mongoose models
+const AuthUser = mongoose.model('AuthUser', AuthUserSchema);
+const Session = mongoose.model('Session', SessionSchema); // Ensure Session is correctly defined
+
+// Connect to MongoDB
+
+const adapter = new MongodbAdapter(Session, User);
+
+const lucia = new Lucia(adapter, {
+	sessionCookie: {
+		attributes: {
+			// set to `true` when using HTTPS
+			secure: false
+		}
+	}
+});
 
 export const actions = {
 	authorisation: async ({ request }) => {
@@ -10,23 +54,39 @@ export const actions = {
 		const existingUser = await User.findOne({ email: email });
 
 		if (existingUser) {
-			// Perform secure password comparison (use a secure hashing algorithm)
+			// Check if the password matches
 			if (password === existingUser.password) {
 				console.log('User logged in successfully');
-				redirect(302, '/');
+
+				// Convert userId to string
+				const userIdString = existingUser._id.toString();
+				// Additional logging for debugging
+				console.log('Session creation data:', {
+					userId: existingUser._id.toString(),
+					attributes: {}
+				});
+
+				const session = await lucia.createSession(
+					userIdString // Convert ObjectId to string
+				);
+				console.log(session);
+				// Redirect the user upon successful login
+				return redirect(302, '/');
 			} else {
 				console.log('Incorrect password');
 				// Provide appropriate error message or handle incorrect password scenario
+				return {
+					status: 401,
+					body: 'Incorrect password'
+				};
 			}
 		} else {
 			console.log('User not found');
 			// Provide appropriate error message or handle user not found scenario
+			return {
+				status: 401,
+				body: 'User not found'
+			};
 		}
-
-		// Return an error response if login fails
-		return {
-			status: 401,
-			body: 'Invalid email or password'
-		};
 	}
 };
