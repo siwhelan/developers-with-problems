@@ -1,5 +1,4 @@
 <script>
-
 	let session = false;
 </script>
 
