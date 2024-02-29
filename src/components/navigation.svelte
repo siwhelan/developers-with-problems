@@ -1,14 +1,16 @@
 <script>
-  let linkStyles = "block py-2 px-4 bg-gray-800 text-white rounded-md mb-2 max-w-xs hover:bg-gray-700 text-center"
+	let linkStyles =
+		'block py-2 px-4 bg-gray-800 text-white rounded-md mb-2 max-w-xs hover:bg-gray-700 text-center';
 </script>
+
 <div class="menu-container bg-blue-900 rounded-lg p-5 m-10 max-w-xs">
-  <a href="/home" class={linkStyles}>Home</a>
-  <a href="/profile" class={linkStyles}>My Profile</a>
-  <a href="/forum" class={linkStyles}>Forum</a>
-  <a href="/events" class={linkStyles}>Events</a>
-  <a href="/jobs" class={linkStyles}>Jobs</a>
-  <a href="/learning-resources" class={linkStyles}>Learning Resources</a>
-  <a href="/news" class={linkStyles}>News</a>
-  <a href="/settings" class={linkStyles}>Settings</a>
-  <!--Logout will be at the top of the page-->
+	<a href="/home" class={linkStyles}>Home</a>
+	<a href="/profile" class={linkStyles}>My Profile</a>
+	<a href="/forum" class={linkStyles}>Forum</a>
+	<a href="/events" class={linkStyles}>Events</a>
+	<a href="/jobs" class={linkStyles}>Jobs</a>
+	<a href="/learning-resources" class={linkStyles}>Learning Resources</a>
+	<a href="/news" class={linkStyles}>News</a>
+	<a href="/settings" class={linkStyles}>Settings</a>
+	<!--Logout will be at the top of the page-->
 </div>
