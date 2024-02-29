@@ -4,7 +4,7 @@
 	let isFollowing = false;
 	const userID = 'user1'; // Will be gotten dynamically when setup
 
-	async function handleClick(profileUserID, userID) {
+	async function handleClick() {
 		try {
 			const user = await User.findOne({ _id: userID });
 			const profileUser = await User.findOne({ _id: profileUserID });
@@ -23,12 +23,10 @@
 			isFollowing = !isFollowing;
 			await user.save();
 			await profileUser.save();
+			
 		} catch (error) {
 			console.error('Error toggling follow:', error);
 		}
-
-		profileUser.followers.push(userID);
-		profileUser.save();
 	}
 </script>
 
