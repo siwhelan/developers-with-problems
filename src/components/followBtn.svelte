@@ -23,7 +23,6 @@
 			isFollowing = !isFollowing;
 			await user.save();
 			await profileUser.save();
-			
 		} catch (error) {
 			console.error('Error toggling follow:', error);
 		}
