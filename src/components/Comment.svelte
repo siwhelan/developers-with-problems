@@ -39,21 +39,21 @@
 			>
 				<li>
 					<a
-						href="#"
+						href="edit"
 						class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
 						>Edit</a
 					>
 				</li>
 				<li>
 					<a
-						href="#"
+						href="remove"
 						class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
 						>Remove</a
 					>
 				</li>
 				<li>
 					<a
-						href="#"
+						href="report"
 						class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
 						>Report</a
 					>

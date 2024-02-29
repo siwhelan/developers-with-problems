@@ -4,7 +4,7 @@
 	import Post from '../../../../components/Post.svelte';
 
 	export let data;
-	$: ({ post } = data);
+	$: data;
 </script>
 
 <div class="pt-16">
