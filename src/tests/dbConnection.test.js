@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+import mongoose from 'mongoose';
 import { connectDB } from '../lib/utils/db';
 import mongoose from 'mongoose';
 
