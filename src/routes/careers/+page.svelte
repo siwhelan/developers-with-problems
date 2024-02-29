@@ -19,16 +19,22 @@
 	<ul>
 		{#each jobs as job}
 			<li key={job._id}>
-				<h2>{job.title}</h2>
-				<p>{job.description}</p>
-				<p>{job.salary}</p>
-				<p>{job.company}</p>
-				<p>{job.location}</p>
-				<p>{job.tags}</p>
-				<p>Posted on: {formatDate(job.timestamp)}</p>
-				<p>Closing date: {formatDate(job.closingDate)}</p>
-				<p>Contact: {job.userId}</p>
+				<h2><b>Title:</b> {job.title}</h2>
+				<p><b>Description:</b> {job.description}</p>
+				<p><b>Salary:</b> {job.salary}</p>
+				<p><b>Company:</b> {job.company}</p>
+				<p><b>Location:</b> {job.location}</p>
+				<p><b>Tags:</b> {job.tags}</p>
+				<p><b>Posted on:</b> {formatDate(job.timestamp)}</p>
+				<p><b>Closing date:</b> {formatDate(job.closingDate)}</p>
+				<p>
+					<b>Click here to apply:</b>
+					<a href="mailto:your-email@example.com" class="text-gray-500 hover:text-gray-700"
+						>Apply Now</a
+					>
+				</p>
 			</li>
+			<br />
 		{/each}
 	</ul>
 </div>
