@@ -13,8 +13,8 @@
 <div class="pt-3 text-center">
 	<ul>
 		{#each events as event}
-			<li key={event._id} class="my-4 p-4 rounded-lg shadow-md max-w-2xl mx-auto relative">
-				<h2 class="flex justify-start text-xl font-bold text-green-600">{event.title}</h2>
+			<li key={event._id} class="my-12 p-4 rounded-lg shadow-md max-w-2xl mx-auto relative">
+				<h2 class="flex justify-start text-xl text-primary font-bold">{event.title}</h2>
 				<p class="flex justify-start text-gray-600">{formatDate(event.startDate)}</p>
 				<p class="flex justify-start text-gray-600">{event.location}</p>
 				<p class="flex justify-start text-gray-600">{event.description}</p>
