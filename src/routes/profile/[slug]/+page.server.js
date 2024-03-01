@@ -1,6 +1,6 @@
 import { User } from '../../../lib/models/user.js';
 import { Post } from '../../../lib/models/post.js';
-const currentUserID = '65e1b501cd8443b943dfa951';
+const currentUserID = '65e1efebdf80b09f885ce394';
 // import { lucia } from 'lucia';
 
 export const load = async ({ params }) => {
@@ -59,7 +59,19 @@ export const load = async ({ params }) => {
 	//Find the posts by the profileUser._id
 	let posts = await Post.find({ userID: profileUser._id });
 	posts = JSON.parse(JSON.stringify(posts));
-	return { profileUser, myProfile, isFollowing, posts };
+
+	//If codewars user exists, get codewars info from api
+	let codewarsData;
+	if (profileUser.social.codewars) {
+		const response = await fetch(
+			`https://www.codewars.com/api/v1/users/${profileUser.social.codewars}`
+		);
+		const result = await response.json();
+		console.log(result);
+		codewarsData = result;
+	}
+
+	return { profileUser, myProfile, isFollowing, posts, codewarsData };
 };
 
 export const actions = {
@@ -84,5 +96,16 @@ export const actions = {
 
 		const updatedIsFollowing = !isFollowing;
 		return { success: true, isFollowing: updatedIsFollowing };
+	},
+	addSocials: async ({ request }) => {
+		const formData = await request.formData();
+		const codewarsUser = formData.get('codewarsUser');
+		const linkedinUser = formData.get('linkedinUser');
+		const currentUser2 = await User.findOne({ username: 'user2' });
+		console.log(formData);
+		console.log(currentUser2);
+		currentUser2.social.codewars = codewarsUser;
+		currentUser2.social.linkedin = linkedinUser;
+		await currentUser2.save();
 	}
 };

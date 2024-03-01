@@ -10,7 +10,7 @@ const UserSchema = new mongoose.Schema({
 	following: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
 	avatar: { type: String },
 	bio: { type: String },
-	social: { type: Object }
+	social: { type: Object, default: {} }
 });
 
 // UserSchema.pre('save', function (next) {

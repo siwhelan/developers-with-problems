@@ -10,6 +10,7 @@
 	export let onClick;
 	export let isFollowing;
 	export let posts;
+	export let codewarsData;
 </script>
 
 <div class="menu-container text-center bg-blue-900 rounded-lg p-5 m-10">
@@ -18,7 +19,21 @@
 	<p class={sectionStyles}>Name: {profileUser.username}</p>
 	<p class={sectionStyles}>Email: {profileUser.email}</p>
 	<p class={sectionStyles}>Bio: {profileUser.bio || 'placeholder text'}</p>
-	<p class={sectionStyles}>Socials: {profileUser.social || 'placeholder text'}</p>
+	<p class={sectionStyles}>Socials: {profileUser.social || 'placeholder text'}
+		<img src="/share-icon.png" alt="Share" class="w-5 h-5 cursor-pointer" id="socialsIcon" />
+	</p>
+
+	<div id="socialsMenu" class="hidden">
+		<form
+		method="POST"
+		action="?/addSocials"
+		>
+			LinkedIn: <input id="linkedin" name="linkedinUser" value="linkedin.com/in/">
+			Codewars: <input id="codewars" name="codewarsUser" placeholder="username">
+			<button type="submit">Add socials</button>
+		</form>
+	</div>
+
 	<p class={sectionStyles}>
 		Followers: {profileUser.followers != '' ? profileUser.followers : 'No followers yet!'}
 	</p>
@@ -32,10 +47,18 @@
 		<a class={linkStyles} href="/profile/changePassword">Change Password</a>
 	{/if}
 </div>
+	<p>{codewarsData.username}</p>
+	<p>{codewarsData.honor}</p>
 
 <div class="menu-container bg-blue-900 rounded-lg p-5 m-10 max-w-xs">
 	<h2 class={sectionStyles}>Posts</h2>
 	{#each posts as post}
 		<PostLink postSlug={post._id} postTitle={post.title} postContent={post.content} />
 	{/each}
+<script>
+	document.getElementById('socialsIcon').addEventListener('click', function () {
+			var socialsMenu = document.getElementById('socialsMenu');
+			socialsMenu.classList.toggle('hidden');
+		});
+</script>
 </div>
