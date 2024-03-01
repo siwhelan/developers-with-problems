@@ -5,12 +5,22 @@
 	export let postTitle;
 	export let postContent;
 	export let postAuthor;
-	export let upvoteNumber = 1;
-
-	export let userUpvoted;
-
-	function upvote() {
-		userUpvoted = !userUpvoted;
+	export let postUpvotes;
+	export let upvoteNumber;
+	const userID = '65e09e269f5ee760ed08ff57';
+	// TODO, user ID currently hardcoded
+	let userUpvoted;
+	if (postUpvotes.includes(userID)) {
+		userUpvoted = true;
+	} else {
+		userUpvoted = false;
+	}
+	async function upvote(action) {
+		console.log(JSON.stringify({ action }));
+		await fetch('?/upvote', {
+			method: 'POST',
+			body: JSON.stringify({ action })
+		});
 	}
 </script>
 
@@ -18,14 +28,14 @@
 	<div>
 		{#if !userUpvoted}
 			<div class="flex px-3">
-				<button aria-pressed="false" on:click={upvote} class="max-h-1">
+				<button aria-pressed="false" on:click={() => upvote(userUpvoted)} class="max-h-1">
 					<Upvote />
 				</button>
 				<p class="text-xl py-2">{upvoteNumber}</p>
 			</div>
 		{:else if userUpvoted}
 			<div class="flex px-3">
-				<button aria-pressed="true" on:click={upvote} class="max-h-1">
+				<button aria-pressed="true" on:click={() => upvote(userUpvoted)} class="max-h-1">
 					<Upvoted />
 				</button>
 				<p class="text-xl py-2">{upvoteNumber}</p>
