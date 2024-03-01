@@ -8,9 +8,6 @@ if (process.env.NODE_ENV === 'test') {
 } else {
 	dotenv.config();
 }
-console.log(`URI HERE!!! ${process.env.MONGO_URI}`); // should output test database URI
-
-console.log(`URI HERE!!! ${process.env.MONGO_URI}`); // should output test database URI
 
 // Connect to MongoDB using Mongoose
 export async function connectDB() {
