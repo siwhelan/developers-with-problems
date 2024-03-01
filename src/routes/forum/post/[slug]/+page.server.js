@@ -1,85 +1,64 @@
 import { Post } from '../../../../lib/models/post.js';
 import { User } from '../../../../lib/models/user.js';
 // import mongoose from 'mongoose';
-import { Lucia } from 'lucia';
+import { lucia } from '../../../login/+page.server.js';
+// import { MongodbAdapter } from '@lucia-auth/adapter-mongodb';
 
+// Connect to MongoDB
+// const adapter = new MongodbAdapter(
+// 	mongoose.connection.collection('sessions'),
+// 	mongoose.connection.collection('users')
+// );
+// const lucia = new Lucia(adapter, {
+// 	getSessionAttributes: (attributes) => {
+// 		return {
+// 			ipCountry: attributes.ip_country
+// 		};
+// 	}
+// });
 import { error } from '@sveltejs/kit';
-export async function load({ params, request, cookies }) {
-	// console.log(params.slug);
-	let post = await Post.findById(params.slug).lean();
-	let user = await User.findById(post.userID).lean();
-	// console.log(user);
-	// console.log(post);
-	post = JSON.parse(JSON.stringify(post));
-	user = JSON.parse(JSON.stringify(user));
+export async function load({ event, params, cookies }) {
 	let userID = '';
 
-	const sessionCookie = cookies.get('auth_session');
-	console.log('hi');
+	// Retrieve the session cookie
+	const sessionCookie = cookies.get('session');
+	// console.log(sessionCookie);
+	// console.log(params.locals);
 	if (sessionCookie) {
-		console.log('1');
-		// Get the session using the session ID in the cookie
-		const session = await Lucia.getSession(sessionCookie);
-		if (session) {
-			// Get the user ID from the session
-			userID = session.userId;
+		try {
+			// Fetch the session using Lucia
+			// const { session, user } = await lucia.validateSession(sessionCookie);
+			// const session = await adapter.getSessionAndUser(sessionCookie);
+			// console.log('session');
+			// console.log(event.locals);
+			// console.log(session);
+			// if (session) {
+			// 	// Get the user ID from the session
+			// 	userID = session.userId;
+			// }
+		} catch (error) {
+			console.error('Error retrieving session:', error);
 		}
 	}
+	console.log(userID);
 
-	// console.log(post.upvotes.includes(userID));
+	// Fetch post and user data
+	try {
+		let post = await Post.findById(params.slug).lean();
+		let user = await User.findById(post.userID).lean();
 
-	if (post && user) {
-		// console.log({ post: post, user: user });
-		return { post, user, userID };
-	}
-	error(404, 'Not found');
-}
+		// Check if post and user exist
+		if (post && user) {
+			// Convert to plain JSON objects
+			post = JSON.parse(JSON.stringify(post));
+			user = JSON.parse(JSON.stringify(user));
 
-export const actions = {
-	updateLike: async ({ request }) => {
-		const formData = await request.formData();
-		// TODO - hardcoded
-		const postID = formData.get('postID');
-		const userID = '65ddf5f9020ec1c2c53a796f';
-		let result = await Post.findByIdAndUpdate(postID);
-
-		result.messages.push({ like: userID });
-		await result.save();
-	},
-
-	// countLikes: async ({ params }) => {
-	// 	let post = await Post.findById(params.slug).lean();
-	// 	let upvotes = post.upvotes.length();
-	// 	return upvotes;
-	// },
-
-	upvote: async ({ request, params }) => {
-		const upvoted = await request.json();
-		const post = await Post.findById(params.slug);
-		if (upvoted.action) {
-			post.upvotes = post.upvotes.filter((like) => like.toString() !== '65e09e269f5ee760ed08ff57');
-			post.save();
-			console.log(post.upvotes);
+			return { post, user, userID };
 		} else {
-			post.upvotes.push('65e09e269f5ee760ed08ff57');
-			post.save();
-			console.log(post.upvotes);
+			error(404, 'Post or user not found');
 		}
-	},
-	getUserId: async ({ request }) => {
-		// Get the session cookie from the request
-		const sessionCookie = request.cookies.get('auth_session');
-		if (sessionCookie) {
-			// Get the session using the session ID in the cookie
-			const session = await Lucia.getSession(sessionCookie);
-			if (session) {
-				// Get the user ID from the session
-				const userId = session.userId;
-				return {
-					status: 200,
-					body: userId
-				};
-			}
-		}
+	} catch (error) {
+		console.error('Error fetching post or user:', error);
+		error(500, 'Internal Server Error');
 	}
-};
+}

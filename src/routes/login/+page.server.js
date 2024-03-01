@@ -19,7 +19,7 @@ const lucia = new Lucia(adapter, {
 });
 
 export const actions = {
-	authorisation: async ({ request }) => {
+	authorisation: async ({ request, cookies }) => {
 		const formData = await request.formData();
 		const email = formData.get('email');
 		const password = formData.get('password');
@@ -38,7 +38,19 @@ export const actions = {
 				// console.log(session, 'SESSSIOSOSOOSOSOSOSN');
 				const sessionCookie = lucia.createSessionCookie(session.id);
 				// console.log(sessionCookie);
-
+				cookies.set('session', sessionCookie.value, {
+					// send cookie for every page
+					path: '/',
+					// server side only cookie so you can't use `document.cookie`
+					httpOnly: true,
+					// only requests from same site can send cookies
+					// https://developer.mozilla.org/en-US/docs/Glossary/CSRF
+					sameSite: 'strict',
+					// only sent over HTTPS in production
+					secure: process.env.NODE_ENV === 'production',
+					// set cookie to expire after a month
+					maxAge: 60 * 60 * 24 * 30
+				});
 				// Redirect the user upon successful login
 				return redirect(302, '/');
 			} else {
