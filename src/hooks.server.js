@@ -7,5 +7,7 @@ import { connectDB } from '$lib/utils/db';
 
 export const handle = async ({ event, resolve }) => {
 	const response = await resolve(event);
+	event.locals.user = response;
+	// console.log(response, 'REPOSNSE IN HOOKS');
 	return response;
 };

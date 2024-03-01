@@ -9,6 +9,7 @@
 	<a href="/forum" class={linkStyles}>Forum</a>
 	<a href="/events" class={linkStyles}>Events</a>
 	<a href="/careers" class={linkStyles}>Careers</a>
+
 	<a href="/learning-resources" class={linkStyles}>Learning Resources</a>
 	<a href="/news" class={linkStyles}>News</a>
 	<a href="/settings" class={linkStyles}>Settings</a>
