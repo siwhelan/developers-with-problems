@@ -4,19 +4,6 @@ import mongoose from 'mongoose';
 import { Lucia, TimeSpan } from 'lucia';
 import { MongodbAdapter } from '@lucia-auth/adapter-mongodb';
 
-const SessionUser = mongoose.model(
-	'SessionUser',
-	new mongoose.Schema(
-		{
-			_id: {
-				type: String,
-				required: true
-			}
-		},
-		{ _id: false }
-	)
-);
-
 const Session = mongoose.model(
 	'Session',
 	new mongoose.Schema(
@@ -40,7 +27,7 @@ const Session = mongoose.model(
 // Connect to MongoDB
 const adapter = new MongodbAdapter(
 	mongoose.connection.collection('sessions'),
-	mongoose.connection.collection('sessionUsers')
+	mongoose.connection.collection('users')
 );
 
 export const _lucia = new Lucia(adapter, {
@@ -62,7 +49,7 @@ export const actions = {
 
 		if (existingUser) {
 			const hashedPassword = password;
-			if (hashedPassword === existingUser.password) {
+			if (hashedPassword === existingUser.hashed_password) {
 				console.log('User logged in successfully');
 
 				// Convert userId to string
