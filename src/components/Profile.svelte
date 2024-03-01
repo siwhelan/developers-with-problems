@@ -12,7 +12,7 @@
 	export let posts;
 </script>
 
-<div class="menu-container bg-blue-900 rounded-lg p-5 m-10 max-w-xs">
+<div class="menu-container text-center bg-blue-900 rounded-lg p-5 m-10">
 	<h1 class={sectionStyles}>User Profile</h1>
 	<!-- <img src={profileUser.avatar} alt="Avatar" /> -->
 	<p class={sectionStyles}>Name: {profileUser.username}</p>
@@ -34,9 +34,8 @@
 </div>
 
 <div class="menu-container bg-blue-900 rounded-lg p-5 m-10 max-w-xs">
-	<h2>Posts</h2>
+	<h2 class={sectionStyles}>Posts</h2>
 	{#each posts as post}
 		<PostLink postSlug={post._id} postTitle={post.title} postContent={post.content} />
-		<p>{post.content}</p>
 	{/each}
 </div>

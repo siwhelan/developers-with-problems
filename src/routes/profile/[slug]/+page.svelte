@@ -5,7 +5,6 @@
 	$: ({ profileUser, myProfile, isFollowing, posts } = data);
 </script>
 
-<p>{posts}</p>
 {#if myProfile}
 	<Profile {profileUser} followBtnBool={false} {isFollowing} {posts} {onClick} />
 {:else}
