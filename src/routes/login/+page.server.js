@@ -35,9 +35,9 @@ export const actions = {
 				const userIdString = existingUser._id.toString();
 
 				const session = await lucia.createSession(userIdString);
-				console.log(session, 'SESSSIOSOSOOSOSOSOSN');
+				// console.log(session, 'SESSSIOSOSOOSOSOSOSN');
 				const sessionCookie = lucia.createSessionCookie(session.id);
-				console.log(sessionCookie);
+				// console.log(sessionCookie);
 
 				// Redirect the user upon successful login
 				return redirect(302, '/');
