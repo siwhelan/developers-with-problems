@@ -1,16 +1,50 @@
 import { User } from '../../lib/models/user.js';
 import { redirect } from '@sveltejs/kit';
 import mongoose from 'mongoose';
-import { Lucia } from 'lucia';
+import { Lucia, TimeSpan } from 'lucia';
 import { MongodbAdapter } from '@lucia-auth/adapter-mongodb';
 
+const SessionUser = mongoose.model(
+	'SessionUser',
+	new mongoose.Schema(
+		{
+			_id: {
+				type: String,
+				required: true
+			}
+		},
+		{ _id: false }
+	)
+);
+
+const Session = mongoose.model(
+	'Session',
+	new mongoose.Schema(
+		{
+			_id: {
+				type: String,
+				required: true
+			},
+			user_id: {
+				type: String,
+				required: true
+			},
+			expires_at: {
+				type: Date,
+				required: true
+			}
+		},
+		{ _id: false }
+	)
+);
 // Connect to MongoDB
 const adapter = new MongodbAdapter(
 	mongoose.connection.collection('sessions'),
-	mongoose.connection.collection('users')
+	mongoose.connection.collection('sessionUsers')
 );
 
-const lucia = new Lucia(adapter, {
+export const _lucia = new Lucia(adapter, {
+	sessionExpiresIn: new TimeSpan(2, 'w'),
 	sessionCookie: {
 		attributes: {
 			secure: false
@@ -34,9 +68,9 @@ export const actions = {
 				// Convert userId to string
 				const userIdString = existingUser._id.toString();
 
-				const session = await lucia.createSession(userIdString);
-				// console.log(session, 'SESSSIOSOSOOSOSOSOSN');
-				const sessionCookie = lucia.createSessionCookie(session.id);
+				const session = await _lucia.createSession(userIdString, {});
+				console.log(session);
+				const sessionCookie = _lucia.createSessionCookie(session.id);
 				// console.log(sessionCookie);
 				cookies.set('session', sessionCookie.value, {
 					// send cookie for every page
@@ -52,6 +86,8 @@ export const actions = {
 					maxAge: 60 * 60 * 24 * 30
 				});
 				// Redirect the user upon successful login
+				console.log('session cookie 2', sessionCookie);
+				console.log('sessioncookie.value', sessionCookie.value);
 				return redirect(302, '/');
 			} else {
 				console.log('Incorrect password');
