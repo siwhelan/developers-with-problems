@@ -1,4 +1,5 @@
 import { User } from '../../../lib/models/user.js';
+import { Post } from '../../../lib/models/post.js';
 const currentUserID = '65e1b501cd8443b943dfa951';
 // import { lucia } from 'lucia';
 
@@ -55,7 +56,10 @@ export const load = async ({ params }) => {
 	profileUser.followers = followersUsernames;
 	profileUser.following = followingUsernames;
 
-	return { profileUser, myProfile, isFollowing };
+	//Find the posts by the profileUser._id
+	let posts = await Post.find({ userID: profileUser._id });
+	posts = JSON.parse(JSON.stringify(posts));
+	return { profileUser, myProfile, isFollowing, posts };
 };
 
 export const actions = {

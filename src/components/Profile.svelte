@@ -1,5 +1,6 @@
 <script>
 	import FollowBtn from './FollowBtn.svelte';
+	import PostLink from './PostLink.svelte';
 	let sectionStyles =
 		'block py-2 px-4 bg-gray-800 text-white rounded-md mb-2 max-w-xs hover:bg-gray-700 text-center';
 	let linkStyles =
@@ -8,6 +9,7 @@
 	export let followBtnBool;
 	export let onClick;
 	export let isFollowing;
+	export let posts;
 </script>
 
 <div class="menu-container bg-blue-900 rounded-lg p-5 m-10 max-w-xs">
@@ -29,4 +31,12 @@
 	{#if !followBtnBool}
 		<a class={linkStyles} href="/profile/changePassword">Change Password</a>
 	{/if}
+</div>
+
+<div class="menu-container bg-blue-900 rounded-lg p-5 m-10 max-w-xs">
+	<h2>Posts</h2>
+	{#each posts as post}
+		<PostLink postSlug={post._id} postTitle={post.title} postContent={post.content} />
+		<p>{post.content}</p>
+	{/each}
 </div>
