@@ -1,31 +1,16 @@
 import { Post } from '../../../../lib/models/post.js';
 import { User } from '../../../../lib/models/user.js';
-// import mongoose from 'mongoose';
-import { lucia } from '../../../login/+page.server.js';
-// import { MongodbAdapter } from '@lucia-auth/adapter-mongodb';
 
-// Connect to MongoDB
-// const adapter = new MongodbAdapter(
-// 	mongoose.connection.collection('sessions'),
-// 	mongoose.connection.collection('users')
-// );
-// const lucia = new Lucia(adapter, {
-// 	getSessionAttributes: (attributes) => {
-// 		return {
-// 			ipCountry: attributes.ip_country
-// 		};
-// 	}
-// });
 import { error } from '@sveltejs/kit';
-export async function load({ event, params, cookies }) {
+export async function load({ params, cookies }) {
 	let userID = '';
 
 	// Retrieve the session cookie
 	const sessionCookie = cookies.get('session');
-	// console.log(sessionCookie);
-	// console.log(params.locals);
+
 	if (sessionCookie) {
 		try {
+			//TODO
 			// Fetch the session using Lucia
 			// const { session, user } = await lucia.validateSession(sessionCookie);
 			// const session = await adapter.getSessionAndUser(sessionCookie);
