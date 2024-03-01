@@ -13,6 +13,7 @@
 	{#if success}
 	<SignUpSuccess />
 	{:else}
+	<h1 class="text-2xl font-bold mb-4">Sign Up To DWP</h1>
 	<form
 		class="max-w-md mx-auto p-4 bg-white shadow-md"
 		method="POST"
