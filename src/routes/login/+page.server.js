@@ -5,8 +5,6 @@ import { Lucia } from 'lucia';
 import { MongodbAdapter } from '@lucia-auth/adapter-mongodb';
 
 // Connect to MongoDB
-// Assuming mongoose connection is already established somewhere else in your code
-
 const adapter = new MongodbAdapter(
 	mongoose.connection.collection('sessions'),
 	mongoose.connection.collection('users')
