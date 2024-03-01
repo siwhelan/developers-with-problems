@@ -1,8 +1,12 @@
 <script>
 	import '../app.css';
 	import Navigation from '../components/navigation.svelte';
+	import UserNavBar from '../components/userNavBar.svelte';
 </script>
 
+<div>
+	<UserNavBar />
+</div>
 <div class="flex">
 	<Navigation />
 	<div class="flex flex-col flex-grow">
