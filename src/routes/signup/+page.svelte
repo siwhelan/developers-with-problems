@@ -1,8 +1,8 @@
 <script>
 	import { enhance } from '$app/forms';
+	import SignUpSuccess from '../../components/SignUpSuccess.svelte';
 	let errorMessage = null;
-	let successMessage = null;
-	let showLoginForm = false;
+	let success = null;
 
 	const clearErrorMessage = () => {
 		errorMessage = null;
@@ -10,6 +10,9 @@
 </script>
 
 <div class="pt-3 text-center">
+	{#if success}
+	<SignUpSuccess />
+	{:else}
 	<form
 		class="max-w-md mx-auto p-4 bg-white shadow-md"
 		method="POST"
@@ -26,8 +29,7 @@
 				}
 
 				if (result.data.success == true) {
-					successMessage = 'You have signed up successfully!';
-					showLoginForm = true;
+					success = true;
 				}
 
 				errorMessage = result.data.error;
@@ -94,20 +96,11 @@
 		</div>
 
 		{#if errorMessage}<p class="text-red-500">{errorMessage}</p>{/if}
-		{#if successMessage}<p class="text-green-500">{successMessage}</p>{/if}
-
-		{#if !showLoginForm}
 			<button
 				class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-				type="submit">Sign Up</button
+				type="submit"
+				>Log In</button
 			>
-		{:else}
-			<!-- Form will render to login form and button will change to log in -->
-			<button
-				class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-				type="button"
-				on:click={() => (showLoginForm = false)}>Log In</button
-			>
-		{/if}
 	</form>
+	{/if}
 </div>
