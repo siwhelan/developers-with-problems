@@ -18,6 +18,6 @@
 <style>
 	.menu-container {
 		width: 200px; /* fixed width */
-		height: 440px; /* fixed height */
+		height: 420px; /* fixed height */
 	}
 </style>

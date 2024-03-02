@@ -89,7 +89,7 @@
 	</div>
 	<!-- </a> -->
 	<p class="text-2xl">Most recent activity</p>
-	<div class="flex-row">
+	<div class="flex-row py-4">
 		<button
 			class:active={feedChoice === 'forum'}
 			on:click={() => (feedChoice = 'forum')}
@@ -142,6 +142,6 @@
 
 <style>
 	.active {
-		background-color: #241f21;
+		background-color: #202937;
 	}
 </style>

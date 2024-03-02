@@ -9,7 +9,7 @@
 
 <!-- component for post previews such as on feed page, not entire post for post page -->
 <a href={`/forum/post/${postSlug}`}>
-	<div class="flex flex-row py-5 pr-28 bg-slate-100">
+	<div class="flex flex-row py-5 pr-28 rounded-lg shadow-md max-w-2xl text-dark">
 		<div>
 			<div class="flex px-3">
 				<button aria-pressed="false" class="max-h-1">
