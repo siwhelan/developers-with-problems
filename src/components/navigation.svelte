@@ -1,6 +1,6 @@
 <script>
 	let linkStyles =
-		'block py-2 px-4 bg-primary text-white rounded-md mb-2 max-w-xs hover:bg-dark text-center';
+		'block py-2 px-4 bg-primary text-white rounded mb-2 max-w-xs hover:bg-dark text-center';
 </script>
 
 <div class="menu-container bg-dark rounded-lg p-5 m-10 max-w-xs">
@@ -9,8 +9,15 @@
 	<a href="/forum" class={linkStyles}>Forum</a>
 	<a href="/events" class={linkStyles}>Events</a>
 	<a href="/careers" class={linkStyles}>Careers</a>
-	<a href="/learning-resources" class={linkStyles}>Learning Resources</a>
+	<a href="/learning-resources" class={linkStyles}>Learning</a>
 	<a href="/news" class={linkStyles}>News</a>
 	<a href="/settings" class={linkStyles}>Settings</a>
 	<!-- Logout will be at the top of the page -->
 </div>
+
+<style>
+	.menu-container {
+		width: 200px; /* fixed width */
+		height: 440px; /* fixed height */
+	}
+</style>

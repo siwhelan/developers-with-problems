@@ -8,12 +8,11 @@
 
 <div class="pt-16">
 	<h2 class="text-3xl pb-5">Forums</h2>
-	<a
-		class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-		href="/forum/newPost">Make a new post</a
+	<a class="bg-primary hover:bg-dark text-white py-2 px-4 rounded" href="/forum/newPost"
+		>Make a new post</a
 	>
 
-	<ul class="text-left">
+	<ul class="text-left pt-3 bg-background w-full flex justify-center">
 		{#each posts as post}
 			<!-- <li key={post._id}> -->
 			<PostLink postSlug={post._id} postTitle={post.title} postContent={post.content} />

@@ -33,9 +33,9 @@
 	});
 </script>
 
-<div class="flex justify-center items-center">
+<div class="flex justify-center items-center my-12">
 	<main class="text-center">
-		<div class="mt-4 mb-8 p-4 bg-accent rounded-lg shadow">
+		<div class="my-12 p-4 rounded-lg shadow-md max-w-2xl mx-auto relativ text-dark">
 			<h2 class="font-bold underline text-dark">Hacker News Top Stories</h2>
 			{#if topStories.length > 0}
 				<ul class="list-disc list-inside mt-4">
@@ -45,7 +45,7 @@
 								href={story.url}
 								target="_blank"
 								rel="noopener noreferrer"
-								class="text hover:text-primary">{story.title}</a
+								class="text-text hover:text-primary">{story.title}</a
 							>
 						</li>
 						{#if i < topStories.length - 1}
@@ -58,7 +58,7 @@
 			{/if}
 		</div>
 
-		<div class="mt-4 mb-8 p-4 bg-accent rounded-lg shadow">
+		<div class="my-12 p-4 rounded-lg shadow-md max-w-2xl mx-auto relativ text-dark">
 			<h2 class="font-bold underline text-dark">Reddit /r/technology Top Posts</h2>
 			{#if topRedditPosts.length > 0}
 				<ul class="list-disc list-inside mt-4">
@@ -68,7 +68,7 @@
 								href={post.url}
 								target="_blank"
 								rel="noopener noreferrer"
-								class="text-primary hover:text-dark">{post.title}</a
+								class="text-text hover:text-dark">{post.title}</a
 							>
 						</li>
 						{#if i < topRedditPosts.length - 1}
