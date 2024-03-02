@@ -74,6 +74,36 @@ async function insertSampleData() {
 				upvotes: [],
 				downvotes: [],
 				timestamp: new Date()
+			},
+			{
+				title: 'Post 2',
+				content: 'Content of Post 2',
+				url: 'https://example.com/post2',
+				tags: ['tag1', 'tag2'],
+				userID: insertedUsers[0],
+				upvotes: [],
+				downvotes: [],
+				timestamp: new Date()
+			},
+			{
+				title: 'Post 3',
+				content: 'Content of Post 3',
+				url: 'https://example.com/post3',
+				tags: ['tag1', 'tag2'],
+				userID: insertedUsers[0],
+				upvotes: [],
+				downvotes: [],
+				timestamp: new Date()
+			},
+			{
+				title: 'Post 4',
+				content: 'Content of Post 4',
+				url: 'https://example.com/post4',
+				tags: ['tag1', 'tag2'],
+				userID: insertedUsers[0],
+				upvotes: [],
+				downvotes: [],
+				timestamp: new Date()
 			}
 			// More posts as needed
 		]);

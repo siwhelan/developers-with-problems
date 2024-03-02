@@ -12,14 +12,11 @@
 		>Make a new post</a
 	>
 
-	<ul class="text-left py-4 pt-3 bg-background w-full flex justify-start">
+	<ul class="text-left py-4 pt-3 bg-background w-full flex flex-col justify-start">
 		{#each posts as post}
-			<!-- <li key={post._id}> -->
-			<PostLink postSlug={post._id} postTitle={post.title} postContent={post.content} />
-			<!-- <h2>{post.title}</h2>
-				<p>{post.content}</p> -->
-			<!-- </li> -->
+			<li>
+				<PostLink postSlug={post._id} postTitle={post.title} postContent={post.content} />
+			</li>
 		{/each}
 	</ul>
 </div>
-my-12 p-4 rounded-lg shadow-md max-w-2xl relative

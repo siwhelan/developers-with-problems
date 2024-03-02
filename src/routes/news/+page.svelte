@@ -35,7 +35,7 @@
 
 <div class="flex justify-left items-left my-2">
 	<main class="text-left">
-		<div class="my-12 p-4 max-w-2xl mx-auto relativ text-dark">
+		<div class="my-12 p-4 max-w-2xl mx-auto relativ text-dark text-ellipsis overflow-hidden ...">
 			<h2 class="font-bold underline text-dark">Hacker News Top Stories</h2>
 			{#if topStories.length > 0}
 				<ul class="list-inside mt-4">
@@ -59,7 +59,9 @@
 		</div>
 
 		<div class="my-12 p-4 max-w-2xl mx-auto relativ text-dark">
-			<h2 class="font-bold underline text-dark">Reddit /r/technology Top Posts</h2>
+			<h2 class="font-bold underline text-dark text-ellipsis overflow-hidden ...">
+				Reddit /r/technology Top Posts
+			</h2>
 			{#if topRedditPosts.length > 0}
 				<ul class="list-inside mt-4">
 					{#each topRedditPosts as post, i (post.id)}

@@ -3,7 +3,10 @@
 		'block py-2 px-4 bg-primary text-white rounded mb-2 max-w-xs hover:bg-dark text-center';
 </script>
 
-<div class="menu-container bg-dark rounded-lg p-5 m-10 max-w-xs">
+<div
+	class="menu-container bg-background rounded-lg outline-black p-5 m-10 max-w-xs"
+	style="outline: 2px solid rgba(128, 128, 128, 0.2);"
+>
 	<a href="/" class={linkStyles}>Home</a>
 	<a href="/profile" class={linkStyles}>My Profile</a>
 	<a href="/forum" class={linkStyles}>Forum</a>

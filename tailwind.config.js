@@ -4,7 +4,7 @@ export default {
 		extend: {
 			colors: {
 				primary: '#FE5102', // Use for primary actions
-				background: '#EFEFEF', // Main background color
+				background: '#FAFAFA', // Main background color
 				accent: '#B3ADA8', // Secondary elements or borders
 				text: '#646368', // Primary text color
 				dark: '#393537' // Headings or emphasized text

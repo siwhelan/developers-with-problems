@@ -77,7 +77,7 @@
 				</g>
 			</g></svg
 		>
-		<h1 class="text-4xl pt-4 px-2">Developers With Problems</h1>
+		<h1 class="text-4xl text-dark text-bold pt-4 px-2">Developers With Problems</h1>
 	</div>
 	<div class="max-w-48 ml-auto mr-0">
 		<a
