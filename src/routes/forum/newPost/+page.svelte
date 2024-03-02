@@ -9,7 +9,7 @@
 </script>
 
 <div
-	class="editor mx-auto w-10/12 h-1/2 flex flex-col text-gray-800 border border-gray-300 p-4 pb-8 shadow-lg max-w-2xl mt-10"
+	class="editor mx-auto w-10/12 flex flex-col text-gray-800 border border-gray-300 p-4 pb-8 shadow-lg max-w-2xl mt-12 ml-4"
 >
 	<form
 		method="POST"
@@ -20,7 +20,7 @@
 				update();
 			};
 		}}
-		class="flex flex-col items-center h-screen space-y-4"
+		class="flex flex-col items-center space-y-4"
 	>
 		{#if form?.error}
 			<div class="error pt-3 pb-3 block">

@@ -29,7 +29,7 @@
 	}
 </script>
 
-<div class="flex flex-row py-5 pr-28 bg-slate-100">
+<div class="flex flex-row py-5 pr-28 bg-background rounded shadow-md relative">
 	<div>
 		{#if !userUpvoted}
 			<div class="flex px-3">
@@ -51,7 +51,7 @@
 	<!-- upvote and comment icon to be added -->
 	<div>
 		<p>{postAuthor}</p>
-		<h2 class="text-2xl pb-2">{postTitle}</h2>
+		<h2 class="text-2xl pb-2 text-primary">{postTitle}</h2>
 		<p class=" pb-3">{postContent}</p>
 	</div>
 </div>

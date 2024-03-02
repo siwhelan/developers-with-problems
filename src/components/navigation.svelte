@@ -4,7 +4,7 @@
 </script>
 
 <div
-	class="menu-container bg-background rounded-lg outline-black p-5 m-10 max-w-xs"
+	class="menu-container bg-background my-24 rounded-lg outline-black p-5 m-10 max-w-xs"
 	style="outline: 2px solid rgba(128, 128, 128, 0.2);"
 >
 	<a href="/" class={linkStyles}>Home</a>
