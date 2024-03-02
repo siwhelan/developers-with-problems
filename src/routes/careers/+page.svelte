@@ -10,17 +10,13 @@
 	}
 </script>
 
-<div class="pt-3 text-center bg-background w-full flex justify-center">
-	<ul class="flex flex-col items-center w-full">
+<div class="pt-3 text-left bg-background w-full flex justify-start">
+	<ul class="flex flex-col w-full justify-start">
 		{#each jobs as job}
 			<li
 				key={job._id}
-				class="my-12 p-4 rounded-lg shadow-md max-w-2xl w-full mx-auto relative text-dark"
-				style="min-height: 300px;"
-				Adjust
-				min-height
-				as
-				needed
+				class="my-8 p-4 rounded-lg shadow-md max-w-2xl relative text-dark"
+				style="min-height: 200px;"
 			>
 				<h2 class="text-text"><b>Title:</b> {job.title}</h2>
 				<p class="text-text"><b>Description:</b> {job.description}</p>

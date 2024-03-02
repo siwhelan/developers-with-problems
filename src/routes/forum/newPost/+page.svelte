@@ -9,7 +9,7 @@
 </script>
 
 <div
-	class="editor mx-auto w-10/12 flex h-1/2 flex-col text-gray-800 border border-gray-300 p-4 shadow-lg max-w-2xl mt-10"
+	class="editor mx-auto w-10/12 h-1/2 flex flex-col text-gray-800 border border-gray-300 p-4 pb-8 shadow-lg max-w-2xl mt-10"
 >
 	<form
 		method="POST"
@@ -20,49 +20,50 @@
 				update();
 			};
 		}}
-		class="flex flex-col items-center h-screen"
+		class="flex flex-col items-center h-screen space-y-4"
 	>
-		<div class="flex">
-			<div class="flex-col">
-				<div class="pt-3 pb-3 block">
-					{#if form?.error}<p class="error">Please check all fields are filled in</p>{/if}
-				</div>
-				<label>
-					<input
-						class="title bg-gray-100 border border-gray-300 p-2 mb-4 outline-none"
-						type="Title"
-						name="title"
-						placeholder="Post Title"
-					/>
-				</label>
+		{#if form?.error}
+			<div class="error pt-3 pb-3 block">
+				<p>Please check all fields are filled in</p>
 			</div>
-		</div>
-		<label>
+		{/if}
+
+		<label class="w-full">
+			<input
+				class="title bg-gray-100 border border-gray-300 p-2 mb-4 outline-none w-full"
+				type="Title"
+				name="title"
+				placeholder="Post Title"
+			/>
+		</label>
+
+		<label class="flex items-center">
 			<input type="checkbox" value="link" on:change={handleOptionChange} />
-			Add Link
+			<span class="ml-2">Add Link</span>
 		</label>
 
 		{#if link == true}
-			<label>
-				Link URL
+			<label class="w-full">
+				<span>Link URL</span>
 				<input
-					class="title bg-gray-100 border border-gray-300 p-2 mb-4 outline-none"
+					class="title bg-gray-100 border border-gray-300 p-2 mb-4 outline-none w-full"
 					label="link"
 					name="link"
 				/>
 			</label>
 		{/if}
-		<label>
+
+		<label class="w-full">
 			<textarea
-				class="description bg-gray-100 sec p-3 w-100 h-60 border border-gray-300 outline-none"
+				class="description bg-gray-100 sec p-3 w-full h-60 border border-gray-300 outline-none"
 				label="text"
 				name="textPost"
 				placeholder="Describe everything about this post here"
 			/>
 		</label>
-		<button
-			class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-			type="submit">New Post</button
-		>
+
+		<button class="bg-primary hover:bg-dark text-white font-bold py-2 px-4 rounded" type="submit">
+			New Post
+		</button>
 	</form>
 </div>
