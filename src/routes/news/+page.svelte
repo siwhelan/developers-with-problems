@@ -33,10 +33,13 @@
 	});
 </script>
 
-<div class="flex justify-left items-left my-2">
+<div class="pt-24">
+	<h2 class="text-3xl font-bold">News</h2>
+</div>
+<div class="flex justify-left items-left">
 	<main class="text-left">
-		<div class="my-12 p-4 max-w-2xl mx-auto relativ text-dark text-ellipsis overflow-hidden ...">
-			<h2 class="font-bold underline text-dark">Hacker News Top Stories</h2>
+		<div class="my-4 p-4 max-w-2xl mx-auto relative text-dark text-ellipsis overflow-hidden ...">
+			<h2 class="font-extrabold underline text-text">Hacker News Top Stories</h2>
 			{#if topStories.length > 0}
 				<ul class="list-inside mt-4">
 					{#each topStories as story, i (story.id)}
@@ -58,8 +61,8 @@
 			{/if}
 		</div>
 
-		<div class="my-12 p-4 max-w-2xl mx-auto relativ text-dark">
-			<h2 class="font-bold underline text-dark text-ellipsis overflow-hidden ...">
+		<div class="my-4 p-4 max-w-2xl mx-auto relative text-dark text-ellipsis overflow-hidden ...">
+			<h2 class="font-extrabold underline text-text text-ellipsis overflow-hidden ...">
 				Reddit /r/technology Top Posts
 			</h2>
 			{#if topRedditPosts.length > 0}
