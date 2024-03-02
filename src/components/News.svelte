@@ -39,8 +39,11 @@
 		<ul>
 			{#each topStories as story}
 				<li class="pt-3">
-					<a class="text-lg" href={story.url} target="_blank" rel="noopener noreferrer"
-						>🔗 {story.title}</a
+					<a
+						class="text-text hover:text-primary"
+						href={story.url}
+						target="_blank"
+						rel="noopener noreferrer">🔗 {story.title}</a
 					>
 					<!-- by {story.by} ## OPTIONAL ## -->
 				</li>
@@ -57,8 +60,11 @@
 		<ul>
 			{#each topRedditPosts as post}
 				<li class="pt-3">
-					<a class="text-lg" href={post.url} target="_blank" rel="noopener noreferrer"
-						>🔗 {post.title}</a
+					<a
+						class="text-text hover:text-primary"
+						href={post.url}
+						target="_blank"
+						rel="noopener noreferrer">🔗 {post.title}</a
 					>
 					<!-- by {post.author} ## OPTIONAL ## -->
 				</li>

@@ -76,10 +76,10 @@
 					</g>
 				</g>
 			</g></svg -->
-		<h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
-			<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-text">
-				<span></span>Developers</span
-			> with Problems
+		<h1 class="mb-4 text-3xl font-extrabold text-dark dark:text-white md:text-5xl lg:text-6xl">
+			<span class="text-transparent bg-clip-text bg-gradient-to-r from-dark to-primary">
+				<span></span>Developers with</span
+			> Problems
 		</h1>
 	</div>
 	<div class="max-w-48 ml-auto mr-0">
