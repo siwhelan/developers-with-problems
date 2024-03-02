@@ -66,7 +66,7 @@ async function insertSampleData() {
 		// Insert posts
 		await Post.insertMany([
 			{
-				title: 'Post 1',
+				title: 'How can I create a component in Svelte?',
 				content: 'Content of Post 1',
 				url: 'https://example.com/post1',
 				tags: ['tag1', 'tag2'],
@@ -76,7 +76,7 @@ async function insertSampleData() {
 				timestamp: new Date()
 			},
 			{
-				title: 'Post 2',
+				title: 'How to manage state in React?',
 				content: 'Content of Post 2',
 				url: 'https://example.com/post2',
 				tags: ['tag1', 'tag2'],
@@ -86,7 +86,7 @@ async function insertSampleData() {
 				timestamp: new Date()
 			},
 			{
-				title: 'Post 3',
+				title: 'How to create a virtual environment in Python?',
 				content: 'Content of Post 3',
 				url: 'https://example.com/post3',
 				tags: ['tag1', 'tag2'],
@@ -96,7 +96,7 @@ async function insertSampleData() {
 				timestamp: new Date()
 			},
 			{
-				title: 'Post 4',
+				title: 'What is closure in JavaScript?',
 				content: 'Content of Post 4',
 				url: 'https://example.com/post4',
 				tags: ['tag1', 'tag2'],
@@ -105,9 +105,7 @@ async function insertSampleData() {
 				downvotes: [],
 				timestamp: new Date()
 			}
-			// More posts as needed
 		]);
-
 		// Insert events
 		await Event.insertMany([
 			{
