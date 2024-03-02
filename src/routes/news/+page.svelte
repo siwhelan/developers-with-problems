@@ -38,14 +38,14 @@
 		<div class="my-12 p-4 max-w-2xl mx-auto relativ text-dark">
 			<h2 class="font-bold underline text-dark">Hacker News Top Stories</h2>
 			{#if topStories.length > 0}
-				<ul class="list-disc list-inside mt-4">
+				<ul class="list-inside mt-4">
 					{#each topStories as story, i (story.id)}
 						<li class="mt-2">
 							<a
 								href={story.url}
 								target="_blank"
 								rel="noopener noreferrer"
-								class="text-text hover:text-primary">{story.title}</a
+								class="text-text hover:text-primary">🔗 {story.title}</a
 							>
 						</li>
 						{#if i < topStories.length - 1}
@@ -61,14 +61,14 @@
 		<div class="my-12 p-4 max-w-2xl mx-auto relativ text-dark">
 			<h2 class="font-bold underline text-dark">Reddit /r/technology Top Posts</h2>
 			{#if topRedditPosts.length > 0}
-				<ul class="list-disc list-inside mt-4">
+				<ul class="list-inside mt-4">
 					{#each topRedditPosts as post, i (post.id)}
 						<li class="mt-2">
 							<a
 								href={post.url}
 								target="_blank"
 								rel="noopener noreferrer"
-								class="text-text hover:text-primary">{post.title}</a
+								class="text-text hover:text-primary">🔗 {post.title}</a
 							>
 						</li>
 						{#if i < topRedditPosts.length - 1}
