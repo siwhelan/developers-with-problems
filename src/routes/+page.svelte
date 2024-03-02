@@ -91,7 +91,9 @@
 		>
 	</div>
 	<!-- </a> -->
-	<p class="text-2xl">Most recent activity</p>
+	<div>
+		<h2 class="text-3xl font-bold pb-2">Most Recent Activity</h2>
+	</div>
 	<div class="flex-row py-4">
 		<button
 			class:active={feedChoice === 'forum'}

@@ -10,10 +10,13 @@
 	}
 </script>
 
+<div class="pt-24">
+	<h2 class="text-3xl font-bold pb-2">Events</h2>
+</div>
 <div class="pt-3 text-center">
 	<ul>
 		{#each events as event}
-			<li key={event._id} class="my-12 p-4 rounded-lg shadow-md max-w-2xl relative">
+			<li key={event._id} class="p-4 rounded-lg shadow-md max-w-2xl relative">
 				<h2 class="flex justify-start text-xl text-primary font-bold">{event.title}</h2>
 				<p class="flex justify-start text-gray-600">{formatDate(event.startDate)}</p>
 				<p class="flex justify-start text-gray-600">{event.location}</p>

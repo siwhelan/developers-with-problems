@@ -51,7 +51,7 @@
 	<!-- upvote and comment icon to be added -->
 	<div>
 		<p>{postAuthor}</p>
-		<h2 class="text-2xl pb-2 text-primary">{postTitle}</h2>
+		<h2 class="text-2xl text-extrabold pb-2 text-primary">{postTitle}</h2>
 		<p class=" pb-3">{postContent}</p>
 	</div>
 </div>

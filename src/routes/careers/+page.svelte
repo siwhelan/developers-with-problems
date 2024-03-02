@@ -10,7 +10,10 @@
 	}
 </script>
 
-<div class="pt-3 text-left bg-background w-full flex justify-start">
+<div class="pt-24">
+	<h2 class="text-3xl font-bold pb-2">Careers</h2>
+</div>
+<div class="text-left bg-background w-full flex justify-start">
 	<ul class="flex flex-col w-full justify-start">
 		{#each jobs as job}
 			<li
