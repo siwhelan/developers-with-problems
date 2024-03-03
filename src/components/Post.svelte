@@ -7,13 +7,12 @@
 	export let postAuthor;
 	export let postUpvotes;
 	export let upvoteNumber;
-	export let data;
-	console.log(data);
-	let userID = '';
+	export let loggedInUser;
 
-	// TODO, user ID currently hardcoded
 	let userUpvoted;
-	if (postUpvotes.includes(userID)) {
+
+	//changes page state based on whether user has upvoted
+	if (postUpvotes.includes(loggedInUser)) {
 		userUpvoted = true;
 	} else {
 		userUpvoted = false;
@@ -24,6 +23,12 @@
 			method: 'POST',
 			body: JSON.stringify({ action })
 		});
+		if (userUpvoted == true) {
+			upvoteNumber -= 1;
+		} else {
+			upvoteNumber += 1;
+		}
+		userUpvoted = !userUpvoted;
 	}
 </script>
 

@@ -5,16 +5,14 @@ import { error } from '@sveltejs/kit';
 export async function load({ locals, params }) {
 	let userID = '';
 
-	// Fetch post and user data
 	try {
 		let post = await Post.findById(params.slug).lean();
 		let user = await User.findById(post.userID).lean();
 
 		// Check if post and user exist
 		if (post && user) {
-			const loggedInUser = locals.user.id;
+			let loggedInUser = locals.user.id;
 
-			// Convert to plain JSON objects
 			post = JSON.parse(JSON.stringify(post));
 			user = JSON.parse(JSON.stringify(user));
 
@@ -27,3 +25,17 @@ export async function load({ locals, params }) {
 		error(500, 'Internal Server Error');
 	}
 }
+
+export const actions = {
+	upvote: async ({ locals, params, request }) => {
+		const upvoted = await request.json();
+		let post = await Post.findById(params.slug);
+		let loggedInUser = locals.user.id;
+		if (upvoted.action == false) {
+			post.upvotes.push(loggedInUser);
+		} else {
+			post.upvotes = post.upvotes.filter((like) => like.toString() !== loggedInUser);
+		}
+		await post.save();
+	}
+};
