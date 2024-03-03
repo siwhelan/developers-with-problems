@@ -10,9 +10,7 @@
 	export let data;
 	console.log(data);
 	let userID = '';
-	// let { post, user, userID } = data;
-	// console.log(userID);
-	// const userID = '65e09e269f5ee760ed08ff57';
+
 	// TODO, user ID currently hardcoded
 	let userUpvoted;
 	if (postUpvotes.includes(userID)) {

@@ -2,30 +2,8 @@ import { Post } from '../../../../lib/models/post.js';
 import { User } from '../../../../lib/models/user.js';
 
 import { error } from '@sveltejs/kit';
-export async function load({ params, cookies }) {
+export async function load({ locals, params }) {
 	let userID = '';
-
-	// Retrieve the session cookie
-	const sessionCookie = cookies.get('session');
-
-	if (sessionCookie) {
-		try {
-			//TODO
-			// Fetch the session using Lucia
-			// const { session, user } = await lucia.validateSession(sessionCookie);
-			// const session = await adapter.getSessionAndUser(sessionCookie);
-			// console.log('session');
-			// console.log(event.locals);
-			// console.log(session);
-			// if (session) {
-			// 	// Get the user ID from the session
-			// 	userID = session.userId;
-			// }
-		} catch (error) {
-			console.error('Error retrieving session:', error);
-		}
-	}
-	console.log(userID);
 
 	// Fetch post and user data
 	try {
@@ -34,11 +12,13 @@ export async function load({ params, cookies }) {
 
 		// Check if post and user exist
 		if (post && user) {
+			const loggedInUser = locals.user.id;
+
 			// Convert to plain JSON objects
 			post = JSON.parse(JSON.stringify(post));
 			user = JSON.parse(JSON.stringify(user));
 
-			return { post, user, userID };
+			return { post, user, userID, loggedInUser };
 		} else {
 			error(404, 'Post or user not found');
 		}
