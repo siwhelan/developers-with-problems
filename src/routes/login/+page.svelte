@@ -1,6 +1,10 @@
-<div class="pt-3 text-center">
-	<h1 class="text-2xl font-bold mb-4">Log In To DWP</h1>
-	<form class="max-w-md mx-auto p-4 bg-white shadow-md" method="POST" action="?/authorisation">
+<div class="pt-20 pr-2 text-center">
+	<h1 class="text-2xl font-bold mb-4 ml-2 mt-2">Log In To DWP</h1>
+	<form
+		class="max-w-md mx-auto p-4 bg-white shadow-md ml-15 mt-10"
+		method="POST"
+		action="?/authorisation"
+	>
 		<div class="mb-4">
 			<label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email:</label>
 			<input

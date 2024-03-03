@@ -46,12 +46,12 @@
 				<p class="text-xl py-2">{upvoteNumber}</p>
 			</div>
 		{/if}
-		<p class="text-xl py-2 px-3">1 💬</p>
+		<p class="text-xl py-2 px-6">💬 1</p>
 	</div>
 	<!-- upvote and comment icon to be added -->
 	<div>
-		<p>{postAuthor}</p>
-		<h2 class="text-2xl text-extrabold pb-2 text-primary">{postTitle}</h2>
+		<h2 class="text-2xl text-extrabold pb-1 text-primary">{postTitle}</h2>
+		<p class="font-bold">{postAuthor}</p>
 		<p class=" pb-3">{postContent}</p>
 	</div>
 </div>
