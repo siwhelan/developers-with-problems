@@ -7,7 +7,7 @@ export default {
 				background: '#FAFAFA', // Main background color
 				accent: '#B3ADA8', // Secondary elements or borders
 				text: '#646368', // Primary text color
-				dark: '#393537' // Headings or emphasized text
+				dark: '#202937' // Headings or emphasized text
 			}
 		}
 	},
