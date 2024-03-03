@@ -12,8 +12,8 @@
 			<button aria-pressed="false" class="max-h-1">
 				<Upvote />
 			</button>
-			<p class="text-xl py-1 pl-12">{upvoteNumber}</p>
-			<p class="text-xl py-2 px-3">💬 1</p>
+			<p class="text-xl py-1 pl-10">{upvoteNumber}</p>
+			<p class="text-xl py-2 px-4">💬 1</p>
 		</div>
 		<a href={`/forum/post/${postSlug}`}>
 			<div class="flex flex-col">

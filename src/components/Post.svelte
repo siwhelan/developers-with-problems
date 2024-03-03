@@ -43,7 +43,7 @@
 				<button aria-pressed="true" on:click={() => upvote(userUpvoted)} class="max-h-1">
 					<Upvoted />
 				</button>
-				<p class="text-xl py-2">{upvoteNumber}</p>
+				<p class="text py-2">{upvoteNumber}</p>
 			</div>
 		{/if}
 		<p class="text-xl py-2 px-6">💬 1</p>
