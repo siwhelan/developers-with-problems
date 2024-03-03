@@ -1,6 +1,5 @@
 <script>
 	import Upvote from './upvote.svelte';
-
 	export let postTitle;
 	export let postContent;
 	export let postSlug;
@@ -8,8 +7,8 @@
 </script>
 
 <!-- component for post previews such as on feed page, not entire post for post page -->
-<a href={`/forum/post/${postSlug}`}>
-	<div class="flex flex-row py-5 pr-28 rounded-lg shadow-md max-w-2xl text-dark">
+<div class="flex flex-row py-5 pr-28 rounded-lg shadow-md max-w-2xl text-dark">
+	<a href={`/forum/post/${postSlug}`}>
 		<div>
 			<div class="flex px-3">
 				<button aria-pressed="false" class="max-h-1">
@@ -24,6 +23,6 @@
 			<h2 class="text-xl font-bold pb-2 text-primary">{postTitle}</h2>
 			<p class=" pb-3">{postContent}</p>
 		</div>
-	</div>
-	<div class="pb-2"></div>
-</a>
+	</a>
+</div>
+<div class="pb-2"></div>
