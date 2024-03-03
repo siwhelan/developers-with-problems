@@ -16,9 +16,7 @@
 		postUpvotes={data.post.upvotes}
 	/>
 	<div class="flex justify-between items-center mb-6">
-		<h2 class="text-lg mt-8 my-2 font-semibold lg:text-2xl text-text dark:text-white">
-			Discussion
-		</h2>
+		<h2 class="text-lg mt-8 font-semibold lg:text-2xl text-text dark:text-white">Discussion</h2>
 	</div>
 	<NewComment />
 	<Comment />
