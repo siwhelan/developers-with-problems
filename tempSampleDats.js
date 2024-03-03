@@ -67,19 +67,21 @@ async function insertSampleData() {
 		await Post.insertMany([
 			{
 				title: 'How can I create a component in Svelte?',
-				content: 'Content of Post 1',
+				content:
+					"I'm trying to get started with Svelte and was wondering how to create a component. Can anyone share some insights or resources on how to begin?",
 				url: 'https://example.com/post1',
-				tags: ['tag1', 'tag2'],
+				tags: ['Svelte', 'component', 'beginner'],
 				userID: insertedUsers[0],
 				upvotes: [],
 				downvotes: [],
 				timestamp: new Date()
 			},
 			{
-				title: 'How to manage state in React?',
-				content: 'Content of Post 2',
+				title: 'State Management Techniques in React',
+				content:
+					'Various state management techniques in React, including useState, useContext, and Redux.',
 				url: 'https://example.com/post2',
-				tags: ['tag1', 'tag2'],
+				tags: ['React', 'state management', 'useState', 'useContext', 'Redux'],
 				userID: insertedUsers[0],
 				upvotes: [],
 				downvotes: [],
@@ -87,25 +89,39 @@ async function insertSampleData() {
 			},
 			{
 				title: 'How to create a virtual environment in Python?',
-				content: 'Content of Post 3',
+				content:
+					"I'm learning Python and heard about virtual environments. Could someone explain how to set one up and why it's important?",
 				url: 'https://example.com/post3',
-				tags: ['tag1', 'tag2'],
+				tags: ['Python', 'virtual environment', 'beginner'],
 				userID: insertedUsers[0],
 				upvotes: [],
 				downvotes: [],
 				timestamp: new Date()
 			},
 			{
-				title: 'What is closure in JavaScript?',
-				content: 'Content of Post 4',
-				url: 'https://example.com/post4',
-				tags: ['tag1', 'tag2'],
+				title: 'Best Practices for REST API Design?',
+				content:
+					'Seeking advice on structuring endpoints and authentication methods for REST APIs.',
+				url: 'https://example.com/post5',
+				tags: ['REST API', 'design best practices', 'authentication'],
+				userID: insertedUsers[0],
+				upvotes: [],
+				downvotes: [],
+				timestamp: new Date()
+			},
+			{
+				title: 'Guide to Flexbox in CSS',
+				content:
+					'A concise overview of Flexbox layout: fundamentals, properties, and practical examples.',
+				url: 'https://example.com/post6',
+				tags: ['CSS', 'Flexbox', 'web design'],
 				userID: insertedUsers[0],
 				upvotes: [],
 				downvotes: [],
 				timestamp: new Date()
 			}
 		]);
+
 		// Insert events
 		await Event.insertMany([
 			{

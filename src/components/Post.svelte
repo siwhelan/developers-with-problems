@@ -46,7 +46,7 @@
 				<p class="text py-2">{upvoteNumber}</p>
 			</div>
 		{/if}
-		<p class="text-xl py-2 px-6">💬 1</p>
+		<p class="text-xl py-2 px-6">💬</p>
 	</div>
 	<!-- upvote and comment icon to be added -->
 	<div>

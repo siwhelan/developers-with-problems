@@ -13,7 +13,8 @@
 				<Upvote />
 			</button>
 			<p class="text-xl py-1 pl-10">{upvoteNumber}</p>
-			<p class="text-xl py-2 px-4">💬 1</p>
+			<p class="text-xl py-2 px-4">💬</p>
+			<!-- Temp Removed hard coded number due to styling bug -->
 		</div>
 		<a href={`/forum/post/${postSlug}`}>
 			<div class="flex flex-col">
