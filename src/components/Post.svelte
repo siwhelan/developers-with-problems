@@ -50,7 +50,7 @@
 	</div>
 	<!-- upvote and comment icon to be added -->
 	<div>
-		<h2 class="text-2xl text-extrabold pb-1 text-primary">{postTitle}</h2>
+		<h2 class="text-xl font-bold pb-1 text-primary">{postTitle}</h2>
 		<p class="font-bold">{postAuthor}</p>
 		<p class=" pb-3">{postContent}</p>
 	</div>
