@@ -4,7 +4,7 @@
 	export let commentTime;
 
 	function timeAgo(timestamp) {
-		const timeSince = new Date(timestamp).getTime()
+		const timeSince = new Date(timestamp).getTime();
 		const secondsAgo = Math.floor((Date.now() - timeSince) / 1000);
 
 		const intervals = {
@@ -26,9 +26,6 @@
 
 		return 'Just now';
 	}
-
-
-
 </script>
 
 <article
