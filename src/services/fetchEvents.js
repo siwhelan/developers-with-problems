@@ -1,4 +1,4 @@
-import { Event } from '../lib/models/Event.js';
+import { Event } from '../lib/models/event.js';
 
 export async function fetchEvents() {
 	const events = await Event.find().lean();
