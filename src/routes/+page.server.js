@@ -10,6 +10,5 @@ export const load = async () => {
 	posts = JSON.parse(JSON.stringify(posts)).reverse().slice(0, 10);
 	events = JSON.parse(JSON.stringify(events));
 	jobs = JSON.parse(JSON.stringify(jobs));
-	console.log('jobs:', jobs);
 	return { posts, events, jobs };
 };
