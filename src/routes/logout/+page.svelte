@@ -1,8 +1,13 @@
-Are you sure you want to logout from devtools
+<script>
+	export let data;
+	let { currentUserUsername } = data;
+</script>
+Are you sure you want to logout {currentUserUsername} from devtools
 <form method="POST" action="?/cancel">
 	<button>cancel</button>
 </form>
 <form method="POST" action="?/continue">
+	<input type="hidden" name="username" />
 	<button>logout</button>
 </form>
 
