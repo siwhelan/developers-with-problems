@@ -1,38 +1,24 @@
 <script>
-	import { User } from '../lib/models/user';
 	export let profileUserID;
-	let isFollowing = false;
-	const userID = 'user1'; // Will be gotten dynamically when setup
-
-	async function handleClick() {
-		try {
-			const user = await User.findOne({ _id: userID });
-			const profileUser = await User.findOne({ _id: profileUserID });
-
-			const userIndex = user.following.indexOf(profileUserID);
-			const profileUserIndex = profileUser.followers.indexOf(userID);
-
-			if (userIndex !== -1) {
-				user.following.splice(userIndex, 1);
-				profileUser.followers.splice(profileUserIndex, 1);
-			} else {
-				user.following.push(profileUserID);
-				profileUser.followers.push(userID);
-			}
-
-			isFollowing = !isFollowing;
-			await user.save();
-			await profileUser.save();
-		} catch (error) {
-			console.error('Error toggling follow:', error);
-		}
-	}
+	export let isFollowing;
+	export let onClick;
 </script>
 
-<button on:click={handleClick}>
+<form method="POST" action="?/create">
+	<input type="hidden" name="profileUserID" value={profileUserID} />
 	{#if isFollowing}
-		Unfollow
+		<button
+			class="block py-2 px-4 bg-green-800 text-white rounded-md mb-2 max-w-xs hover:bg-red-700 text-center"
+			on:click={() => onClick(profileUserID, isFollowing)}
+		>
+			Unfollow
+		</button>
 	{:else}
-		Follow
+		<button
+			class="block py-2 px-4 bg-green-800 text-white rounded-md mb-2 max-w-xs hover:bg-red-700 text-center"
+			on:click={() => onClick(profileUserID, isFollowing)}
+		>
+			Follow
+		</button>
 	{/if}
-</button>
+</form>
