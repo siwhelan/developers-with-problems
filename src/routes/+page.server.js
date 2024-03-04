@@ -1,21 +1,40 @@
 import { Post } from '../lib/models/post.js';
 import { User } from '../lib/models/user.js';
 
-export const load = async () => {
+export async function load({ locals }) {
 	let posts = await Post.find().lean();
-	// console.log(posts);
 	posts = JSON.parse(JSON.stringify(posts));
 	posts = posts.reverse().slice(0, 10);
+
 	for (let i = 0; i < posts.length; i++) {
 		const post = posts[i];
-		console.log('----------post-------------');
-		console.log(post);
-		console.log(post.userID);
 		const postAuthor = await User.findOne({ _id: post.userID });
-		console.log(postAuthor);
 		post.author = postAuthor.username;
+
+	let loggedInUser;
+	try {
+		loggedInUser = locals.user.id;
+	} catch (error) {
+		console.error('Error getting logged in user:', error);
+		loggedInUser = null;
+
 	}
 	return {
-		posts
+		posts,
+		loggedInUser
 	};
+}
+
+export const actions = {
+	upvote: async ({ locals, request }) => {
+		const { action, postSlug } = await request.json();
+		let post = await Post.findById(postSlug);
+		let loggedInUser = locals.user.id;
+		if (action == false) {
+			post.upvotes.push(loggedInUser);
+		} else {
+			post.upvotes = post.upvotes.filter((like) => like.toString() !== loggedInUser);
+		}
+		await post.save();
+	}
 };

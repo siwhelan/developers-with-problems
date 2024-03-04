@@ -13,14 +13,20 @@
 	</a>
 	<ul class="my-8 text-left py-4 pt-3 bg-background w-full flex flex-col justify-start">
 		{#each posts as post}
-			<li>
-				<PostLink
-					postSlug={post._id}
-					postTitle={post.title}
-					postContent={post.content}
-					postAuthor={post.author}
-				/>
-			</li>
+			<!-- <li key={post._id}> -->
+			<PostLink
+				postSlug={post._id}
+				postTitle={post.title}
+				postContent={post.content}
+				postUpvotes={post.upvotes}
+				upvoteNumber={post.upvotes.length}
+        postAuthor={post.author}
+				loggedInUser={data.loggedInUser}
+			/>
+			<!-- <h2>{post.title}</h2>
+				<p>{post.content}</p> -->
+			<!-- </li> -->
+
 		{/each}
 	</ul>
 </div>
