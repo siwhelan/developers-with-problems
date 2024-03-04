@@ -1,9 +1,9 @@
 <script>
 	import News from '../components/News.svelte';
 	import PostLink from '../components/PostLink.svelte';
-
+	export let currentUserUsername;
 	export let data;
-	$: ({ posts } = data);
+	$: ({ posts, currentUserUsername } = data);
 
 	let feedChoice = 'forum';
 	// options are forum, dev news, events. Toggling changes what appears in the feed. Default is forum posts
@@ -135,6 +135,7 @@
 					postContent={post.content}
 					postUpvotes={post.upvotes}
 					upvoteNumber={post.upvotes.length}
+					postAuthor={post.author}
 					loggedInUser={data.loggedInUser}
 				/>
 			</div>

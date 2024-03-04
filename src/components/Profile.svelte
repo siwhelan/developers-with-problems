@@ -10,6 +10,7 @@
 	export let onClick;
 	export let isFollowing;
 	export let posts;
+	export let loggedInUser;
 </script>
 
 <div class="menu-container text-center bg-blue-900 rounded-lg p-5 m-10">
@@ -36,6 +37,14 @@
 <div class="menu-container bg-blue-900 rounded-lg p-5 m-10 max-w-xs">
 	<h2 class={sectionStyles}>Posts</h2>
 	{#each posts as post}
-		<PostLink postSlug={post._id} postTitle={post.title} postContent={post.content} />
+		<PostLink
+			postSlug={post._id}
+			postTitle={post.title}
+			postContent={post.content}
+			postUpvotes={post.upvotes}
+			upvoteNumber={post.upvotes.length}
+			postAuthor={post.author}
+			{loggedInUser}
+		/>
 	{/each}
 </div>

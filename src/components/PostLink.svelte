@@ -16,6 +16,7 @@
 
 	export let postTitle;
 	export let postContent;
+	export let postAuthor;
 	export let postUpvotes;
 	export let postSlug;
 	export let upvoteNumber;
@@ -76,6 +77,7 @@
 		<div>
 			<h2 class="text-2xl pb-2">{postTitle}</h2>
 			<p class=" pb-3">{postContent}</p>
+			<a href="/profile/{postAuthor}">{postAuthor}</a>
 		</div>
 	</a>
 </div>

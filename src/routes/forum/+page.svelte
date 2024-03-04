@@ -11,7 +11,6 @@
 	<a class="bg-primary hover:bg-dark text-white py-2 px-4 rounded mr-4" href="/forum/newPost">
 		Make a new post
 	</a>
-
 	<ul class="my-8 text-left py-4 pt-3 bg-background w-full flex flex-col justify-start">
 		{#each posts as post}
 			<!-- <li key={post._id}> -->
@@ -21,6 +20,7 @@
 				postContent={post.content}
 				postUpvotes={post.upvotes}
 				upvoteNumber={post.upvotes.length}
+				postAuthor={post.author}
 				loggedInUser={data.loggedInUser}
 			/>
 			<!-- <h2>{post.title}</h2>

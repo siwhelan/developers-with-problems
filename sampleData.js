@@ -26,9 +26,9 @@ async function insertSampleData() {
 	try {
 		// Insert sample users
 		const insertedUsers = await User.insertMany([
-			{ username: 'user1', email: 'user1@example.com', password: 'password1' },
-			{ username: 'user2', email: 'user2@example.com', password: 'password2' },
-			{ username: 'user3', email: 'user3@example.com', password: 'password3' }
+			{ _id: '123', username: 'user1', email: 'user1@example.com', hashed_password: 'password1' },
+			{ _id: '456', username: 'user2', email: 'user2@example.com', hashed_password: 'password2' },
+			{ _id: '789', username: 'user3', email: 'user3@example.com', hashed_password: 'password3' }
 		]);
 		console.log(`${insertedUsers.length} users inserted successfully.`);
 
