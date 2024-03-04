@@ -14,6 +14,7 @@
 		postContent={data.post.content}
 		upvoteNumber={data.post.upvotes.length}
 		postUpvotes={data.post.upvotes}
+		loggedInUser={data.loggedInUser}
 	/>
 	<div class="flex justify-between items-center mb-6">
 		<h2 class="text-lg mt-8 font-semibold lg:text-2xl text-text dark:text-white">Discussion</h2>

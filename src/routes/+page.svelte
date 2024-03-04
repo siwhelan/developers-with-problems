@@ -133,7 +133,9 @@
 					postSlug={post._id}
 					postTitle={post.title}
 					postContent={post.content}
+					postUpvotes={post.upvotes}
 					upvoteNumber={post.upvotes.length}
+					loggedInUser={data.loggedInUser}
 				/>
 			</div>
 		{/each}
