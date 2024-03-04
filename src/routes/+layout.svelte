@@ -10,9 +10,10 @@
 <div>
 	<UserNavBar {currentUserUsername} />
 </div>
+<!-- <p>{posts}</p> -->
 <div class="flex flex-col min-h-screen">
 	<div class="flex bg-background text-text">
-		<Navigation />
+		<Navigation {currentUserUsername} />
 		<div class="flex flex-col flex-grow">
 			<slot />
 		</div>
