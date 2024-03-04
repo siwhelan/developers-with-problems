@@ -5,7 +5,7 @@
 	import CareersList from '../components/CareersList.svelte';
 
 	export let data;
-	$: ({ posts, events, jobs, currentUserUsername } = data);
+	$: ({ posts, events, jobs } = data); // unused var commented out for lint = currentUserUsername
 
 	let feedChoice = 'forum';
 	// options are forum, dev news, events. Toggling changes what appears in the feed. Default is forum posts
