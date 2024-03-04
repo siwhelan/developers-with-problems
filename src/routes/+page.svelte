@@ -1,7 +1,7 @@
 <script>
 	import News from '../components/News.svelte';
 	import PostLink from '../components/PostLink.svelte';
-	export let currentUserUsername
+	export let currentUserUsername;
 	export let data;
 	$: ({ posts, currentUserUsername } = data);
 
@@ -134,6 +134,7 @@
 					postTitle={post.title}
 					postContent={post.content}
 					upvoteNumber={post.upvotes.length}
+					postAuthor={post.author}
 				/>
 			</div>
 		{/each}

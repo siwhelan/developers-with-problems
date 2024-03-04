@@ -2,6 +2,7 @@
 	import Upvote from './upvote.svelte';
 	export let postTitle;
 	export let postContent;
+	export let postAuthor;
 	export let postSlug;
 	export let upvoteNumber;
 </script>
@@ -20,6 +21,7 @@
 			<div class="flex flex-col">
 				<h2 class="text-xl font-bold pb-2 text-primary">{postTitle}</h2>
 				<p class="pb-3">{postContent}</p>
+				<a href="/profile/{postAuthor}">{postAuthor}</a>
 			</div>
 		</a>
 	</div>

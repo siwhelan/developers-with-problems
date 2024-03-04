@@ -1,5 +1,5 @@
 <script>
-	export let currentUserUsername
+	export let currentUserUsername;
 	let linkStyles =
 		'block py-2 px-4 bg-primary text-white rounded mb-2 max-w-xs hover:bg-dark text-center';
 </script>

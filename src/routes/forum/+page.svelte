@@ -11,11 +11,15 @@
 	<a class="bg-primary hover:bg-dark text-white py-2 px-4 rounded mr-4" href="/forum/newPost">
 		Make a new post
 	</a>
-
 	<ul class="my-8 text-left py-4 pt-3 bg-background w-full flex flex-col justify-start">
 		{#each posts as post}
 			<li>
-				<PostLink postSlug={post._id} postTitle={post.title} postContent={post.content} />
+				<PostLink
+					postSlug={post._id}
+					postTitle={post.title}
+					postContent={post.content}
+					postAuthor={post.author}
+				/>
 			</li>
 		{/each}
 	</ul>
