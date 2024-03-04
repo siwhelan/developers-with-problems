@@ -14,7 +14,12 @@ export async function load({ locals }) {
 
 	let loggedInUser;
 	try {
-		loggedInUser = locals.user.id;
+		if (locals.user) {
+			loggedInUser = locals.user.id;
+		} else {
+			console.error('User not found in database');
+			loggedInUser = null;
+		}
 	} catch (error) {
 		console.error('Error getting logged in user:', error);
 		loggedInUser = null;
