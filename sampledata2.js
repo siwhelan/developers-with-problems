@@ -5,10 +5,10 @@ import { Post } from './src/lib/models/post.js';
 import { Event } from './src/lib/models/event.js';
 import { Comment } from './src/lib/models/comment.js';
 import { Job } from './src/lib/models/job.js';
+import { generateId } from 'lucia';
 import dotenv from 'dotenv';
 dotenv.config();
 const uri = process.env.MONGO_URI;
-
 mongoose
 	.connect(uri)
 	.then(() => console.log('Connected to MongoDB'))
@@ -25,16 +25,30 @@ async function insertSampleData() {
 	console.log('Deleted all data');
 	try {
 		// Insert sample users
-		const insertedUsers = await User.insertMany([
-			{ _id: '123', username: 'user1', email: 'user1@example.com', hashed_password: 'password1' },
-			{ _id: '456', username: 'user2', email: 'user2@example.com', hashed_password: 'password2' },
-			{ _id: '789', username: 'user3', email: 'user3@example.com', hashed_password: 'password3' }
-		]);
-		console.log(`${insertedUsers.length} users inserted successfully.`);
+		const user1 = await User.create({
+			_id: generateId(15),
+			username: 'scriptSavvy',
+			email: 'user1@example.com',
+			hashed_password: 'password1'
+		});
+		const user2 = await User.create({
+			_id: generateId(15),
+			username: 'devDabbler',
+			email: 'user2@example.com',
+			hashed_password: 'password2'
+		});
+		const user3 = await User.create({
+			_id: generateId(15),
+			username: 'byteBard',
+			email: 'user3@example.com',
+			hashed_password: 'password3'
+		});
+
+		// console.log(`${insertedUsers.length} users inserted successfully.`);
 
 		// Get the IDs of the inserted users
-		const userIds = insertedUsers.map((user) => user._id);
-
+		const userIds = [user1._id, user2._id, user3._id];
+		console.log(user1._id);
 		// Insert sample resources
 		const insertedResources = await Resource.insertMany([
 			{
@@ -60,10 +74,58 @@ async function insertSampleData() {
 
 		// Insert sample posts
 		const insertedPosts = await Post.insertMany([
-			{ title: 'Post 1', content: 'Content of Post 1', userID: userIds[0] },
-			{ title: 'Post 2', content: 'Content of Post 2', userID: userIds[1] },
-			{ title: 'Post 3', content: 'Content of Post 3', userID: userIds[2] }
+			{
+				title: 'Introduction to React Hooks',
+				content:
+					'Learn how to use React Hooks to manage state and side effects in functional components.',
+				userID: userIds[0],
+				tags: ['react', 'javascript', 'frontend'],
+				upvotes: [userIds[2], userIds[3]],
+				downvotes: [],
+				timestamp: new Date()
+			},
+			{
+				title: 'Best Practices for RESTful API Design',
+				content:
+					'Explore the principles and guidelines for designing RESTful APIs that are scalable, maintainable, and easy to use.',
+				userID: userIds[1],
+				tags: ['api', 'rest', 'backend'],
+				upvotes: [userIds[2]],
+				downvotes: [],
+				timestamp: new Date()
+			},
+			{
+				title: 'Deploying Node.js Applications with Docker',
+				content:
+					'Learn how to containerize and deploy Node.js applications using Docker for easier scalability and portability.',
+				userID: userIds[2],
+				tags: ['docker', 'nodejs', 'deployment'],
+				upvotes: [userIds[0], userIds[1]],
+				downvotes: [],
+				timestamp: new Date()
+			},
+			{
+				title: 'Getting Started with Python Data Science',
+				content:
+					'Discover the essential libraries and tools for data science in Python, including NumPy, pandas, and scikit-learn.',
+				userID: userIds[1],
+				tags: ['python', 'datascience'],
+				upvotes: userIds[2],
+				downvotes: [],
+				timestamp: new Date()
+			},
+			{
+				title: 'Securing Your Web Applications',
+				content:
+					'Explore common security vulnerabilities in web applications and best practices for mitigating them, such as XSS, CSRF, and SQL injection.',
+				userID: userIds[2],
+				tags: ['security', 'webdev'],
+				upvotes: [userIds[1], userIds[0]],
+				downvotes: [],
+				timestamp: new Date()
+			}
 		]);
+
 		console.log(`${insertedPosts.length} posts inserted successfully.`);
 
 		// Insert sample events

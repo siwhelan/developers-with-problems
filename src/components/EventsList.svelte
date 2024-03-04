@@ -1,18 +1,12 @@
 <script>
-	// export let events;
-	export let data;
-	$: ({ events } = data);
+	export let events = [];
 
-	// function to format the date
 	function formatDate(dateString) {
 		const options = { year: 'numeric', month: 'long', day: 'numeric' };
 		return new Date(dateString).toLocaleDateString(undefined, options);
 	}
 </script>
 
-<div class="pt-24">
-	<h2 class="text-3xl font-bold pb-2">Events</h2>
-</div>
 <div class="pt-3 text-center">
 	<ul>
 		{#each events as event}

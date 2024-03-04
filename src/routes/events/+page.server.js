@@ -1,12 +1,11 @@
 // Import the Event model and User model
-import { Event } from '../../lib/models/event.js';
 import { User } from '../../lib/models/user.js';
+import { fetchEvents } from '../../services/fetchEvents.js';
 
 // Import the Event model
 export const load = async () => {
-	// .lean is used to return plain JavaScript objects instead of Mongoose documents
-	let events = await Event.find().lean();
-	events = JSON.parse(JSON.stringify(events));
+	// Fetch the events
+	let events = await fetchEvents();
 
 	// Get the user IDs from the 'attending' and 'interested' fields of the events
 	// flatmap is used to flatten the array of arrays into a single array

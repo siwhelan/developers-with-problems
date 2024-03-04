@@ -29,7 +29,7 @@
 </script>
 
 <article
-	class="p-6 text-base bg-blue-50 border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900"
+	class="p-6 text-base bg-background shadow-sm border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900"
 >
 	<footer class="flex justify-between items-center mb-2">
 		<div class="flex items-center">
@@ -91,8 +91,10 @@
 			</ul>
 		</div>
 	</footer>
+
 	<p class="text-gray-800 dark:text-gray-400">
 		{commentContent}
+
 	</p>
 	<div class="flex items-center mt-4 space-x-4"></div>
 </article>
