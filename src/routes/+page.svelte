@@ -3,6 +3,7 @@
 	import PostLink from '../components/PostLink.svelte';
 
 	export let data;
+	// console.log(data.loggedInUser);
 	$: ({ posts } = data);
 
 	let feedChoice = 'forum';
@@ -128,7 +129,9 @@
 					postSlug={post._id}
 					postTitle={post.title}
 					postContent={post.content}
+					postUpvotes={post.upvotes}
 					upvoteNumber={post.upvotes.length}
+					loggedInUser={data.loggedInUser}
 				/>
 			</div>
 		{/each}
