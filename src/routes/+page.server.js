@@ -1,4 +1,3 @@
-// src/routes/+page.server.js
 import { Post } from '../lib/models/post.js';
 import { Event } from '../lib/models/Event.js';
 import { Job } from '../lib/models/Job.js';
