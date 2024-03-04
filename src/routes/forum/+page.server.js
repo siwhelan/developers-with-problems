@@ -3,7 +3,7 @@ import { Post } from '../../lib/models/post.js';
 export async function load({ locals }) {
 	let posts = await Post.find().lean();
 	posts = JSON.parse(JSON.stringify(posts));
-	posts = posts.reverse().slice(0, 10);
+	posts = posts.reverse();
 	let loggedInUser;
 	if (locals.user) {
 		loggedInUser = locals.user.id;
