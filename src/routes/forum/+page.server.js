@@ -5,7 +5,6 @@ export async function load({ locals }) {
 	posts = JSON.parse(JSON.stringify(posts));
 	posts = posts.reverse().slice(0, 10);
 	let loggedInUser;
-	console.log(locals.user);
 	if (locals.user) {
 		loggedInUser = locals.user.id;
 	} else {

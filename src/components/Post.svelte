@@ -19,7 +19,7 @@
 		userUpvoted = false;
 	}
 	async function upvote(action) {
-		console.log(JSON.stringify({ action }));
+		// console.log(JSON.stringify({ action }));
 		await fetch('?/upvote', {
 			method: 'POST',
 			body: JSON.stringify({ action })

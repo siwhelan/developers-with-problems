@@ -4,8 +4,6 @@
 	import Post from '../../../../components/Post.svelte';
 
 	export let data;
-	// console.log(data);
-	// console.log(data.loggedInUser);
 	$: data;
 </script>
 

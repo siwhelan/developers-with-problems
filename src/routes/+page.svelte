@@ -3,7 +3,6 @@
 	import PostLink from '../components/PostLink.svelte';
 
 	export let data;
-	// console.log(data.loggedInUser);
 	$: ({ posts } = data);
 
 	let feedChoice = 'forum';
