@@ -61,7 +61,6 @@
 					<Upvoted />
 				</button>
 				<p class="text-xl py-2">{upvoteNumber}</p>
-
 			</div>
 		{:else}
 			<div class="flex px-3">
@@ -78,7 +77,7 @@
 		<div>
 			<h2 class="text-2xl pb-2">{postTitle}</h2>
 			<p class=" pb-3">{postContent}</p>
-      <a href="/profile/{postAuthor}">{postAuthor}</a>
+			<a href="/profile/{postAuthor}">{postAuthor}</a>
 		</div>
 	</a>
 </div>

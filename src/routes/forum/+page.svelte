@@ -20,13 +20,12 @@
 				postContent={post.content}
 				postUpvotes={post.upvotes}
 				upvoteNumber={post.upvotes.length}
-        postAuthor={post.author}
+				postAuthor={post.author}
 				loggedInUser={data.loggedInUser}
 			/>
 			<!-- <h2>{post.title}</h2>
 				<p>{post.content}</p> -->
 			<!-- </li> -->
-
 		{/each}
 	</ul>
 </div>

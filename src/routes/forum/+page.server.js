@@ -19,7 +19,6 @@ export async function load({ locals }) {
 		loggedInUser = null;
 	}
 
-
 	return {
 		posts,
 		loggedInUser

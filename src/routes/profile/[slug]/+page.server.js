@@ -40,7 +40,15 @@ export const load = async ({ params, locals }) => {
 	//Find the posts by the profileUser._id
 	let posts = await Post.find({ userID: profileUser._id });
 	posts = JSON.parse(JSON.stringify(posts));
-	return { profileUser, myProfile, isFollowing, posts };
+
+	let loggedInUser;
+	if (locals.user) {
+		loggedInUser = locals.user.id;
+	} else {
+		loggedInUser = null;
+	}
+
+	return { profileUser, myProfile, isFollowing, posts, loggedInUser };
 };
 
 export const actions = {

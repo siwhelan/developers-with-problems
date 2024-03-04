@@ -10,6 +10,7 @@ export async function load({ locals }) {
 		const post = posts[i];
 		const postAuthor = await User.findOne({ _id: post.userID });
 		post.author = postAuthor.username;
+	}
 
 	let loggedInUser;
 	try {
@@ -17,7 +18,6 @@ export async function load({ locals }) {
 	} catch (error) {
 		console.error('Error getting logged in user:', error);
 		loggedInUser = null;
-
 	}
 	return {
 		posts,
