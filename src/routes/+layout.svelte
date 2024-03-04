@@ -8,7 +8,7 @@
 </script>
 
 <div>
-	<UserNavBar />
+	<UserNavBar {currentUserUsername} />
 </div>
 <!-- <p>{posts}</p> -->
 <div class="flex flex-col min-h-screen">

@@ -1,5 +1,6 @@
 <script>
-	let session = false;
+	// let session = false;
+	export let currentUserUsername;
 </script>
 
 <div class="bg-gray-800 text-white p-4">
@@ -16,13 +17,17 @@
 		</ul>
 		<ul class="flex space-x-4">
 			<li>
-				{#if session}<a href="/profile" class="text-primary hover:underline">Profile</a>{/if}
+				{#if currentUserUsername}<a
+						href="/profile/{currentUserUsername}"
+						class="text-primary hover:underline">{currentUserUsername}</a
+					>{/if}
 			</li>
 			<li>
-				{#if !session}<a href="/signup" class="text-primary hover:underline">Sign Up</a>{/if}
+				{#if !currentUserUsername}<a href="/signup" class="text-primary hover:underline">Sign Up</a
+					>{/if}
 			</li>
 			<li>
-				{#if !session}<a href="/login" class="text-primary hover:underline">Login</a>
+				{#if !currentUserUsername}<a href="/login" class="text-primary hover:underline">Login</a>
 				{:else}<a href="/logout" class="text-primary hover:underline">Logout</a>{/if}
 			</li>
 		</ul>
