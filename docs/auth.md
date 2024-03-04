@@ -1,4 +1,4 @@
-## Signup and Signin Flow with Lucia Auth 
+## Signup and Signin Flow with Lucia Auth
 
 [Lucia Auth Docs](https://lucia-auth.com/)
 
@@ -8,7 +8,7 @@
 
 2. **Form submission to backend:** The form is submitted using a `POST` request to the `/create` endpoint in `src/signup/`.
 
-3. **Data validation:** On the backend in the `create` function, the submitted data (username and email) is retrieved using `request.formData()`. 
+3. **Data validation:** On the backend in the `create` function, the submitted data (username and email) is retrieved using `request.formData()`.
 
 4. **Existing user check:** The code uses `User.findOne` to check if a user with the provided username or email already exists in the database.
 
@@ -22,7 +22,7 @@
 
 8. **Success response:** Upon successful user creation, the function returns an object indicating success.
 
-9.  **Frontend update:** The SvelteKit application handles the response and can update the UI accordingly with a success message.
+9. **Frontend update:** The SvelteKit application handles the response and can update the UI accordingly with a success message.
 
 ### User Signin
 
@@ -36,7 +36,7 @@
 
 5. **User not found:** If no user is found with the provided email, an error message is logged, and the function returns a response with a 401 status code and an appropriate error message indicating "User not found."
 
-6. **Password verification:** If a user is found, their hashed password is retrieved from the database. 
+6. **Password verification:** If a user is found, their hashed password is retrieved from the database.
 
 7. **Incorrect password:** The submitted password is compared against the user's password. If the passwords don't match, an error message is logged, and the function returns a response with a 401 status code and an "Incorrect password" message.
 
@@ -50,8 +50,8 @@
 
 ### Using the cookie
 
-Retrieval of userID/session. 
+Retrieval of userID/session.
 
 1. **Hooks.server.js:** Uses handle to get the cookie from the browser with `event.cookies.get`. (The `handle` function is an asynchronous function that gets executed on every server-side request in the SvelteKit application.)
-2.  **Validating:** The session is validated using `lucia.validateSession(sessionId)`. If a valid session exists, the session cookie is updated with the latest session ID. If no valid session is found, a blank session cookie is set.
-3.  **Populating `event.locals`:** The validated user and session data (if any) are stored in event.locals.user and event.locals.session respectively. These are accessible within any `+server.svelte.js` in the application.
+2. **Validating:** The session is validated using `lucia.validateSession(sessionId)`. If a valid session exists, the session cookie is updated with the latest session ID. If no valid session is found, a blank session cookie is set.
+3. **Populating `event.locals`:** The validated user and session data (if any) are stored in event.locals.user and event.locals.session respectively. These are accessible within any `+server.svelte.js` in the application.
