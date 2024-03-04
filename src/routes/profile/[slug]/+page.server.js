@@ -3,7 +3,18 @@ import { Post } from '../../../lib/models/post.js';
 let currentUserID;
 
 export const load = async ({ params, locals }) => {
-	currentUserID = locals.user.id;
+	currentUserID;
+	try {
+		if (locals.user) {
+			currentUserID = locals.user.id;
+		} else {
+			console.error('User not found in database');
+			currentUserID = null;
+		}
+	} catch (error) {
+		console.error('Error getting logged in user:', error);
+		currentUserID = null;
+	}
 
 	let profileUser = await User.findOne({ username: params.slug });
 	//Checks if the current user is the same as the logged in user
