@@ -3,7 +3,6 @@
 	export let currentUserUsername;
 </script>
 
-
 <div class="bg-gray-800 text-white p-4">
 	<nav class="flex justify-between">
 		<ul class="flex space-x-4 items-center">
@@ -18,10 +17,14 @@
 		</ul>
 		<ul class="flex space-x-4">
 			<li>
-				{#if currentUserUsername}<a href="/profile/{currentUserUsername}" class="text-primary hover:underline">{currentUserUsername}</a>{/if}
+				{#if currentUserUsername}<a
+						href="/profile/{currentUserUsername}"
+						class="text-primary hover:underline">{currentUserUsername}</a
+					>{/if}
 			</li>
 			<li>
-				{#if !currentUserUsername}<a href="/signup" class="text-primary hover:underline">Sign Up</a>{/if}
+				{#if !currentUserUsername}<a href="/signup" class="text-primary hover:underline">Sign Up</a
+					>{/if}
 			</li>
 			<li>
 				{#if !currentUserUsername}<a href="/login" class="text-primary hover:underline">Login</a>

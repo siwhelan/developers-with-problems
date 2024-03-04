@@ -8,7 +8,7 @@
 </script>
 
 <div>
-	<UserNavBar {currentUserUsername}/>
+	<UserNavBar {currentUserUsername} />
 </div>
 <div class="flex flex-col min-h-screen">
 	<div class="flex bg-background text-text">
