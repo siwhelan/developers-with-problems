@@ -12,7 +12,8 @@
 		Make a new post
 	</a>
 	<ul class="my-8 text-left py-4 pt-3 bg-background w-full flex flex-col justify-start">
-		{#each posts as post}
+		<h2 class="text-3xl pb-5 font-bold">General Coding</h2>
+		{#each posts.slice(0, 2) as post}
 			<!-- <li key={post._id}> -->
 			<PostLink
 				postSlug={post._id}
@@ -25,6 +26,56 @@
 			/>
 			<!-- <h2>{post.title}</h2>
 				<p>{post.content}</p> -->
+			<!-- </li> -->
+		{/each}
+		<h2 class="text-3xl pb-5 font-bold pt-5">Job Hunting</h2>
+		{#each posts.slice(2, 4) as post}
+			<!-- <li key={post._id}> -->
+			<PostLink
+				postSlug={post._id}
+				postTitle={post.title}
+				postContent={post.content}
+				postUpvotes={post.upvotes}
+				upvoteNumber={post.upvotes.length}
+				postAuthor={post.author}
+				loggedInUser={data.loggedInUser}
+			/>
+			<!-- <h2>{post.title}</h2>
+			<p>{post.content}</p> -->
+			<!-- </li> -->
+		{/each}
+
+		<h2 class="text-3xl pb-5 font-bold pt-5">Events</h2>
+		{#each posts.slice(0, 2) as post}
+			<!-- <li key={post._id}> -->
+			<PostLink
+				postSlug={post._id}
+				postTitle={post.title}
+				postContent={post.content}
+				postUpvotes={post.upvotes}
+				upvoteNumber={post.upvotes.length}
+				postAuthor={post.author}
+				loggedInUser={data.loggedInUser}
+			/>
+			<!-- <h2>{post.title}</h2>
+			<p>{post.content}</p> -->
+			<!-- </li> -->
+		{/each}
+
+		<h2 class="text-3xl pb-5 font-bold pt-5">Dev News</h2>
+		{#each posts.slice(0, 2) as post}
+			<!-- <li key={post._id}> -->
+			<PostLink
+				postSlug={post._id}
+				postTitle={post.title}
+				postContent={post.content}
+				postUpvotes={post.upvotes}
+				upvoteNumber={post.upvotes.length}
+				postAuthor={post.author}
+				loggedInUser={data.loggedInUser}
+			/>
+			<!-- <h2>{post.title}</h2>
+			<p>{post.content}</p> -->
 			<!-- </li> -->
 		{/each}
 	</ul>
