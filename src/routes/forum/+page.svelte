@@ -15,11 +15,11 @@
 
 	<ul class="text-left">
 		{#each posts as post}
-			<!-- <li key={post._id}> -->
+			<li key={post._id}>
 			<PostLink postSlug={post._id} postTitle={post.title} postContent={post.content} />
-			<!-- <h2>{post.title}</h2>
-				<p>{post.content}</p> -->
-			<!-- </li> -->
+			<h2>{post.title}</h2>
+				<p>{console.log(post)}</p>
+			</li>
 		{/each}
 	</ul>
 </div>

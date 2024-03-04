@@ -7,8 +7,8 @@
 	export let postAuthor;
 	export let postUpvotes;
 	export let upvoteNumber;
-	export let data;
-	console.log(data);
+	// export let data;
+	// console.log(data, "POSTCOMPONENET");
 	let userID = '';
 	// let { post, user, userID } = data;
 	// console.log(userID);
@@ -21,7 +21,7 @@
 		userUpvoted = false;
 	}
 	async function upvote(action) {
-		console.log(JSON.stringify({ action }));
+		// console.log(JSON.stringify({ action }));
 		await fetch('?/upvote', {
 			method: 'POST',
 			body: JSON.stringify({ action })
