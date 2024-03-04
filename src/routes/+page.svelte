@@ -1,9 +1,11 @@
 <script>
 	import News from '../components/News.svelte';
 	import PostLink from '../components/PostLink.svelte';
-	export let currentUserUsername;
+	import EventsList from '../components/EventsList.svelte';
+	import CareersList from '../components/CareersList.svelte';
+
 	export let data;
-	$: ({ posts, currentUserUsername } = data);
+	$: ({ posts, events, jobs } = data); // unused var commented out for lint = currentUserUsername
 
 	let feedChoice = 'forum';
 	// options are forum, dev news, events. Toggling changes what appears in the feed. Default is forum posts
@@ -111,11 +113,15 @@
 			>Dev News</button
 		>
 		<button
+			class:active={feedChoice === 'events'}
+			on:click={() => (feedChoice = 'events')}
 			type="button"
 			class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary focus:outline-none dark:focus:ring-blue-800"
 			>Events</button
 		>
 		<button
+			class:active={feedChoice === 'jobs'}
+			on:click={() => (feedChoice = 'jobs')}
 			type="button"
 			class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary focus:outline-none dark:focus:ring-blue-800"
 			>Recent Jobs</button
@@ -145,6 +151,12 @@
 		<div class="py-5">
 			<News />
 		</div>
+	{/if}
+	{#if feedChoice == 'events'}
+		<EventsList {events} />
+	{/if}
+	{#if feedChoice == 'jobs'}
+		<CareersList {jobs} />
 	{/if}
 </div>
 

@@ -1,10 +1,15 @@
 import { Post } from '../lib/models/post.js';
+import { Event } from '../lib/models/event.js';
+import { Job } from '../lib/models/Job.js';
 import { User } from '../lib/models/user.js';
 
 export async function load({ locals }) {
 	let posts = await Post.find().lean();
-	posts = JSON.parse(JSON.stringify(posts));
-	posts = posts.reverse().slice(0, 10);
+	let events = await Event.find().lean();
+	let jobs = await Job.find().lean();
+	posts = JSON.parse(JSON.stringify(posts)).reverse().slice(0, 10);
+	events = JSON.parse(JSON.stringify(events));
+	jobs = JSON.parse(JSON.stringify(jobs));
 
 	for (let i = 0; i < posts.length; i++) {
 		const post = posts[i];
@@ -26,10 +31,11 @@ export async function load({ locals }) {
 	}
 	return {
 		posts,
+		events,
+		jobs,
 		loggedInUser
 	};
 }
-
 export const actions = {
 	upvote: async ({ locals, request }) => {
 		const { action, postSlug } = await request.json();
