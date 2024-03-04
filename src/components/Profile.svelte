@@ -48,8 +48,11 @@
 		<a class={linkStyles} href="/profile/changePassword">Change Password</a>
 	{/if}
 </div>
+	{#if codewarsData}
 	<p>{codewarsData.username}</p>
 	<p>{codewarsData.honor}</p>
+	{/if}
+
 
 <div class="menu-container bg-blue-900 rounded-lg p-5 m-10 max-w-xs">
 	<h2 class={sectionStyles}>Posts</h2>
