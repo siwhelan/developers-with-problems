@@ -1,5 +1,5 @@
-<div class="pt-3 text-center">
-	<h1 class="text-2xl font-bold mb-4">Log In To DWP</h1>
+<div class="pt-3 mr-12 text-center">
+	<h1 class="my-24 text-2xl text-text font-bold mb-4">Log In To DWP</h1>
 	<form class="max-w-md mx-auto p-4 bg-white shadow-md" method="POST" action="?/authorisation">
 		<div class="mb-4">
 			<label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email:</label>
@@ -23,7 +23,7 @@
 				required
 			/>
 		</div>
-		<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4" type="submit"
+		<button class="bg-primary hover:bg-dark text-white rounded font-bold py-2 px-4" type="submit"
 			>Login</button
 		>
 	</form>

@@ -1,5 +1,5 @@
 <article
-	class="p-6 text-base bg-blue-50 border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900"
+	class="p-6 text-base bg-background shadow-sm border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900"
 >
 	<footer class="flex justify-between items-center mb-2">
 		<div class="flex items-center">
@@ -61,7 +61,7 @@
 			</ul>
 		</div>
 	</footer>
-	<p class="text-gray-800 dark:text-gray-400">
+	<p class="text-text dark:text-gray-400">
 		Thanks for sharing this. I do came from the Backend development and explored some of the tools
 		to design my Side Projects.
 	</p>

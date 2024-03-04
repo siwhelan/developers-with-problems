@@ -10,31 +10,30 @@
 	}
 </script>
 
-<div class="pt-3 text-center">
-	<!-- <a
-		class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-		href="/forum/newPost">Make a new post</a
-	> -->
-
-	<ul>
+<div class="pt-24">
+	<h2 class="text-3xl font-bold pb-2">Careers</h2>
+</div>
+<div class="text-left bg-background w-full flex justify-start">
+	<ul class="flex flex-col w-full justify-start">
 		{#each jobs as job}
-			<li key={job._id} class="my-4 p-4 rounded-lg shadow-md max-w-2xl mx-auto relative">
-				<h2><b>Title:</b> {job.title}</h2>
-				<p><b>Description:</b> {job.description}</p>
-				<p><b>Salary:</b> {job.salary}</p>
-				<p><b>Company:</b> {job.company}</p>
-				<p><b>Location:</b> {job.location}</p>
-				<p><b>Tags:</b> {job.tags}</p>
-				<p><b>Posted on:</b> {formatDate(job.timestamp)}</p>
-				<p><b>Closing date:</b> {formatDate(job.closingDate)}</p>
-				<p>
+			<li
+				key={job._id}
+				class="my-8 p-4 rounded-lg shadow-md max-w-2xl relative text-dark"
+				style="min-height: 200px;"
+			>
+				<h2 class="text-text"><b>Title:</b> {job.title}</h2>
+				<p class="text-text"><b>Description:</b> {job.description}</p>
+				<p class="text-text"><b>Salary:</b> {job.salary}</p>
+				<p class="text-text"><b>Company:</b> {job.company}</p>
+				<p class="text-text"><b>Location:</b> {job.location}</p>
+				<p class="text-text"><b>Tags:</b> {job.tags}</p>
+				<p class="text-text"><b>Posted on:</b> {formatDate(job.timestamp)}</p>
+				<p class="text-text"><b>Closing date:</b> {formatDate(job.closingDate)}</p>
+				<p class="text-text">
 					<b>Click here to apply:</b>
-					<a href="mailto:your-email@example.com" class="text-gray-500 hover:text-gray-700"
-						>Apply Now</a
-					>
+					<a href="mailto:your-email@example.com" class="text-primary hover:text-dark">Apply Now</a>
 				</p>
 			</li>
-			<br />
 		{/each}
 	</ul>
 </div>

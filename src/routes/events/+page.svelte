@@ -10,11 +10,14 @@
 	}
 </script>
 
+<div class="pt-24">
+	<h2 class="text-3xl font-bold pb-2">Events</h2>
+</div>
 <div class="pt-3 text-center">
 	<ul>
 		{#each events as event}
-			<li key={event._id} class="my-4 p-4 rounded-lg shadow-md max-w-2xl mx-auto relative">
-				<h2 class="flex justify-start text-xl font-bold text-green-600">{event.title}</h2>
+			<li key={event._id} class="p-4 rounded-lg shadow-md max-w-2xl relative">
+				<h2 class="flex justify-start text-xl text-primary font-bold">{event.title}</h2>
 				<p class="flex justify-start text-gray-600">{formatDate(event.startDate)}</p>
 				<p class="flex justify-start text-gray-600">{event.location}</p>
 				<p class="flex justify-start text-gray-600">{event.description}</p>
@@ -57,11 +60,11 @@
 				<div class="relative">
 					<!-- Share Icon -->
 					<div class="absolute bottom-0 right-0 mb-2 mr-2">
-						<img src="/share-icon.png" alt="Share" class="w-5 h-5 cursor-pointer" id="shareIcon" />
+						<img src="/share-icon.png" alt="Share" class="w-5 h-5 cursor-pointer shareIcon" />
 					</div>
 
 					<!-- Share Menu (hidden by default) -->
-					<div class="absolute bottom-0 right-0 mb-10 mr-2 hidden" id="shareMenu">
+					<div class="absolute bottom-0 right-0 mb-10 mr-2 hidden shareMenu">
 						<div class="w-40 bg-white shadow-lg rounded-lg">
 							<div class="py-2">
 								<a
@@ -91,16 +94,18 @@
 	</ul>
 	<script>
 		// Share Menu Toggle
-		document.getElementById('shareIcon').addEventListener('click', function () {
-			var shareMenu = document.getElementById('shareMenu');
-			shareMenu.classList.toggle('hidden');
+		document.querySelectorAll('.shareIcon').forEach(function (icon, index) {
+			icon.addEventListener('click', function () {
+				var shareMenus = document.querySelectorAll('.shareMenu');
+				shareMenus[index].classList.toggle('hidden');
+			});
 		});
 
 		// Add event listener to each share option
-		document.querySelectorAll('#shareMenu a').forEach(function (item) {
+		document.querySelectorAll('.shareMenu a').forEach(function (item) {
 			item.addEventListener('click', function () {
 				// Hide the share menu when any option is clicked
-				document.getElementById('shareMenu').classList.add('hidden');
+				item.parentElement.parentElement.classList.add('hidden');
 			});
 		});
 	</script>
