@@ -1,28 +1,9 @@
 import { User } from '../../../lib/models/user.js';
 import { Post } from '../../../lib/models/post.js';
-const currentUserID = '65e1b501cd8443b943dfa951';
-// import { lucia } from 'lucia';
+let currentUserID;
 
-export const load = async ({ params }) => {
-	// const userSession = async ({ request }) => {
-	// 	// Get the session cookie from the request
-	// 	const sessionCookie = request.cookies.get('auth_session');
-	// 	if (sessionCookie) {
-	// 		// Get the session using the session ID in the cookie
-	// 		const session = await lucia.getSession(sessionCookie);
-	// 		if (session) {
-	// 			// Get the user ID from the session
-	// 			const userId = session.userId;
-	// 			return {
-	// 				status: 200,
-	// 				body: userId
-	// 			};
-	// 		}
-	// 	}
-	// };
-	// const userID = userSession.body;
-	// console.log('userIDbelow');
-	// console.log(userID);
+export const load = async ({ params, locals }) => {
+	currentUserID = locals.user.id;
 
 	let profileUser = await User.findOne({ username: params.slug });
 	//Checks if the current user is the same as the logged in user

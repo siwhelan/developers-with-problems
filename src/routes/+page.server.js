@@ -5,6 +5,7 @@ export const load = async () => {
 	// console.log(posts);
 	posts = JSON.parse(JSON.stringify(posts));
 	posts = posts.reverse().slice(0, 10);
+
 	return {
 		posts
 	};
