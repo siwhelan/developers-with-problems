@@ -1,5 +1,5 @@
-import { Post } from '../../lib/models/post.js';
-import { User } from '../../lib/models/user.js';
+import { Post } from '../../../lib/models/post.js';
+import { User } from '../../../lib/models/user.js';
 
 export async function load({ locals }) {
 	let posts = await Post.find().lean();
