@@ -79,8 +79,4 @@
     - Load - automatically returns post, details of post creator, and userID of logged in user
     - `?/upvote` - passed action (boolean) and postSlug (postID). Either adds or removes upvote based on bool.
 
-<!-- - **/blog**
-  - **Description:** Displays a list of blog posts.
-  - **File:** `src/routes/blog/+page.svelte`
-
 
