@@ -1,5 +1,5 @@
 import { fetchEvents } from '../services/fetchEvents.js';
-import { Event } from '../lib/models/Event.js';
+import { Event } from '../lib/models/event.js';
 import { test, expect } from 'vitest';
 
 test('fetchEvents', async () => {

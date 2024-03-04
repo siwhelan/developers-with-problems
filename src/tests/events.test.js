@@ -1,5 +1,5 @@
 import { describe, beforeEach, afterEach, it, expect } from 'vitest';
-import { Event } from '../../src/lib/models/Event.js';
+import { Event } from '../../src/lib/models/event.js';
 import { User } from '../../src/lib/models/user.js';
 import { load } from '../../src/routes/events/+page.server.js';
 
