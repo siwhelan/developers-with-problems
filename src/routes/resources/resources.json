@@ -1,7 +1,7 @@
 [
     {
       "name": "Codecademy",
-      "url": "www.codecademy.com",
+      "url": "https://www.codecademy.com",
       "description": "Lessons to teach coding languages using an interactive platform.",
       "free": "Yes, with paid options"
     },
