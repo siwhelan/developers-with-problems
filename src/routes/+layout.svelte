@@ -3,10 +3,12 @@
 	import Navigation from '../components/navigation.svelte';
 	import UserNavBar from '../components/userNavBar.svelte';
 	import Footer from '../components/Footer.svelte';
+	export let data;
+	$: ({ currentUserUsername } = data);
 </script>
 
 <div>
-	<UserNavBar />
+	<UserNavBar {currentUserUsername}/>
 </div>
 <div class="flex flex-col min-h-screen">
 	<div class="flex bg-background text-text">
