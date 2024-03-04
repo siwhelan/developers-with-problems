@@ -10,7 +10,6 @@ export async function load({ locals }) {
 	posts = JSON.parse(JSON.stringify(posts)).reverse().slice(0, 10);
 	events = JSON.parse(JSON.stringify(events));
 	jobs = JSON.parse(JSON.stringify(jobs));
-	return { posts, events, jobs };
 
 	for (let i = 0; i < posts.length; i++) {
 		const post = posts[i];
@@ -32,10 +31,11 @@ export async function load({ locals }) {
 	}
 	return {
 		posts,
+		events,
+		jobs,
 		loggedInUser
 	};
 }
-
 export const actions = {
 	upvote: async ({ locals, request }) => {
 		const { action, postSlug } = await request.json();
