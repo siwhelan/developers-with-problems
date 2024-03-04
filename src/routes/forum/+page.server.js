@@ -4,7 +4,13 @@ export async function load({ locals }) {
 	let posts = await Post.find().lean();
 	posts = JSON.parse(JSON.stringify(posts));
 	posts = posts.reverse().slice(0, 10);
-	let loggedInUser = locals.user.id;
+	let loggedInUser;
+	console.log(locals.user);
+	if (locals.user) {
+		loggedInUser = locals.user.id;
+	} else {
+		loggedInUser = null;
+	}
 
 	return {
 		posts,

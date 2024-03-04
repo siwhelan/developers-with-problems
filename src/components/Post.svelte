@@ -8,6 +8,7 @@
 	export let postUpvotes;
 	export let upvoteNumber;
 	export let loggedInUser;
+	// console.log(loggedInUser);
 
 	let userUpvoted;
 
@@ -34,17 +35,24 @@
 
 <div class="flex flex-row py-5 pr-28 bg-slate-100">
 	<div>
-		{#if !userUpvoted}
+		{#if !userUpvoted && loggedInUser}
 			<div class="flex px-3">
 				<button aria-pressed="false" on:click={() => upvote(userUpvoted)} class="max-h-1">
 					<Upvote />
 				</button>
 				<p class="text-xl py-2">{upvoteNumber}</p>
 			</div>
-		{:else if userUpvoted}
+		{:else if userUpvoted && loggedInUser}
 			<div class="flex px-3">
 				<button aria-pressed="true" on:click={() => upvote(userUpvoted)} class="max-h-1">
 					<Upvoted />
+				</button>
+				<p class="text-xl py-2">{upvoteNumber}</p>
+			</div>
+		{:else}
+			<div class="flex px-3">
+				<button aria-pressed="false" class="max-h-1">
+					<Upvote />
 				</button>
 				<p class="text-xl py-2">{upvoteNumber}</p>
 			</div>

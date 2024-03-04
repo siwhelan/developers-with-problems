@@ -8,17 +8,21 @@ export async function load({ locals, params }) {
 	try {
 		let post = await Post.findById(params.slug).lean();
 		let user = await User.findById(post.userID).lean();
-
 		// Check if post and user exist
 		if (post && user) {
-			let loggedInUser = locals.user.id;
+			let loggedInUser;
+			if (locals.user) {
+				loggedInUser = locals.user.id;
+			} else {
+				loggedInUser = null;
+			}
 
 			post = JSON.parse(JSON.stringify(post));
 			user = JSON.parse(JSON.stringify(user));
 
 			return { post, user, userID, loggedInUser };
 		} else {
-			error(404, 'Post or user not found');
+			console.error('Error fetching post or user:', error);
 		}
 	} catch (error) {
 		console.error('Error fetching post or user:', error);

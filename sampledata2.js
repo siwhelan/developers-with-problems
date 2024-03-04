@@ -48,7 +48,7 @@ async function insertSampleData() {
 
 		// Get the IDs of the inserted users
 		const userIds = [user1._id, user2._id, user3._id];
-
+		console.log(user1._id);
 		// Insert sample resources
 		const insertedResources = await Resource.insertMany([
 			{
@@ -80,8 +80,8 @@ async function insertSampleData() {
 					'Learn how to use React Hooks to manage state and side effects in functional components.',
 				userID: userIds[0],
 				tags: ['react', 'javascript', 'frontend'],
-				upvotes: ['user_id_2', 'user_id_3'],
-				downvotes: [userIds[2]],
+				upvotes: [userIds[2], userIds[3]],
+				downvotes: [],
 				timestamp: new Date()
 			},
 			{
@@ -90,8 +90,8 @@ async function insertSampleData() {
 					'Explore the principles and guidelines for designing RESTful APIs that are scalable, maintainable, and easy to use.',
 				userID: userIds[1],
 				tags: ['api', 'rest', 'backend'],
-				upvotes: ['user_id_1'],
-				downvotes: [userIds[2], userIds[0]],
+				upvotes: [userIds[2]],
+				downvotes: [],
 				timestamp: new Date()
 			},
 			{
@@ -108,19 +108,19 @@ async function insertSampleData() {
 				title: 'Getting Started with Python Data Science',
 				content:
 					'Discover the essential libraries and tools for data science in Python, including NumPy, pandas, and scikit-learn.',
-				userID: 'user_id_1',
+				userID: userIds[1],
 				tags: ['python', 'datascience'],
-				upvotes: ['user_id_3'],
-				downvotes: ['user_id_2'],
+				upvotes: userIds[2],
+				downvotes: [],
 				timestamp: new Date()
 			},
 			{
 				title: 'Securing Your Web Applications',
 				content:
 					'Explore common security vulnerabilities in web applications and best practices for mitigating them, such as XSS, CSRF, and SQL injection.',
-				userID: 'user_id_2',
+				userID: userIds[2],
 				tags: ['security', 'webdev'],
-				upvotes: ['user_id_1', 'user_id_3'],
+				upvotes: [userIds[1], userIds[0]],
 				downvotes: [],
 				timestamp: new Date()
 			}

@@ -7,12 +7,11 @@ export async function load({ locals }) {
 	let loggedInUser;
 	try {
 		loggedInUser = locals.user.id;
-		console.log(loggedInUser);
+		console.log('logged in user', loggedInUser);
 	} catch (error) {
 		console.error('Error getting logged in user:', error);
 		loggedInUser = null;
 	}
-
 	return {
 		posts,
 		loggedInUser
