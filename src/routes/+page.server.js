@@ -1,5 +1,5 @@
 import { Post } from '../lib/models/post.js';
-import { Event } from '../lib/models/Event.js';
+import { Event } from '../lib/models/event.js';
 import { Job } from '../lib/models/Job.js';
 import { User } from '../lib/models/user.js';
 
