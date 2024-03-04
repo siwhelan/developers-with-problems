@@ -1,9 +1,8 @@
 import { User } from '../../lib/models/user.js';
-
+import { generateId } from 'lucia';
 export const actions = {
 	create: async ({ request }) => {
 		const formData = await request.formData();
-		console.log(formData);
 		const username = formData.get('username');
 		const email = formData.get('email');
 		const password = formData.get('password');
@@ -32,7 +31,12 @@ export const actions = {
 		};
 
 		try {
-			await User.create(newUser);
+			await User.create({
+				_id: generateId(15),
+				username: username,
+				email: email,
+				hashed_password: password
+			});
 			console.log('New user added: ', newUser);
 			return {
 				success: true
