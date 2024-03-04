@@ -1,5 +1,13 @@
 ## Page Routes
 
+- **+layout.svelte**
+
+  - **Description:** This defines the layout of every page in the application. Components that are used on every page are passed in. `<slot/>` represents the page content.
+  - **File:** `src/routes/+layout.svelte`
+  - **Current use:** Components passed in: `<UserNavBar />`, `<Navigation {currentUserUsername} />`, `<Footer />`
+  - **Server**
+    - Load - automatically returns the username of the user currently logged in.
+
 - **/**
 
   - **Description:** The home page of the application.
