@@ -20,7 +20,13 @@
 	<p class={sectionStyles}>Name: {profileUser.username}</p>
 	<p class={sectionStyles}>Email: {profileUser.email}</p>
 	<p class={sectionStyles}>Bio: {profileUser.bio || 'placeholder text'}</p>
-	<p class={sectionStyles}>Socials: {profileUser.social || 'placeholder text'}
+	<p class={sectionStyles}>Socials: 
+		{#if (profileUser.social.codewars)}
+		<p>Codewars : <a href="http://www.codewars.com/users/{profileUser.social.codewars}">{profileUser.social.codewars}</a></p>
+		{/if}
+		{#if (profileUser.social.linkedin)}
+		<p>LinkedIn : <a href="http://www.linkedin.com/in/{profileUser.social.linkedin}">{profileUser.social.linkedin}</a></p>
+		{/if}
 		<img src="/share-icon.png" alt="Share" class="w-5 h-5 cursor-pointer" id="socialsIcon" />
 	</p>
 
@@ -29,7 +35,7 @@
 		method="POST"
 		action="?/addSocials"
 		>
-			LinkedIn: <input id="linkedin" name="linkedinUser" value="linkedin.com/in/">
+			LinkedIn: <input id="linkedin" name="linkedinUser" placeholder="username">
 			Codewars: <input id="codewars" name="codewarsUser" placeholder="username">
 			<button type="submit">Add socials</button>
 		</form>
