@@ -1,28 +1,20 @@
 import { User } from '../../../lib/models/user.js';
 import { Post } from '../../../lib/models/post.js';
-const currentUserID = '65e1b501cd8443b943dfa951';
-// import { lucia } from 'lucia';
+let currentUserID;
 
-export const load = async ({ params }) => {
-	// const userSession = async ({ request }) => {
-	// 	// Get the session cookie from the request
-	// 	const sessionCookie = request.cookies.get('auth_session');
-	// 	if (sessionCookie) {
-	// 		// Get the session using the session ID in the cookie
-	// 		const session = await lucia.getSession(sessionCookie);
-	// 		if (session) {
-	// 			// Get the user ID from the session
-	// 			const userId = session.userId;
-	// 			return {
-	// 				status: 200,
-	// 				body: userId
-	// 			};
-	// 		}
-	// 	}
-	// };
-	// const userID = userSession.body;
-	// console.log('userIDbelow');
-	// console.log(userID);
+export const load = async ({ params, locals }) => {
+	currentUserID;
+	try {
+		if (locals.user) {
+			currentUserID = locals.user.id;
+		} else {
+			console.error('User not found in database');
+			currentUserID = null;
+		}
+	} catch (error) {
+		console.error('Error getting logged in user:', error);
+		currentUserID = null;
+	}
 
 	let profileUser = await User.findOne({ username: params.slug });
 	//Checks if the current user is the same as the logged in user
@@ -59,7 +51,15 @@ export const load = async ({ params }) => {
 	//Find the posts by the profileUser._id
 	let posts = await Post.find({ userID: profileUser._id });
 	posts = JSON.parse(JSON.stringify(posts));
-	return { profileUser, myProfile, isFollowing, posts };
+
+	let loggedInUser;
+	if (locals.user) {
+		loggedInUser = locals.user.id;
+	} else {
+		loggedInUser = null;
+	}
+
+	return { profileUser, myProfile, isFollowing, posts, loggedInUser };
 };
 
 export const actions = {

@@ -1,4 +1,5 @@
 <script>
+	export let currentUserUsername;
 	let linkStyles =
 		'block py-2 px-4 bg-primary text-white rounded mb-2 max-w-xs hover:bg-dark text-center';
 </script>
@@ -8,7 +9,9 @@
 	style="outline: 2px solid rgba(128, 128, 128, 0.2);"
 >
 	<a href="/" class={linkStyles}>Home</a>
-	<a href="/profile" class={linkStyles}>My Profile</a>
+	{#if currentUserUsername}
+		<a href="/profile/{currentUserUsername}" class={linkStyles}>My Profile</a>
+	{/if}
 	<a href="/news" class={linkStyles}>News</a>
 	<a href="/forum" class={linkStyles}>Forum</a>
 	<a href="/events" class={linkStyles}>Events</a>

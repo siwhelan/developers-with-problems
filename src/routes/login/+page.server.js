@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import { Lucia, TimeSpan } from 'lucia';
 import { MongodbAdapter } from '@lucia-auth/adapter-mongodb';
 
+// eslint-disable-next-line no-unused-vars
 const Session = mongoose.model(
 	'Session',
 	new mongoose.Schema(
@@ -24,7 +25,7 @@ const Session = mongoose.model(
 		{ _id: false }
 	)
 );
-console.log(Session);
+// console.log(Session);
 // Connect to MongoDB
 const adapter = new MongodbAdapter(
 	mongoose.connection.collection('sessions'),

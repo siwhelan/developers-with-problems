@@ -8,6 +8,9 @@
 	export let events;
 	export let jobs;
 	$: ({ posts, events, jobs } = data);
+	export let currentUserUsername;
+	export let data;
+	$: ({ posts, currentUserUsername } = data);
 
 	let feedChoice = 'forum';
 	// options are forum, dev news, events. Toggling changes what appears in the feed. Default is forum posts
@@ -141,7 +144,10 @@
 					postSlug={post._id}
 					postTitle={post.title}
 					postContent={post.content}
+					postUpvotes={post.upvotes}
 					upvoteNumber={post.upvotes.length}
+					postAuthor={post.author}
+					loggedInUser={data.loggedInUser}
 				/>
 			</div>
 		{/each}

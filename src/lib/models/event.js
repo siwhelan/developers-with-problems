@@ -8,8 +8,8 @@ const EventSchema = new mongoose.Schema({
 	link: String,
 	description: { type: String, required: true },
 	free: { type: Boolean, required: true }, // true is "free", false is "paid"
-	attending: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
-	interested: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
+	attending: [{ type: String, ref: 'User' }],
+	interested: [{ type: String, ref: 'User' }]
 });
 
 export const Event = mongoose.model('Event', EventSchema);
