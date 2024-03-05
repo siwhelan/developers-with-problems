@@ -70,9 +70,30 @@
 				/>
 			</label>
 
-			<button class="bg-primary hover:bg-dark text-white font-bold py-2 px-4 rounded" type="submit">
+			<button
+				class="bg-primary hover:bg-dark text-white text-outline hover:text-outline-hover font-bold py-2 px-4 rounded"
+				type="submit"
+				aria-label="New forum post"
+			>
 				New Post
 			</button>
 		</form>
 	</div>
 </div>
+
+<style>
+	.text-outline {
+		text-shadow:
+			-1px -1px 0 #c83f00,
+			1px -1px 0 #c83f00,
+			-1px 1px 0 #c83f00,
+			1px 1px 0 #c83f00;
+	}
+	.hover\:text-outline-hover:hover {
+		text-shadow:
+			-1px -1px 0 #1a202c,
+			1px -1px 0 #1a202c,
+			-1px 1px 0 #1a202c,
+			1px 1px 0 #1a202c;
+	}
+</style>

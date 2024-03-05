@@ -31,7 +31,9 @@
 				<p class="text-text"><b>Closing date:</b> {formatDate(job.closingDate)}</p>
 				<p class="text-text">
 					<b>Click here to apply:</b>
-					<a href="mailto:your-email@example.com" class="text-primary hover:text-dark">Apply Now</a>
+					<a href="mailto:your-email@example.com" class="text-alttext hover:text-altdark underline"
+						>Apply Now</a
+					>
 				</p>
 			</li>
 		{/each}

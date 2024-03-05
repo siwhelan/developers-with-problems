@@ -8,7 +8,7 @@
 	}
 </script>
 
-<div class="text-left bg-background w-full flex justify-start pb-24">
+<div class="text-left bg-background w-full flex justify-start pb-24 text-outline">
 	<ul class="flex flex-col w-full justify-start">
 		{#each jobs as job}
 			<li
@@ -26,9 +26,22 @@
 				<p class="text-text"><b>Closing date:</b> {formatDate(job.closingDate)}</p>
 				<p class="text-text">
 					<b>Click here to apply:</b>
-					<a href="mailto:your-email@example.com" class="text-primary hover:text-dark">Apply Now</a>
+					<a
+						href="mailto:your-email@example.com"
+						class="text-alttext hover:text-altdark underline text-outline">Apply Now</a
+					>
 				</p>
 			</li>
 		{/each}
 	</ul>
 </div>
+
+<style>
+	.text-outline {
+		text-shadow:
+			-1px -1px 0 #1a202c,
+			1px -1px 0 #1a202c,
+			-1px 1px 0 #1a202c,
+			1px 1px 0 #1a202c;
+	}
+</style>

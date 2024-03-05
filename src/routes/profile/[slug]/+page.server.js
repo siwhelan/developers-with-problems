@@ -52,6 +52,19 @@ export const load = async ({ params, locals }) => {
 	let posts = await Post.find({ userID: profileUser._id });
 	posts = JSON.parse(JSON.stringify(posts));
 
+	//If codewars user exists, get codewars info from api
+
+	let codewarsData;
+	console.log(codewarsData);
+	if (profileUser.social.codewars) {
+		const response = await fetch(
+			`https://www.codewars.com/api/v1/users/${profileUser.social.codewars}`
+		);
+		const result = await response.json();
+		console.log(result);
+		codewarsData = result;
+	}
+
 	let loggedInUser;
 	if (locals.user) {
 		loggedInUser = locals.user.id;
@@ -59,7 +72,7 @@ export const load = async ({ params, locals }) => {
 		loggedInUser = null;
 	}
 
-	return { profileUser, myProfile, isFollowing, posts, loggedInUser };
+	return { profileUser, myProfile, isFollowing, posts, codewarsData, loggedInUser };
 };
 
 export const actions = {
@@ -84,5 +97,32 @@ export const actions = {
 
 		const updatedIsFollowing = !isFollowing;
 		return { success: true, isFollowing: updatedIsFollowing };
+	},
+	addSocials: async ({ request, params }) => {
+		const formData = await request.formData();
+		const codewarsUser = formData.get('codewarsUser');
+		const linkedinUser = formData.get('linkedinUser');
+		const currentUser = await User.findOne({ username: params.slug });
+
+		if (currentUser) {
+			const updateObject = {};
+
+			if (codewarsUser !== '') {
+				updateObject['social.codewars'] = codewarsUser;
+			}
+
+			if (linkedinUser !== '') {
+				updateObject['social.linkedin'] = linkedinUser;
+			}
+
+			const updatedUser = await User.findOneAndUpdate(
+				{ username: params.slug },
+				{ $set: updateObject },
+				{ new: true }
+			);
+
+			console.log(formData);
+			console.log(updatedUser);
+		}
 	}
 };

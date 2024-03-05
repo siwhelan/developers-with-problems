@@ -9,7 +9,10 @@
 
 <div class="pt-16 my-8">
 	<h2 class="text-3xl pb-5 font-bold">Forum</h2>
-	<a class="bg-primary hover:bg-dark text-white py-2 px-4 rounded mr-4" href="/forum/newPost">
+	<a
+		class="bg-primary hover:bg-dark text-white py-2 px-4 rounded mr-4 text-outline hover:text-outline-hover"
+		href="/forum/newPost"
+	>
 		Make a new post
 	</a>
 	<div class="pt-5">
@@ -64,7 +67,23 @@
 </div>
 
 <style>
+
 	.active {
 		background-color: #202937;
+
+	.text-outline {
+		text-shadow:
+			-1px -1px 0 #c83f00,
+			1px -1px 0 #c83f00,
+			-1px 1px 0 #c83f00,
+			1px 1px 0 #c83f00;
+	}
+	.hover\:text-outline-hover:hover {
+		text-shadow:
+			-1px -1px 0 #1a202c,
+			1px -1px 0 #1a202c,
+			-1px 1px 0 #1a202c,
+			1px 1px 0 #1a202c;
+
 	}
 </style>
