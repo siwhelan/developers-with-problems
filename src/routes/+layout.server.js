@@ -25,7 +25,20 @@ export const load = async ({ locals }) => {
 		currentUserUsername = null;
 	}
 
+	//Get codewars challenge
+	let challenge;
+	try {
+		const URL = 'https://www.codewars.com/api/v1/code-challenges/55e7280b40e1c4a06d0000aa';
+		const response = await fetch(URL);
+		const result = await response.json();
+		console.log(result);
+		challenge = result;
+	} catch (err) {
+		console.log(err);
+	}
+
 	return {
-		currentUserUsername
+		currentUserUsername,
+		challenge
 	};
 };

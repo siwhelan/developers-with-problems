@@ -3,8 +3,9 @@
 	import Navigation from '../components/navigation.svelte';
 	import UserNavBar from '../components/userNavBar.svelte';
 	import Footer from '../components/Footer.svelte';
+	import DailyChallenge from '../components/DailyChallenge.svelte';
 	export let data;
-	$: ({ currentUserUsername } = data);
+	$: ({ currentUserUsername, challenge } = data);
 </script>
 
 <div>
@@ -22,7 +23,7 @@
 			style="outline: 2px solid rgba(128, 128, 128, 0.2)"
 		>
 			<p href="/">Highlights Reel</p>
-			<!-- Place any components/content here -->
+			<DailyChallenge {challenge} />
 		</div>
 	</div>
 </div>
