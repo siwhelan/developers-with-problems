@@ -5,13 +5,13 @@ export const load = async ({ locals }) => {
 	try {
 		if (locals.user) {
 			const currentUserID = locals.user.id;
-			console.log(currentUserID);
+			// console.log(currentUserID);
 			// const currentUserID = '123';
 			const currentUser = await User.findOne({ _id: currentUserID });
-			console.log(currentUser);
+			// console.log(currentUser);
 			if (currentUser) {
 				currentUserUsername = currentUser.username;
-				console.log(currentUserUsername);
+				// console.log(currentUserUsername);
 			} else {
 				console.error('User not found in database');
 				currentUserUsername = null;

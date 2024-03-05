@@ -1,6 +1,6 @@
 <script>
 	import { enhance } from '$app/forms';
-
+	let selectedForum;
 	let link = false;
 	function handleOptionChange() {
 		link = !link;
@@ -43,6 +43,13 @@
 				<span class="ml-2">Add Link</span>
 			</label>
 
+			<label for="options">Choose a Forum Category:</label>
+			<select id="forum" name="forum" bind:value={selectedForum}>
+				<option value="general">General Coding</option>
+				<option value="job">Job Hunting/Career Advice</option>
+				<option value="events">Events</option>
+				<option value="news">News</option>
+			</select>
 			{#if link == true}
 				<label class="w-full">
 					<span>Link URL</span>
