@@ -67,10 +67,9 @@
 </div>
 
 <style>
-
 	.active {
 		background-color: #202937;
-
+	}
 	.text-outline {
 		text-shadow:
 			-1px -1px 0 #c83f00,
@@ -84,6 +83,5 @@
 			1px -1px 0 #1a202c,
 			-1px 1px 0 #1a202c,
 			1px 1px 0 #1a202c;
-
 	}
 </style>
