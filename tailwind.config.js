@@ -9,7 +9,8 @@ export default {
 				text: '#646368', // Primary text color
 				dark: '#202937', // Headings or emphasized text
 				alttext: '#C83F00',
-				altdark: '#1a202c'
+				altdark: '#1a202c',
+				altalttext: '#E54800'
 			}
 		}
 	},
