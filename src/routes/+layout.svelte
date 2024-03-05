@@ -3,7 +3,6 @@
 	import Navigation from '../components/navigation.svelte';
 	import UserNavBar from '../components/userNavBar.svelte';
 	import Footer from '../components/Footer.svelte';
-	import NewComment from '../components/NewComment.svelte';
 	export let data;
 	$: ({ currentUserUsername } = data);
 </script>
