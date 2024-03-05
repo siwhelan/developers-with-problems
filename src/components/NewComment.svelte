@@ -32,7 +32,9 @@
 			required
 		></textarea>
 	</div>
-	<button class="bg-primary hover:bg-dark text-white py-2 px-4 rounded-md" type="submit"
-		>Post Response</button
+	<button
+		class="bg-primary hover:bg-dark text-white py-2 px-4 rounded-md"
+		type="submit"
+		aria-label="post response">Post Response</button
 	>
 </form>

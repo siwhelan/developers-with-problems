@@ -40,21 +40,31 @@
 	<div>
 		{#if !userUpvoted && loggedInUser}
 			<div class="flex px-3">
-				<button aria-pressed="false" on:click={() => upvote(userUpvoted)} class="max-h-1">
+				<button
+					aria-pressed="false"
+					on:click={() => upvote(userUpvoted)}
+					class="max-h-1"
+					aria-label="Upvote"
+				>
 					<Upvote />
 				</button>
 				<p class="text-xl py-2">{upvoteNumber}</p>
 			</div>
 		{:else if userUpvoted && loggedInUser}
 			<div class="flex px-3">
-				<button aria-pressed="true" on:click={() => upvote(userUpvoted)} class="max-h-1">
+				<button
+					aria-pressed="true"
+					on:click={() => upvote(userUpvoted)}
+					class="max-h-1"
+					aria-label="upvote"
+				>
 					<Upvoted />
 				</button>
 				<p class="text py-2">{upvoteNumber}</p>
 			</div>
 		{:else}
 			<div class="flex px-3">
-				<button aria-pressed="false" class="max-h-1">
+				<button aria-pressed="false" class="max-h-1" aria-label="upvote">
 					<Upvote />
 				</button>
 				<p class="text-xl py-2">{upvoteNumber}</p>
