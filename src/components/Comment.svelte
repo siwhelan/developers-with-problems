@@ -29,7 +29,7 @@
 </script>
 
 <article
-	class="p-6 text-base bg-background shadow-sm border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900"
+	class="p-6 text-base bg-background shadow-sm border-t border-gray-200 dark:border-gray-700 dark:bg-gray-800"
 >
 	<footer class="flex justify-between items-center mb-2">
 		<div class="flex items-center">
@@ -43,7 +43,8 @@
 		<button
 			id="dropdownComment4Button"
 			data-dropdown-toggle="dropdownComment4"
-			class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-800 dark:text-gray-40 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+			aria-label="edit comment"
+			class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-800 dark:text-gray-40 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
 			type="button"
 		>
 			<svg
