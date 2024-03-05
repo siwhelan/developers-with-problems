@@ -1,0 +1,56 @@
+[
+	{
+		"name": "Codecademy",
+		"url": "https://www.codecademy.com",
+		"description": "Lessons to teach coding languages using an interactive platform.",
+		"free": "Yes, with paid options"
+	},
+	{
+		"name": "CS50",
+		"url": "https://www.edx.org/cs50",
+		"description": "Computer Science Video lectures by Harvard University.",
+		"free": "Yes."
+	},
+	{
+		"name": "Roadmap",
+		"url": "https://roadmap.sh/",
+		"description": "Roadmaps with recommended learning paths for specific roles.",
+		"free": "Yes."
+	},
+	{
+		"name": "Scrimba - Learn React",
+		"url": "https://scrimba.com/learn/learnreact",
+		"description": "Interactive React tutorial for complete beginners.",
+		"free": "Yes."
+	},
+	{
+		"name": "Full Stack Open",
+		"url": "https://fullstackopen.com/en/",
+		"description": "Introduction to modern web application development with JavaScript.",
+		"free": "Yes."
+	},
+	{
+		"name": "Awesome Git",
+		"url": "https://github.com/dictcp/awesome-git",
+		"description": "List of resources to learn Git",
+		"free": "Yes."
+	},
+	{
+		"name": "GitHub CheatSheet",
+		"url": "  https://github.com/tiimgreen/github-cheat-sheet",
+		"description": "List of resources to learn GitHub features",
+		"free": "Yes."
+	},
+	{
+		"name": "OSSU",
+		"url": "https://github.com/ossu/computer-science",
+		"description": "Free learning similar to what may be taught in a Computer Science Degree.",
+		"free": "Yes."
+	},
+	{
+		"name": "FreeCodeCamp",
+		"url": "https://www.freecodecamp.org/",
+		"description": "Free learning with certifications.",
+		"free": "Yes."
+	}
+]
