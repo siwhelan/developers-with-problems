@@ -1,7 +1,5 @@
 <script>
-	// export let posts;
-	export let data;
-	$: ({ jobs } = data);
+	export let jobs = [];
 
 	// function to format the date
 	function formatDate(dateString) {
@@ -10,15 +8,12 @@
 	}
 </script>
 
-<div class="pt-24">
-	<h2 class="text-3xl font-bold pb-2">Careers</h2>
-</div>
-<div class="text-left bg-background w-full flex justify-start">
+<div class="text-left bg-background w-full flex justify-start pb-24">
 	<ul class="flex flex-col w-full justify-start">
 		{#each jobs as job}
 			<li
 				key={job._id}
-				class="my-8 p-4 rounded-lg shadow-md max-w-2xl relative text-dark"
+				class="my-2 p-4 rounded-lg shadow-md max-w-2xl relative text-dark"
 				style="min-height: 200px;"
 			>
 				<h2 class="text-text"><b>Title:</b> {job.title}</h2>

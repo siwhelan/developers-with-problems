@@ -9,11 +9,11 @@
 	};
 </script>
 
-<div class="pt-3 text-center">
+<div class="pt-3 mr-12 text-center">
 	{#if success}
 		<SignUpSuccess />
 	{:else}
-		<h1 class="text-2xl font-bold mb-4">Sign Up To DWP</h1>
+		<h1 class="my-24 text-2xl text-text font-bold mb-4">Sign Up To DWP</h1>
 		<form
 			class="max-w-md mx-auto p-4 bg-white shadow-md"
 			method="POST"
@@ -98,7 +98,7 @@
 
 			{#if errorMessage}<p class="text-red-500">{errorMessage}</p>{/if}
 			<button
-				class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+				class="bg-primary hover:bg-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
 				type="submit">Sign Up</button
 			>
 		</form>

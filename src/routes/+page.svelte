@@ -1,9 +1,11 @@
 <script>
 	import News from '../components/News.svelte';
 	import PostLink from '../components/PostLink.svelte';
+	import EventsList from '../components/EventsList.svelte';
+	import CareersList from '../components/CareersList.svelte';
 
 	export let data;
-	$: ({ posts } = data);
+	$: ({ posts, events, jobs } = data); // unused var commented out for lint = currentUserUsername
 
 	let feedChoice = 'forum';
 	// options are forum, dev news, events. Toggling changes what appears in the feed. Default is forum posts
@@ -12,7 +14,7 @@
 <div class="px-5 pt-10 flex flex-col">
 	<!-- placeholder icon to test out how a logo with the name looks -->
 	<div class="flex pb-10 h-24 leading-5">
-		<svg
+		<!-- <svg
 			height="75"
 			width="75"
 			version="1.1"
@@ -75,49 +77,58 @@
 						></path>
 					</g>
 				</g>
-			</g></svg
-		>
-		<h1 class="text-4xl pt-4 px-2">Developers With Problems</h1>
+			</g></svg -->
+		<h1 class="mb-4 text-3xl font-extrabold text-dark dark:text-white md:text-5xl lg:text-6xl">
+			<span class="text-transparent bg-clip-text bg-gradient-to-r from-dark to-primary">
+				<span></span>Developers with</span
+			> Problems
+		</h1>
 	</div>
 	<div class="max-w-48 ml-auto mr-0">
 		<a
 			href="/forum/newPost"
 			type="button"
-			class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+			class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary focus:outline-none dark:focus:ring-blue-800"
 			>New Forum Post</a
 		>
 	</div>
 	<!-- </a> -->
-	<p class="text-2xl">Most recent activity</p>
-	<div class="flex-row">
+	<div>
+		<h2 class="text-3xl font-bold pb-2">Most Recent Activity</h2>
+	</div>
+	<div class="flex-row py-4">
 		<button
 			class:active={feedChoice === 'forum'}
 			on:click={() => (feedChoice = 'forum')}
 			type="button"
-			class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-			>Forum posts</button
+			class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary focus:outline-none dark:focus:ring-blue-800"
+			>Forum Posts</button
 		>
 
 		<button
 			class:active={feedChoice === 'devNews'}
 			on:click={() => (feedChoice = 'devNews')}
 			type="button"
-			class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+			class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-accent font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-dark dark:hover:bg-primary focus:outline-none dark:focus:ring-accent"
 			>Dev News</button
 		>
 		<button
+			class:active={feedChoice === 'events'}
+			on:click={() => (feedChoice = 'events')}
 			type="button"
-			class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+			class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary focus:outline-none dark:focus:ring-blue-800"
 			>Events</button
 		>
 		<button
+			class:active={feedChoice === 'jobs'}
+			on:click={() => (feedChoice = 'jobs')}
 			type="button"
-			class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+			class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary focus:outline-none dark:focus:ring-blue-800"
 			>Recent Jobs</button
 		>
 		<!-- <button
 			type="button"
-			class="text-white bg-purple-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+			class="text-white bg-purple-700 hover:bg-dark focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary focus:outline-none dark:focus:ring-blue-800"
 			>Purple</button
 		> -->
 	</div>
@@ -128,7 +139,10 @@
 					postSlug={post._id}
 					postTitle={post.title}
 					postContent={post.content}
+					postUpvotes={post.upvotes}
 					upvoteNumber={post.upvotes.length}
+					postAuthor={post.author}
+					loggedInUser={data.loggedInUser}
 				/>
 			</div>
 		{/each}
@@ -138,10 +152,16 @@
 			<News />
 		</div>
 	{/if}
+	{#if feedChoice == 'events'}
+		<EventsList {events} />
+	{/if}
+	{#if feedChoice == 'jobs'}
+		<CareersList {jobs} />
+	{/if}
 </div>
 
 <style>
 	.active {
-		background-color: rgb(30 58 138 / var(--tw-bg-opacity));
+		background-color: #202937;
 	}
 </style>

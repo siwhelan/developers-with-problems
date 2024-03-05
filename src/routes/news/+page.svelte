@@ -33,39 +33,57 @@
 	});
 </script>
 
-<div class="flex justify-center items-center">
-	<main class="text-center">
-		<h1 class="font-bold underline">Top Tech News Stories</h1>
-		<br />
-		<h2 class="font-bold underline">Hacker News Top Stories</h2>
-		<br />
-		{#if topStories.length > 0}
-			<ul>
-				{#each topStories as story}
-					<li>
-						<a href={story.url} target="_blank" rel="noopener noreferrer">{story.title}</a>
-						<!-- by {story.by} ## OPTIONAL ## -->
-					</li>
-				{/each}
-				<br />
-			</ul>
-		{:else}
-			<p>Loading top stories from Hacker News...</p>
-		{/if}
+<div class="pt-24">
+	<h2 class="text-3xl font-bold">News</h2>
+</div>
+<div class="flex justify-left items-left">
+	<main class="text-left">
+		<div class="my-4 p-4 max-w-2xl mx-auto relative text-dark text-ellipsis overflow-hidden ...">
+			<h2 class="font-extrabold underline text-text">Hacker News Top Stories</h2>
+			{#if topStories.length > 0}
+				<ul class="list-inside mt-4">
+					{#each topStories as story, i (story.id)}
+						<li class="mt-2">
+							<a
+								href={story.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="text-text hover:text-primary">🔗 {story.title}</a
+							>
+						</li>
+						{#if i < topStories.length - 1}
+							<hr class="my-2" />
+						{/if}
+					{/each}
+				</ul>
+			{:else}
+				<p>Loading top stories from Hacker News...</p>
+			{/if}
+		</div>
 
-		<h2 class="font-bold underline">Reddit /r/technology Top Posts</h2>
-		<br />
-		{#if topRedditPosts.length > 0}
-			<ul>
-				{#each topRedditPosts as post}
-					<li>
-						<a href={post.url} target="_blank" rel="noopener noreferrer">{post.title}</a>
-						<!-- by {post.author} ## OPTIONAL ## -->
-					</li>
-				{/each}
-			</ul>
-		{:else}
-			<p>Loading top posts from Reddit...</p>
-		{/if}
+		<div class="my-4 p-4 max-w-2xl mx-auto relative text-dark text-ellipsis overflow-hidden ...">
+			<h2 class="font-extrabold underline text-text text-ellipsis overflow-hidden ...">
+				Reddit /r/technology Top Posts
+			</h2>
+			{#if topRedditPosts.length > 0}
+				<ul class="list-inside mt-4">
+					{#each topRedditPosts as post, i (post.id)}
+						<li class="mt-2">
+							<a
+								href={post.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="text-text hover:text-primary">🔗 {post.title}</a
+							>
+						</li>
+						{#if i < topRedditPosts.length - 1}
+							<hr class="my-2" />
+						{/if}
+					{/each}
+				</ul>
+			{:else}
+				<p>Loading top posts from Reddit...</p>
+			{/if}
+		</div>
 	</main>
 </div>

@@ -8,16 +8,17 @@
 	$: data;
 </script>
 
-<div class="pt-16">
+<div class="pt-16 my-12">
 	<Post
 		postAuthor={data.user.username}
 		postTitle={data.post.title}
 		postContent={data.post.content}
 		upvoteNumber={data.post.upvotes.length}
 		postUpvotes={data.post.upvotes}
+		loggedInUser={data.loggedInUser}
 	/>
 	<div class="flex justify-between items-center mb-6">
-		<h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Discussion</h2>
+		<h2 class="text-lg mt-8 font-semibold lg:text-2xl text-text dark:text-white">Discussion</h2>
 	</div>
 	<NewComment />
 	{#each data.commentsWithAuthors as comment}

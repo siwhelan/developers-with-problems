@@ -3,37 +3,17 @@ import { User } from '../../../../lib/models/user.js';
 import { Comment } from '../../../../lib/models/comment.js';
 import { error, redirect, fail } from '@sveltejs/kit';
 
-export async function load({ params, cookies }) {
+
+import { error } from '@sveltejs/kit';
+export async function load({ locals, params }) {
+
 	let userID = '';
 
-	// Retrieve the session cookie
-	const sessionCookie = cookies.get('session');
-
-	if (sessionCookie) {
-		try {
-			//TODO
-			// Fetch the session using Lucia
-			// const { session, user } = await lucia.validateSession(sessionCookie);
-			// const session = await adapter.getSessionAndUser(sessionCookie);
-			// console.log('session');
-			// console.log(event.locals);
-			// console.log(session);
-			// if (session) {
-			// 	// Get the user ID from the session
-			// 	userID = session.userId;
-			// }
-		} catch (error) {
-			console.error('Error retrieving session:', error);
-		}
-	}
-	console.log(userID);
-
-	// Fetch post and user data
 	try {
 		let post = await Post.findById(params.slug).lean();
 		let user = await User.findById(post.userID).lean();
-		let comments = await Comment.find({ postID: params.slug }).lean();
 
+		let comments = await Comment.find({ postID: params.slug }).lean();
 		let commentAuthors = [];
 		for (let comment of comments) {
 			let commentAuthor = await User.findById(comment.userID).lean();
@@ -46,15 +26,24 @@ export async function load({ params, cookies }) {
 				author: commentAuthors[index]
 			};
 		});
+
 		// Check if post and user exist
 		if (post && user) {
-			// Convert to plain JSON objects
+			let loggedInUser;
+			if (locals.user) {
+				loggedInUser = locals.user.id;
+			} else {
+				loggedInUser = null;
+			}
+
 			post = JSON.parse(JSON.stringify(post));
 			user = JSON.parse(JSON.stringify(user));
+
 			commentsWithAuthors = JSON.parse(JSON.stringify(commentsWithAuthors)).reverse();
-			return { post, user, userID, commentsWithAuthors };
+			return { post, user, userID, commentsWithAuthors, loggedInUser };
+
 		} else {
-			error(404, 'Post or user not found');
+			console.error('Error fetching post or user:', error);
 		}
 	} catch (error) {
 		console.error('Error fetching post or user:', error);
@@ -63,6 +52,7 @@ export async function load({ params, cookies }) {
 }
 
 export const actions = {
+
 	create: async ({ locals, request, params }) => {
 		const formData = await request.formData();
 		const commentContent = formData.get('textContent');
@@ -79,5 +69,17 @@ export const actions = {
 
 		console.log('New comment added');
 		throw redirect(303, '/forum');
+  }
+	upvote: async ({ locals, params, request }) => {
+		const upvoted = await request.json();
+		let post = await Post.findById(params.slug);
+		let loggedInUser = locals.user.id;
+		if (upvoted.action == false) {
+			post.upvotes.push(loggedInUser);
+		} else {
+			post.upvotes = post.upvotes.filter((like) => like.toString() !== loggedInUser);
+		}
+		await post.save();
+
 	}
 };

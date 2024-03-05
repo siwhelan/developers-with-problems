@@ -11,7 +11,7 @@ const JobSchema = new mongoose.Schema({
 	timestamp: { type: Date, default: Date.now },
 	// add 28 days on to the timestamped  date
 	closingDate: { type: Date, default: () => new Date(+new Date() + 28 * 24 * 60 * 60 * 1000) },
-	userID: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
+	userID: { type: String, ref: 'User', required: true }
 });
 
 export const Job = mongoose.model('Job', JobSchema);
