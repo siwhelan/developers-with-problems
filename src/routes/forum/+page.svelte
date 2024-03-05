@@ -13,7 +13,6 @@
 	</a>
 	<ul class="my-8 text-left py-4 pt-3 bg-background w-full flex flex-col justify-start">
 		{#each posts as post}
-
 			<!-- <li key={post._id}> -->
 			<PostLink
 				postSlug={post._id}
@@ -27,7 +26,6 @@
 			<!-- <h2>{post.title}</h2>
 				<p>{post.content}</p> -->
 			<!-- </li> -->
-
 		{/each}
 	</ul>
 </div>

@@ -1,7 +1,6 @@
 import { Post } from '../../lib/models/post.js';
 import { User } from '../../lib/models/user.js';
 
-
 export async function load({ locals }) {
 	let posts = await Post.find().lean();
 	posts = JSON.parse(JSON.stringify(posts));
@@ -19,7 +18,6 @@ export async function load({ locals }) {
 	} else {
 		loggedInUser = null;
 	}
-
 
 	return {
 		posts,
