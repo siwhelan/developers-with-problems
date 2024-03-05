@@ -51,17 +51,19 @@ export const actions = {
 				secure_url: uploadResult.secure_url
 			};
 
+			// ... your existing code ...
+
 			console.log('Cloudinary URL:', result.secure_url);
 
-			// Check if user is defined in request.locals
-			if (request.locals.user) {
-				// Get the user's ID from request.locals
-				const userId = request.locals.user.id;
+			let loggedInUser;
+			if (locals.user) {
+				loggedInUser = locals.user.id;
 
 				// Update the user's document in MongoDB
-				await User.findByIdAndUpdate(userId, { avatar: result.secure_url });
+				await User.findByIdAndUpdate(loggedInUser, { avatar: result.secure_url });
+				console.log('User avatar updated in MongoDB');
 			} else {
-				console.error('User is not defined in request.locals');
+				console.error('User is not defined in locals');
 			}
 
 			return result;
