@@ -1,22 +1,24 @@
 <script>
 	export let currentUserUsername;
 	let linkStyles =
-		'block py-2 px-4 bg-primary text-white rounded mb-2 max-w-xs hover:bg-dark text-center';
+		'block py-2 px-4 bg-primary text-white rounded mb-2 max-w-xs text-center text-outline';
+	let hoverStyles =
+		'hover:bg-dark hover:text-outline-hover';
 </script>
 
 <div
 	class="menu-container bg-background my-24 rounded-lg outline-black p-5 m-10 max-w-xs"
 	style="outline: 2px solid rgba(128, 128, 128, 0.2);"
 >
-	<a href="/" class={linkStyles}>Home</a>
+	<a href="/" class="{linkStyles} {hoverStyles}">Home</a>
 	{#if currentUserUsername}
-		<a href="/profile/{currentUserUsername}" class={linkStyles}>My Profile</a>
+		<a href="/profile/{currentUserUsername}" class="{linkStyles} {hoverStyles}">My Profile</a>
 	{/if}
-	<a href="/news" class={linkStyles}>News</a>
-	<a href="/forum" class={linkStyles}>Forum</a>
-	<a href="/events" class={linkStyles}>Events</a>
-	<a href="/careers" class={linkStyles}>Careers</a>
-	<a href="/learning-resources" class={linkStyles}>Learning</a>
+	<a href="/news" class="{linkStyles} {hoverStyles}">News</a>
+	<a href="/forum" class="{linkStyles} {hoverStyles}">Forum</a>
+	<a href="/events" class="{linkStyles} {hoverStyles}">Events</a>
+	<a href="/careers" class="{linkStyles} {hoverStyles}">Careers</a>
+	<a href="/learning-resources" class="{linkStyles} {hoverStyles}">Learning</a>
 	<!-- <a href="/settings" class={linkStyles}>Settings</a> -->
 	<!-- Logout will be at the top of the page -->
 </div>
@@ -26,4 +28,11 @@
 		width: 200px; /* fixed width */
 		height: 320px; /* fixed height */
 	}
+	.text-outline {
+		text-shadow: -1px -1px 0 #C83F00, 1px -1px 0 #C83F00, -1px 1px 0 #C83F00, 1px 1px 0 #C83F00;
+	}
+	.hover\:text-outline-hover:hover {
+        text-shadow: -1px -1px 0 #1a202c, 1px -1px 0 #1a202c, -1px 1px 0 #1a202c, 1px 1px 0 #1a202c;
+    }
+
 </style>

@@ -88,7 +88,7 @@
 		<a
 			href="/forum/newPost"
 			type="button"
-			class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary focus:outline-none dark:focus:ring-blue-800"
+			class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary focus:outline-none dark:focus:ring-blue-800 text-outline hover:text-outline-hover"
 			>New Forum Post</a
 		>
 	</div>
@@ -102,7 +102,7 @@
 			on:click={() => (feedChoice = 'forum')}
 			type="button"
 			aria-label="Forum Posts"
-			class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary focus:outline-none dark:focus:ring-blue-800"
+			class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary focus:outline-none dark:focus:ring-blue-800 text-outline hover:text-outline-hover"
 			>Forum Posts</button
 		>
 
@@ -111,7 +111,7 @@
 			on:click={() => (feedChoice = 'devNews')}
 			type="button"
 			aria-label="Dev News"
-			class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-accent font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-dark dark:hover:bg-primary focus:outline-none dark:focus:ring-accent"
+			class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-accent font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-dark dark:hover:bg-primary focus:outline-none dark:focus:ring-accent text-outline hover:text-outline-hover"
 			>Dev News</button
 		>
 		<button
@@ -119,7 +119,7 @@
 			on:click={() => (feedChoice = 'events')}
 			type="button"
 			aria-label="Events"
-			class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary focus:outline-none dark:focus:ring-blue-800"
+			class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary focus:outline-none dark:focus:ring-blue-800 text-outline hover:text-outline-hover"
 			>Events</button
 		>
 		<button
@@ -127,12 +127,12 @@
 			on:click={() => (feedChoice = 'jobs')}
 			type="button"
 			aria-label="Recent Jobs"
-			class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary focus:outline-none dark:focus:ring-blue-800"
+			class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary focus:outline-none dark:focus:ring-blue-800 text-outline hover:text-outline-hover"
 			>Recent Jobs</button
 		>
 		<!-- <button
 			type="button"
-			class="text-white bg-purple-700 hover:bg-dark focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary focus:outline-none dark:focus:ring-blue-800"
+			class="text-white bg-purple-700 hover:bg-dark focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary focus:outline-none dark:focus:ring-blue-800 text-outline hover:text-outline-hover"
 			>Purple</button
 		> -->
 	</div>
@@ -165,7 +165,15 @@
 </div>
 
 <style>
+	.text-outline {
+		text-shadow: -1px -1px 0 #C83F00, 1px -1px 0 #C83F00, -1px 1px 0 #C83F00, 1px 1px 0 #C83F00;
+	}
 	.active {
 		background-color: #202937;
+		text-shadow: -1px -1px 0 #1a202c, 1px -1px 0 #1a202c, -1px 1px 0 #1a202c, 1px 1px 0 #1a202c;
 	}
+	.hover\:text-outline-hover:hover {
+        text-shadow: -1px -1px 0 #1a202c, 1px -1px 0 #1a202c, -1px 1px 0 #1a202c, 1px 1px 0 #1a202c;
+    }
+
 </style>
