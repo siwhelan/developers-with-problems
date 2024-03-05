@@ -75,10 +75,10 @@
 	<!-- upvote and comment icon to be added -->
 	<a href={`/forum/post/${postSlug}`}>
 		<div>
-			<h2 class="text-2xl pb-2">{postTitle}</h2>
+			<h2 class="text-xl font-bold pb-2 text-primary">{postTitle}</h2>
 			<p class=" pb-3">{postContent}</p>
 			<a href="/profile/{postAuthor}">{postAuthor}</a>
 		</div>
 	</a>
 </div>
-<div class="pb-2"></div>
+<div class="pb-12"></div>

@@ -7,6 +7,9 @@
 	export let postAuthor;
 	export let postUpvotes;
 	export let upvoteNumber;
+
+	// let userID = '';
+
 	export let loggedInUser;
 	// console.log(loggedInUser);
 

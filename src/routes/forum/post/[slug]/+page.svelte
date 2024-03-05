@@ -4,6 +4,7 @@
 	import Post from '../../../../components/Post.svelte';
 
 	export let data;
+
 	$: data;
 </script>
 
@@ -20,5 +21,11 @@
 		<h2 class="text-lg mt-8 font-semibold lg:text-2xl text-text dark:text-white">Discussion</h2>
 	</div>
 	<NewComment />
-	<Comment />
+	{#each data.commentsWithAuthors as comment}
+		<Comment
+			commentContent={comment.content}
+			commentTime={comment.timestamp}
+			commentUser={comment.author.username}
+		/>
+	{/each}
 </div>
