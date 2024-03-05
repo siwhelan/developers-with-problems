@@ -1,5 +1,4 @@
 <script>
-	import { comment } from 'postcss';
 	import Comment from '../../../../components/Comment.svelte';
 	import NewComment from '../../../../components/NewComment.svelte';
 	import Post from '../../../../components/Post.svelte';

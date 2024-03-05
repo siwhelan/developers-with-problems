@@ -79,7 +79,7 @@
 			body: JSON.stringify({ action })
 		});
 		if (userDownvoted == true) {
-			postDownvotes = commentDownvotes.filter((like) => like.toString() !== loggedInUser);
+			commentDownvotes = commentDownvotes.filter((like) => like.toString() !== loggedInUser);
 			// console.log('downvote removed', postDownvotes);
 		} else {
 			commentDownvotes.push(loggedInUser);
