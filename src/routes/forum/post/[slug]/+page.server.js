@@ -3,10 +3,7 @@ import { User } from '../../../../lib/models/user.js';
 import { Comment } from '../../../../lib/models/comment.js';
 import { error, redirect, fail } from '@sveltejs/kit';
 
-
-import { error } from '@sveltejs/kit';
 export async function load({ locals, params }) {
-
 	let userID = '';
 
 	try {
@@ -41,7 +38,6 @@ export async function load({ locals, params }) {
 
 			commentsWithAuthors = JSON.parse(JSON.stringify(commentsWithAuthors)).reverse();
 			return { post, user, userID, commentsWithAuthors, loggedInUser };
-
 		} else {
 			console.error('Error fetching post or user:', error);
 		}
@@ -52,7 +48,6 @@ export async function load({ locals, params }) {
 }
 
 export const actions = {
-
 	create: async ({ locals, request, params }) => {
 		const formData = await request.formData();
 		const commentContent = formData.get('textContent');
@@ -69,7 +64,7 @@ export const actions = {
 
 		console.log('New comment added');
 		throw redirect(303, '/forum');
-  }
+	},
 	upvote: async ({ locals, params, request }) => {
 		const upvoted = await request.json();
 		let post = await Post.findById(params.slug);
@@ -80,6 +75,5 @@ export const actions = {
 			post.upvotes = post.upvotes.filter((like) => like.toString() !== loggedInUser);
 		}
 		await post.save();
-
 	}
 };
