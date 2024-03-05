@@ -53,9 +53,9 @@
 				postTitle={post.title}
 				postContent={post.content}
 				postUpvotes={post.upvotes}
-				upvoteNumber={post.upvotes.length}
 				postAuthor={post.author}
 				loggedInUser={data.loggedInUser}
+				postDownvotes={post.downvotes}
 			/>
 		{/each}
 	</ul>

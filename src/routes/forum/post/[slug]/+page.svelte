@@ -11,6 +11,7 @@
 <div class="pt-16 my-12">
 	<Post
 		postAuthor={data.user.username}
+		postId={data.post._id}
 		postTitle={data.post.title}
 		postContent={data.post.content}
 		upvoteNumber={data.post.upvotes.length}

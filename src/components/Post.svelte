@@ -3,28 +3,19 @@
 	import Upvoted from './upvoted.svelte';
 	import Downvote from './downvote.svelte';
 	import Downvoted from './downvoted.svelte';
-
+	export let postId;
 	export let postTitle;
 	export let postContent;
 	export let postAuthor;
 	export let postUpvotes;
-	export let upvoteNumber;
 	export let postDownvotes;
-	export let downvoteNumber;
 
 	export let loggedInUser;
-
+	console.log('postId', postId);
 	console.log('postupvotes', postUpvotes);
 	console.log('postdownvotes', postDownvotes);
 	let userUpvoted;
 	let userDownvoted;
-
-	let downvotes = postDownvotes.length;
-	let upvotes = postUpvotes.length;
-	function updateUpandDownVotes(upvotes, downvotes) {
-		upvotes = postUpvotes.length;
-		downvotes = postDownvotes.length;
-	}
 
 	//changes page state based on whether user has upvoted
 	if (postUpvotes.includes(loggedInUser)) {
@@ -40,7 +31,7 @@
 	}
 
 	async function upvote(action) {
-		await fetch('?/upvote', {
+		await fetch(`/api/post/${postId}?/upvote`, {
 			method: 'POST',
 			body: JSON.stringify({ action })
 		});
@@ -57,11 +48,10 @@
 			console.log('upvoted, postupvotes', postUpvotes);
 		}
 		userUpvoted = !userUpvoted;
-		updateUpandDownVotes();
 	}
 
 	async function downvote(action) {
-		await fetch('?/downvote', {
+		await fetch(`/api/post/${postId}?/downvote`, {
 			method: 'POST',
 			body: JSON.stringify({ action })
 		});
@@ -78,61 +68,60 @@
 			console.log('downvote added', postDownvotes);
 		}
 		userDownvoted = !userDownvoted;
-		updateUpandDownVotes();
 	}
-
-	//append to postUpvote
-	//class
 </script>
 
 <div class="flex flex-row py-5 pr-28 bg-background rounded shadow-md relative">
-	<div>
-		{#if !userUpvoted && loggedInUser}
-			<div class="flex px-3">
-				<button aria-pressed="false" on:click={() => upvote(userUpvoted)} class="max-h-1">
-					<Upvote />
-				</button>
-				<p class="text-xl py-2">{upvotes}</p>
-			</div>
-		{:else if userUpvoted && loggedInUser}
-			<div class="flex px-3">
-				<button aria-pressed="true" on:click={() => upvote(userUpvoted)} class="max-h-1">
-					<Upvoted />
-				</button>
-				<p class="text py-2">{upvotes}</p>
-			</div>
-		{:else}
-			<div class="flex px-3">
-				<button aria-pressed="false" class="max-h-1">
-					<Upvote />
-				</button>
-				<p class="text-xl py-2">{upvotes}</p>
-			</div>
-		{/if}
-		{#if !userDownvoted && loggedInUser}
-			<div class="flex px-3">
-				<button aria-pressed="false" on:click={() => downvote(userDownvoted)} class="max-h-1">
-					<Downvote />
-				</button>
-				<p class="text-xl py-2">{downvotes}</p>
-			</div>
-		{:else if userDownvoted && loggedInUser}
-			<div class="flex px-3">
-				<button aria-pressed="true" on:click={() => downvote(userDownvoted)} class="max-h-1">
-					<Downvoted />
-				</button>
-				<p class="text py-2">{downvotes}</p>
-			</div>
-		{:else}
-			<div class="flex px-3">
-				<button aria-pressed="false" class="max-h-1">
-					<Downvote />
-				</button>
-				<p class="text-xl py-2">{downvotes}</p>
-			</div>
-		{/if}
+	<div class="mr-1">
+		<div class="w-20 h-14">
+			{#if !userUpvoted && loggedInUser}
+				<div class="flex px-3">
+					<button aria-pressed="false" on:click={() => upvote(userUpvoted)} class="max-h-1">
+						<Upvote />
+					</button>
+					<p class="text-xl py-2">{postUpvotes.length}</p>
+				</div>
+			{:else if userUpvoted && loggedInUser}
+				<div class="flex px-3">
+					<button aria-pressed="true" on:click={() => upvote(userUpvoted)} class="max-h-1">
+						<Upvoted />
+					</button>
+					<p class="text py-2">{postUpvotes.length}</p>
+				</div>
+			{:else}
+				<div class="flex px-3">
+					<button aria-pressed="false" class="max-h-1">
+						<Upvote />
+					</button>
+					<p class="text-xl py-2">{postUpvotes.length}</p>
+				</div>
+			{/if}
+		</div>
+		<div class="w-20 h-14">
+			{#if !userDownvoted && loggedInUser}
+				<div class="flex px-3">
+					<button aria-pressed="false" on:click={() => downvote(userDownvoted)} class="max-h-1">
+						<Downvote />
+					</button>
+					<p class="text-xl py-2">{postDownvotes.length}</p>
+				</div>
+			{:else if userDownvoted && loggedInUser}
+				<div class="flex px-3">
+					<button aria-pressed="true" on:click={() => downvote(userDownvoted)} class="max-h-1">
+						<Downvoted />
+					</button>
+					<p class="text py-2">{postDownvotes.length}</p>
+				</div>
+			{:else}
+				<div class="flex px-3">
+					<button aria-pressed="false" class="max-h-1">
+						<Downvote />
+					</button>
+					<p class="text-xl py-2">{postDownvotes.length}</p>
+				</div>
+			{/if}
+		</div>
 	</div>
-	<!-- upvote and comment icon to be added -->
 	<div>
 		<h2 class="text-xl font-bold pb-1 text-primary">{postTitle}</h2>
 		<p class="font-bold"><a href="/profile/{postAuthor}">{postAuthor}</a></p>
