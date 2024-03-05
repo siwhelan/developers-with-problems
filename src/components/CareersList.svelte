@@ -26,7 +26,10 @@
 				<p class="text-text"><b>Closing date:</b> {formatDate(job.closingDate)}</p>
 				<p class="text-text">
 					<b>Click here to apply:</b>
-					<a href="mailto:your-email@example.com" class="text-alttext hover:text-altdark underline text-outline">Apply Now</a>
+					<a
+						href="mailto:your-email@example.com"
+						class="text-alttext hover:text-altdark underline text-outline">Apply Now</a
+					>
 				</p>
 			</li>
 		{/each}
@@ -35,6 +38,10 @@
 
 <style>
 	.text-outline {
-		text-shadow: -1px -1px 0 #1a202c, 1px -1px 0 #1a202c, -1px 1px 0 #1a202c, 1px 1px 0 #1a202c;
+		text-shadow:
+			-1px -1px 0 #1a202c,
+			1px -1px 0 #1a202c,
+			-1px 1px 0 #1a202c,
+			1px 1px 0 #1a202c;
 	}
 </style>

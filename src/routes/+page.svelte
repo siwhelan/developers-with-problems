@@ -166,14 +166,25 @@
 
 <style>
 	.text-outline {
-		text-shadow: -1px -1px 0 #C83F00, 1px -1px 0 #C83F00, -1px 1px 0 #C83F00, 1px 1px 0 #C83F00;
+		text-shadow:
+			-1px -1px 0 #c83f00,
+			1px -1px 0 #c83f00,
+			-1px 1px 0 #c83f00,
+			1px 1px 0 #c83f00;
 	}
 	.active {
 		background-color: #202937;
-		text-shadow: -1px -1px 0 #1a202c, 1px -1px 0 #1a202c, -1px 1px 0 #1a202c, 1px 1px 0 #1a202c;
+		text-shadow:
+			-1px -1px 0 #1a202c,
+			1px -1px 0 #1a202c,
+			-1px 1px 0 #1a202c,
+			1px 1px 0 #1a202c;
 	}
 	.hover\:text-outline-hover:hover {
-        text-shadow: -1px -1px 0 #1a202c, 1px -1px 0 #1a202c, -1px 1px 0 #1a202c, 1px 1px 0 #1a202c;
-    }
-
+		text-shadow:
+			-1px -1px 0 #1a202c,
+			1px -1px 0 #1a202c,
+			-1px 1px 0 #1a202c,
+			1px 1px 0 #1a202c;
+	}
 </style>

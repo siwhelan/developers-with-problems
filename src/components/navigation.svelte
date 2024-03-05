@@ -2,8 +2,7 @@
 	export let currentUserUsername;
 	let linkStyles =
 		'block py-2 px-4 bg-primary text-white rounded mb-2 max-w-xs text-center text-outline';
-	let hoverStyles =
-		'hover:bg-dark hover:text-outline-hover';
+	let hoverStyles = 'hover:bg-dark hover:text-outline-hover';
 </script>
 
 <div
@@ -29,10 +28,17 @@
 		height: 320px; /* fixed height */
 	}
 	.text-outline {
-		text-shadow: -1px -1px 0 #C83F00, 1px -1px 0 #C83F00, -1px 1px 0 #C83F00, 1px 1px 0 #C83F00;
+		text-shadow:
+			-1px -1px 0 #c83f00,
+			1px -1px 0 #c83f00,
+			-1px 1px 0 #c83f00,
+			1px 1px 0 #c83f00;
 	}
 	.hover\:text-outline-hover:hover {
-        text-shadow: -1px -1px 0 #1a202c, 1px -1px 0 #1a202c, -1px 1px 0 #1a202c, 1px 1px 0 #1a202c;
-    }
-
+		text-shadow:
+			-1px -1px 0 #1a202c,
+			1px -1px 0 #1a202c,
+			-1px 1px 0 #1a202c,
+			1px 1px 0 #1a202c;
+	}
 </style>
