@@ -16,7 +16,7 @@
 	<a href="/forum" class={linkStyles}>Forum</a>
 	<a href="/events" class={linkStyles}>Events</a>
 	<a href="/careers" class={linkStyles}>Careers</a>
-	<a href="/learning-resources" class={linkStyles}>Learning</a>
+	<a href="/resources" class={linkStyles}>Learning</a>
 	<!-- <a href="/settings" class={linkStyles}>Settings</a> -->
 	<!-- Logout will be at the top of the page -->
 </div>
