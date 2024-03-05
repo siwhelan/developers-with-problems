@@ -12,18 +12,23 @@
 	<UserNavBar {currentUserUsername} />
 </div>
 <!-- <p>{posts}</p> -->
-<div class="flex flex-col min-h-screen">
-	<div class="flex bg-background text-text">
+<div class="flex flex-col min-h-screen text-text">
+	<div class="flex bg-background">
 		<Navigation {currentUserUsername} />
 		<div class="flex flex-col flex-grow">
-			<slot />
+			<!-- <slot /> -->
 		</div>
 		<div
-			class="menu-container bg-background text-lg text-primary text-center font-bold my-24 rounded-lg outline-black p-5 m-10 max-w-xs"
+			class="menu-container bg-background text-primary text-center font-bold my-24 rounded-lg outline-black p-1 m-10 max-w-xs h-10"
 			style="outline: 2px solid rgba(128, 128, 128, 0.2)"
 		>
 			<p href="/">Highlights Reel</p>
+			<div>
 			<DailyChallenge {challenge} />
+			</div>
+			<div>
+				<DailyChallenge {challenge} />
+			</div>
 		</div>
 	</div>
 </div>
@@ -33,6 +38,6 @@
 <style>
 	.menu-container {
 		width: 250px; /* fixed border height and width - can be adjusted to suit contents */
-		height: 365px;
+		height: 1000px;
 	}
 </style>

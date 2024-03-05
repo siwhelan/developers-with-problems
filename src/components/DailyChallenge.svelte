@@ -4,8 +4,15 @@
 	let currentItems = 100;
 </script>
 
-<div>
-	<p>{challenge.name}</p>
+<div class="w-full bg-[#1c212c] max-w-xs text-white max-h-160 flex flex-col items-center mt-2 pt-4 pl-4 pr-4 rounded-md mb-2">
+    <h6 class="mb-1">Codewars Daily Challenge</h6>
+    <img
+		src="/codewars.svg"
+		alt="codewars logo"
+		class="object-scale-down h-6 bg-orange-500 rounded-md mb-1"
+	/>
+	<p class="text-xl">{challenge.name}</p>
+    <!-- rank.name needs to be smaller -->
 	<p>{challenge.rank.name}</p>
 
 	<div class="list-element">
@@ -22,7 +29,7 @@
 			on:click={() => (currentItems = challenge.description.length)}
 			id="loadmore"
 			type="button"
-			class="btn btn-secondary"
+			class="btn btn-secondary text-xs font-extrabold"
 		>
 			Show more
 		</button>
@@ -32,14 +39,14 @@
 			on:click={() => (currentItems = 100)}
 			id="loadless"
 			type="button"
-			class="btn btn-secondary"
+			class="btn btn-secondary text-s font-bold m-10"
 		>
 			Show less
 		</button>
 	{/if}
 	<div>
 		<p>Select a Language:</p>
-		<select id="langSelect" bind:value={chosenLang}>
+		<select id="langSelect" bind:value={chosenLang} class="text-black text-center">
 			{#each challenge.languages as language}
 				<option value={language}>{language}</option>
 			{/each}
@@ -47,6 +54,18 @@
 	</div>
 	<a href="{challenge.url}/train/{chosenLang}">Click here to Train!</a>
 </div>
+
+<style>
+
+    .btn.btn-secondary {
+      transition: background-color 0.3s ease;
+    }
+  
+    .btn.btn-secondary:hover {
+      background-color: #4d4e4e;
+    }
+</style>
+  
 
 <!-- {
     "id": "57eb8fcdf670e99d9b000272",
