@@ -17,13 +17,13 @@
 	<a href="/events" class={linkStyles}>Events</a>
 	<a href="/careers" class={linkStyles}>Careers</a>
 	<a href="/learning-resources" class={linkStyles}>Learning</a>
-	<a href="/settings" class={linkStyles}>Settings</a>
+	<!-- <a href="/settings" class={linkStyles}>Settings</a> -->
 	<!-- Logout will be at the top of the page -->
 </div>
 
 <style>
 	.menu-container {
 		width: 200px; /* fixed width */
-		height: 420px; /* fixed height */
+		height: 320px; /* fixed height */
 	}
 </style>
