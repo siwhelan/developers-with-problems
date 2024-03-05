@@ -102,13 +102,27 @@ export const actions = {
 		const formData = await request.formData();
 		const codewarsUser = formData.get('codewarsUser');
 		const linkedinUser = formData.get('linkedinUser');
-		const currentUser2 = await User.findOneAndUpdate(
-			{ username: params.slug },
-			{ social: { codewars: codewarsUser, linkedin: linkedinUser } },
-			{ new: true }
-		);
-		console.log(formData);
-		console.log(currentUser2);
-		await currentUser2.save();
+		const currentUser = await User.findOne({ username: params.slug });
+
+		if (currentUser) {
+			const updateObject = {};
+
+			if (codewarsUser !== '') {
+				updateObject['social.codewars'] = codewarsUser;
+			}
+
+			if (linkedinUser !== '') {
+				updateObject['social.linkedin'] = linkedinUser;
+			}
+
+			const updatedUser = await User.findOneAndUpdate(
+				{ username: params.slug },
+				{ $set: updateObject },
+				{ new: true }
+			);
+
+			console.log(formData);
+			console.log(updatedUser);
+		}
 	}
 };
