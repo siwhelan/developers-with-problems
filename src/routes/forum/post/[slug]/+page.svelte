@@ -1,10 +1,11 @@
 <script>
+	import { comment } from 'postcss';
 	import Comment from '../../../../components/Comment.svelte';
 	import NewComment from '../../../../components/NewComment.svelte';
 	import Post from '../../../../components/Post.svelte';
 
 	export let data;
-	console.log('post is back', data.post);
+	// console.log('post is back', data.post);
 	$: data;
 </script>
 
@@ -29,6 +30,10 @@
 			commentContent={comment.content}
 			commentTime={comment.timestamp}
 			commentUser={comment.author.username}
+			commentId={comment._id}
+			commentUpvotes={comment.upvotes}
+			commentDownvotes={comment.downvotes}
+			loggedInUser={data.loggedInUser}
 		/>
 	{/each}
 </div>

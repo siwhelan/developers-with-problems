@@ -26,12 +26,128 @@
 
 		return 'Just now';
 	}
+
+	import Upvote from './upvote.svelte';
+	import Upvoted from './upvoted.svelte';
+	import Downvote from './downvote.svelte';
+	import Downvoted from './downvoted.svelte';
+
+	export let commentId;
+	export let commentUpvotes;
+	export let commentDownvotes;
+
+	export let loggedInUser;
+
+	let userUpvoted;
+	let userDownvoted;
+
+	if (commentUpvotes.includes(loggedInUser)) {
+		userUpvoted = true;
+	} else {
+		userUpvoted = false;
+	}
+
+	if (commentDownvotes.includes(loggedInUser)) {
+		userDownvoted = true;
+	} else {
+		userDownvoted = false;
+	}
+
+	async function upvote(action) {
+		await fetch(`/api/comment/${commentId}?/upvote`, {
+			method: 'POST',
+			body: JSON.stringify({ action })
+		});
+		if (userUpvoted == true) {
+			commentUpvotes = commentUpvotes.filter((like) => like.toString() !== loggedInUser);
+			// console.log('upvote removed', postUpvotes);
+		} else {
+			commentUpvotes.push(loggedInUser);
+			if (commentDownvotes.includes(loggedInUser)) {
+				commentDownvotes = commentDownvotes.filter((like) => like.toString() !== loggedInUser);
+				userDownvoted = !userDownvoted;
+				// console.log('downvote auto remove', postDownvotes);
+			}
+			// console.log('upvoted, postupvotes', postUpvotes);
+		}
+		userUpvoted = !userUpvoted;
+	}
+
+	async function downvote(action) {
+		await fetch(`/api/comment/${commentId}?/downvote`, {
+			method: 'POST',
+			body: JSON.stringify({ action })
+		});
+		if (userDownvoted == true) {
+			postDownvotes = commentDownvotes.filter((like) => like.toString() !== loggedInUser);
+			// console.log('downvote removed', postDownvotes);
+		} else {
+			commentDownvotes.push(loggedInUser);
+			if (commentUpvotes.includes(loggedInUser)) {
+				commentUpvotes = commentUpvotes.filter((like) => like.toString() !== loggedInUser);
+				// console.log('upvote auto removed', postUpvotes);
+				userUpvoted = !userUpvoted;
+			}
+			// console.log('downvote added', postDownvotes);
+		}
+		userDownvoted = !userDownvoted;
+	}
 </script>
 
 <article
 	class="p-6 text-base bg-background shadow-sm border-t border-gray-200 dark:border-gray-700 dark:bg-gray-800"
 >
-	<footer class="flex justify-between items-center mb-2">
+	<div class="mr-1">
+		<div class="w-20 h-14">
+			{#if !userUpvoted && loggedInUser}
+				<div class="flex px-3">
+					<button aria-pressed="false" on:click={() => upvote(userUpvoted)} class="max-h-1">
+						<Upvote />
+					</button>
+					<p class="text-xl py-2">{commentUpvotes.length}</p>
+				</div>
+			{:else if userUpvoted && loggedInUser}
+				<div class="flex px-3">
+					<button aria-pressed="true" on:click={() => upvote(userUpvoted)} class="max-h-1">
+						<Upvoted />
+					</button>
+					<p class="text py-2">{commentUpvotes.length}</p>
+				</div>
+			{:else}
+				<div class="flex px-3">
+					<button aria-pressed="false" class="max-h-1">
+						<Upvote />
+					</button>
+					<p class="text-xl py-2">{commentUpvotes.length}</p>
+				</div>
+			{/if}
+		</div>
+		<div class="w-20 h-14">
+			{#if !userDownvoted && loggedInUser}
+				<div class="flex px-3">
+					<button aria-pressed="false" on:click={() => downvote(userDownvoted)} class="max-h-1">
+						<Downvote />
+					</button>
+					<p class="text-xl py-2">{commentDownvotes.length}</p>
+				</div>
+			{:else if userDownvoted && loggedInUser}
+				<div class="flex px-3">
+					<button aria-pressed="true" on:click={() => downvote(userDownvoted)} class="max-h-1">
+						<Downvoted />
+					</button>
+					<p class="text py-2">{commentDownvotes.length}</p>
+				</div>
+			{:else}
+				<div class="flex px-3">
+					<button aria-pressed="false" class="max-h-1">
+						<Downvote />
+					</button>
+					<p class="text-xl py-2">{commentDownvotes.length}</p>
+				</div>
+			{/if}
+		</div>
+	</div>
+	<div class="flex justify-between items-center mb-2">
 		<div class="flex items-center">
 			<p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold">
 				{commentUser}
@@ -91,7 +207,7 @@
 				</li>
 			</ul>
 		</div>
-	</footer>
+	</div>
 
 	<p class="text-gray-800 dark:text-gray-400">
 		{commentContent}
