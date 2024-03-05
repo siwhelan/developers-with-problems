@@ -14,6 +14,8 @@
 
 	export let loggedInUser;
 
+	console.log('postupvotes', postUpvotes);
+	console.log('postdownvotes', postDownvotes);
 	let userUpvoted;
 	let userDownvoted;
 
@@ -38,27 +40,24 @@
 	}
 
 	async function upvote(action) {
-		// console.log(JSON.stringify({ action }));
-		const newPost = await fetch('?/upvote', {
+		await fetch('?/upvote', {
 			method: 'POST',
 			body: JSON.stringify({ action })
 		});
 		if (userUpvoted == true) {
-			// upvoteNumber -= 1;
-
-			postUpvotes.push(loggedInUser);
-		} else {
 			postUpvotes = postUpvotes.filter((like) => like.toString() !== loggedInUser);
-
-			// upvoteNumber += 1;
+			console.log('upvote removed', postUpvotes);
+		} else {
+			postUpvotes.push(loggedInUser);
 			if (postDownvotes.includes(loggedInUser)) {
-				// downvoteNumber -= 1;
-
 				postDownvotes = postDownvotes.filter((like) => like.toString() !== loggedInUser);
 				userDownvoted = !userDownvoted;
+				console.log('downvote auto remove', postDownvotes);
 			}
+			console.log('upvoted, postupvotes', postUpvotes);
 		}
 		userUpvoted = !userUpvoted;
+		updateUpandDownVotes();
 	}
 
 	async function downvote(action) {
@@ -68,18 +67,18 @@
 		});
 		if (userDownvoted == true) {
 			postDownvotes = postDownvotes.filter((like) => like.toString() !== loggedInUser);
-			// downvoteNumber -= 1;
+			console.log('downvote removed', postDownvotes);
 		} else {
-			// downvoteNumber += 1;
 			postDownvotes.push(loggedInUser);
 			if (postUpvotes.includes(loggedInUser)) {
-				// upvoteNumber -= 1;
 				postUpvotes = postUpvotes.filter((like) => like.toString() !== loggedInUser);
-
-				// userUpvoted = !userUpvoted;
+				console.log('upvote auto removed', postUpvotes);
+				userUpvoted = !userUpvoted;
 			}
+			console.log('downvote added', postDownvotes);
 		}
 		userDownvoted = !userDownvoted;
+		updateUpandDownVotes();
 	}
 
 	//append to postUpvote
