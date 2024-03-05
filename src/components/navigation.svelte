@@ -24,6 +24,6 @@
 <style>
 	.menu-container {
 		width: 200px; /* fixed width */
-		height: 320px; /* fixed height */
+		height: 365px; /* fixed height */
 	}
 </style>
