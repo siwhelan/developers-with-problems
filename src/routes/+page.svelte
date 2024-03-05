@@ -101,6 +101,7 @@
 			class:active={feedChoice === 'forum'}
 			on:click={() => (feedChoice = 'forum')}
 			type="button"
+			aria-label="Forum Posts"
 			class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary focus:outline-none dark:focus:ring-blue-800"
 			>Forum Posts</button
 		>
@@ -109,6 +110,7 @@
 			class:active={feedChoice === 'devNews'}
 			on:click={() => (feedChoice = 'devNews')}
 			type="button"
+			aria-label="Dev News"
 			class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-accent font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-dark dark:hover:bg-primary focus:outline-none dark:focus:ring-accent"
 			>Dev News</button
 		>
@@ -116,6 +118,7 @@
 			class:active={feedChoice === 'events'}
 			on:click={() => (feedChoice = 'events')}
 			type="button"
+			aria-label="Events"
 			class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary focus:outline-none dark:focus:ring-blue-800"
 			>Events</button
 		>
@@ -123,6 +126,7 @@
 			class:active={feedChoice === 'jobs'}
 			on:click={() => (feedChoice = 'jobs')}
 			type="button"
+			aria-label="Recent Jobs"
 			class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary focus:outline-none dark:focus:ring-blue-800"
 			>Recent Jobs</button
 		>

@@ -63,7 +63,11 @@
 				/>
 			</label>
 
-			<button class="bg-primary hover:bg-dark text-white font-bold py-2 px-4 rounded" type="submit">
+			<button
+				class="bg-primary hover:bg-dark text-white font-bold py-2 px-4 rounded"
+				type="submit"
+				aria-label="New forum post"
+			>
 				New Post
 			</button>
 		</form>
