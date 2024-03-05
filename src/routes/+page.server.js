@@ -4,7 +4,7 @@ import { User } from '../lib/models/user.js';
 export async function load({ locals }) {
 	let posts = await Post.find().lean();
 	posts = JSON.parse(JSON.stringify(posts));
-	posts = posts.reverse().slice(0, 10);
+	posts = posts.reverse().slice(0, 5);
 
 	for (let i = 0; i < posts.length; i++) {
 		const post = posts[i];
