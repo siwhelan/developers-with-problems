@@ -16,8 +16,8 @@
 
 	let userUpvoted;
 	let userDownvoted;
-	console.log('postupvotes', postUpvotes);
-	console.log('postdownvotes', postDownvotes);
+	// console.log('postupvotes', postUpvotes);
+	// console.log('postdownvotes', postDownvotes);
 	//changes page state based on whether user has upvoted
 	if (postUpvotes.includes(loggedInUser)) {
 		userUpvoted = true;
@@ -39,15 +39,15 @@
 		});
 		if (userUpvoted == true) {
 			postUpvotes = postUpvotes.filter((like) => like.toString() !== loggedInUser);
-			console.log('upvote removed', postUpvotes);
+			// console.log('upvote removed', postUpvotes);
 		} else {
 			postUpvotes.push(loggedInUser);
 			if (postDownvotes.includes(loggedInUser)) {
 				postDownvotes = postDownvotes.filter((like) => like.toString() !== loggedInUser);
 				userDownvoted = !userDownvoted;
-				console.log('downvote auto remove', postDownvotes);
+				// console.log('downvote auto remove', postDownvotes);
 			}
-			console.log('upvoted, postupvotes', postUpvotes);
+			// console.log('upvoted, postupvotes', postUpvotes);
 		}
 		userUpvoted = !userUpvoted;
 	}
@@ -59,15 +59,15 @@
 		});
 		if (userDownvoted == true) {
 			postDownvotes = postDownvotes.filter((like) => like.toString() !== loggedInUser);
-			console.log('downvote removed', postDownvotes);
+			// console.log('downvote removed', postDownvotes);
 		} else {
 			postDownvotes.push(loggedInUser);
 			if (postUpvotes.includes(loggedInUser)) {
 				postUpvotes = postUpvotes.filter((like) => like.toString() !== loggedInUser);
-				console.log('upvote auto removed', postUpvotes);
+				// console.log('upvote auto removed', postUpvotes);
 				userUpvoted = !userUpvoted;
 			}
-			console.log('downvote added', postDownvotes);
+			// console.log('downvote added', postDownvotes);
 		}
 		userDownvoted = !userDownvoted;
 	}
