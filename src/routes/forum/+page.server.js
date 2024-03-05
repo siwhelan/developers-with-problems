@@ -11,7 +11,7 @@ export async function load({ locals }) {
 		const postAuthor = await User.findOne({ _id: post.userID });
 		post.author = postAuthor.username;
 	}
-
+	// console.log(posts);
 	let loggedInUser;
 	if (locals.user) {
 		loggedInUser = locals.user.id;

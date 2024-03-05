@@ -1,9 +1,10 @@
 <script>
-	import PostLink from '../../components/PostLink.svelte';
+	import PostLink from '../../../components/PostLink.svelte';
 
 	export let data;
-	$: ({ posts } = data);
-	let feedChoice = 'general';
+	$: ({ eventsPosts } = data);
+	let feedChoice = 'news';
+	console.log('data', data);
 	//options are general, job, events, news
 </script>
 
@@ -13,13 +14,14 @@
 		Make a new post
 	</a>
 	<div class="pt-5">
-		<button
-			class:active={feedChoice == 'general'}
-			on:click={() => (feedChoice = 'general')}
-			type="button"
-			class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-accent font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-dark dark:hover:bg-primary focus:outline-none dark:focus:ring-accent"
-			>General</button
-		>
+		<a href="/forum">
+			<button
+				class:active={feedChoice == 'general'}
+				type="button"
+				class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-accent font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-dark dark:hover:bg-primary focus:outline-none dark:focus:ring-accent"
+				>General</button
+			>
+		</a>
 		<a href="/forum/jobs">
 			<button
 				class:active={feedChoice === 'job'}
@@ -46,20 +48,18 @@
 		</a>
 	</div>
 	<ul class="my-8 text-left pt-3 bg-background w-full flex flex-col justify-start">
-		{#if feedChoice == 'general'}
-			<h2 class="text-3xl pb-5 font-bold">General Coding</h2>
-			{#each posts.filter((post) => post.tags.includes('general')) as post}
-				<PostLink
-					postSlug={post._id}
-					postTitle={post.title}
-					postContent={post.content}
-					postUpvotes={post.upvotes}
-					upvoteNumber={post.upvotes.length}
-					postAuthor={post.author}
-					loggedInUser={data.loggedInUser}
-				/>
-			{/each}
-		{/if}
+		<h2 class="text-3xl pb-5 font-bold">Tech News</h2>
+		{#each eventsPosts as post}
+			<PostLink
+				postSlug={post._id}
+				postTitle={post.title}
+				postContent={post.content}
+				postUpvotes={post.upvotes}
+				upvoteNumber={post.upvotes.length}
+				postAuthor={post.author}
+				loggedInUser={data.loggedInUser}
+			/>
+		{/each}
 	</ul>
 </div>
 
