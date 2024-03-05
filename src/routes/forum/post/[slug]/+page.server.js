@@ -51,19 +51,31 @@ export const actions = {
 	create: async ({ locals, request, params }) => {
 		const formData = await request.formData();
 		const commentContent = formData.get('textContent');
-		const user = locals.user.id;
-		if (!commentContent) {
-			return fail(400, { error: 'Error, missing' });
-		}
-		const newComment = {
-			content: commentContent,
-			userID: user,
-			postID: params.slug
-		};
-		await Comment.create(newComment);
 
-		console.log('New comment added');
-		throw redirect(303, '/forum');
+		let currentUserID;
+		try {
+			if (locals.user) {
+				currentUserID = locals.user.id;
+				if (!commentContent) {
+					return fail(400, { error: 'Error, missing' });
+				}
+				const newComment = {
+					content: commentContent,
+					userID: currentUserID,
+					postID: params.slug
+				};
+				await Comment.create(newComment);
+
+				console.log('New comment added');
+				throw redirect(303, '/forum');
+			} else {
+				console.error('User not found in database');
+				currentUserID = null;
+			}
+		} catch (error) {
+			console.error('Error getting logged in user:', error);
+			currentUserID = null;
+		}
 	},
 	upvote: async ({ locals, params, request }) => {
 		const upvoted = await request.json();
