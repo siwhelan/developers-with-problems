@@ -4,7 +4,7 @@
 	import Post from '../../../../components/Post.svelte';
 
 	export let data;
-
+	console.log('post is back', data.post);
 	$: data;
 </script>
 
@@ -16,6 +16,8 @@
 		upvoteNumber={data.post.upvotes.length}
 		postUpvotes={data.post.upvotes}
 		loggedInUser={data.loggedInUser}
+		downvoteNumber={data.post.downvotes.length}
+		postDownvotes={data.post.downvotes}
 	/>
 	<div class="flex justify-between items-center mb-6">
 		<h2 class="text-lg mt-8 font-semibold lg:text-2xl text-text dark:text-white">Discussion</h2>
