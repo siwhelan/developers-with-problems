@@ -31,7 +31,3 @@ export const handle = async ({ event, resolve }) => {
 	event.locals.session = session;
 	return resolve(event);
 };
-// const response = await resolve(event);
-// event.locals.user = response;
-// // console.log(response, 'REPOSNSE IN HOOKS');
-// return response;

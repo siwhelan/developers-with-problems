@@ -1,13 +1,43 @@
+<script>
+	export let commentUser;
+	export let commentContent;
+	export let commentTime;
+
+	function timeAgo(timestamp) {
+		const timeSince = new Date(timestamp).getTime();
+		const secondsAgo = Math.floor((Date.now() - timeSince) / 1000);
+
+		const intervals = {
+			year: 31536000,
+			month: 2592000,
+			week: 604800,
+			day: 86400,
+			hour: 3600,
+			minute: 60,
+			second: 1
+		};
+
+		for (const interval in intervals) {
+			const value = Math.floor(secondsAgo / intervals[interval]);
+			if (value >= 1) {
+				return `${value} ${interval}${value !== 1 ? 's' : ''} ago`;
+			}
+		}
+
+		return 'Just now';
+	}
+</script>
+
 <article
 	class="p-6 text-base bg-background shadow-sm border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900"
 >
 	<footer class="flex justify-between items-center mb-2">
 		<div class="flex items-center">
 			<p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold">
-				User3
+				{commentUser}
 			</p>
 			<p class="text-sm text-gray-600 dark:text-gray-400">
-				<time pubdate datetime="2022-06-23" title="June 23rd, 2022">Jun. 23, 2022</time>
+				<time pubdate datetime="2022-06-23" title="June 23rd, 2022">{timeAgo(commentTime)}</time>
 			</p>
 		</div>
 		<button
@@ -61,9 +91,9 @@
 			</ul>
 		</div>
 	</footer>
-	<p class="text-text dark:text-gray-400">
-		Thanks for sharing this. I do came from the Backend development and explored some of the tools
-		to design my Side Projects.
+
+	<p class="text-gray-800 dark:text-gray-400">
+		{commentContent}
 	</p>
 	<div class="flex items-center mt-4 space-x-4"></div>
 </article>
