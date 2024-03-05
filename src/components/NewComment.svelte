@@ -1,10 +1,10 @@
 <script>
 	import { enhance } from '$app/forms';
 
-	let link = false;
-	function handleOptionChange() {
-		link = !link;
-	}
+	// let link = false;
+	// function handleOptionChange() {
+	// 	link = !link;
+	// }
 	// export let form;
 </script>
 
