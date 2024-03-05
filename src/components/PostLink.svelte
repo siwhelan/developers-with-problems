@@ -78,21 +78,33 @@
 		<div class="w-20 h-14">
 			{#if !userUpvoted && loggedInUser}
 				<div class="flex px-3">
-					<button aria-pressed="false" on:click={() => upvote(userUpvoted)} class="max-h-1">
+					<button
+						aria-label="downvote"
+						id="upvote"
+						aria-pressed="false"
+						on:click={() => upvote(userUpvoted)}
+						class="max-h-1"
+					>
 						<Upvote />
 					</button>
 					<p class="text-xl py-2">{postUpvotes.length}</p>
 				</div>
 			{:else if userUpvoted && loggedInUser}
 				<div class="flex px-3">
-					<button aria-pressed="true" on:click={() => upvote(userUpvoted)} class="max-h-1">
+					<button
+						aria-label="remove upvote"
+						id="remove upvote"
+						aria-pressed="true"
+						on:click={() => upvote(userUpvoted)}
+						class="max-h-1"
+					>
 						<Upvoted />
 					</button>
 					<p class="text py-2">{postUpvotes.length}</p>
 				</div>
 			{:else}
 				<div class="flex px-3">
-					<button aria-pressed="false" class="max-h-1">
+					<button aria-label="upvote" id="upvote" aria-pressed="false" class="max-h-1">
 						<Upvote />
 					</button>
 					<p class="text-xl py-2">{postUpvotes.length}</p>
@@ -102,21 +114,33 @@
 		<div class="w-20 h-14">
 			{#if !userDownvoted && loggedInUser}
 				<div class="flex px-3">
-					<button aria-pressed="false" on:click={() => downvote(userDownvoted)} class="max-h-1">
+					<button
+						id="downvote"
+						aria-label="downvote"
+						aria-pressed="false"
+						on:click={() => downvote(userDownvoted)}
+						class="max-h-1"
+					>
 						<Downvote />
 					</button>
 					<p class="text-xl py-2">{postDownvotes.length}</p>
 				</div>
 			{:else if userDownvoted && loggedInUser}
 				<div class="flex px-3">
-					<button aria-pressed="true" on:click={() => downvote(userDownvoted)} class="max-h-1">
+					<button
+						id="remove downvote"
+						aria-label="remove downvote"
+						aria-pressed="true"
+						on:click={() => downvote(userDownvoted)}
+						class="max-h-1"
+					>
 						<Downvoted />
 					</button>
 					<p class="text py-2">{postDownvotes.length}</p>
 				</div>
 			{:else}
 				<div class="flex px-3">
-					<button aria-pressed="false" class="max-h-1">
+					<button aria-label="downvote" id="downvote" aria-pressed="false" class="max-h-1">
 						<Downvote />
 					</button>
 					<p class="text-xl py-2">{postDownvotes.length}</p>
