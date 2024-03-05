@@ -56,7 +56,10 @@
 </div>
 	{#if codewarsData}
 	<p>{codewarsData.username}</p>
-	<p>{codewarsData.honor}</p>
+	<p>Leaderboard Position: {codewarsData.leaderboardPosition}</p>
+	<p>Rank: {codewarsData.ranks.overall.name}</p>
+	<p>Honor: {codewarsData.honor}</p>
+	<p>Challenges Completed: {codewarsData.codeChallenges.totalCompleted}</p>
 	{/if}
 
 
