@@ -140,7 +140,7 @@
 			postContent={post.content}
 			postUpvotes={post.upvotes}
 			upvoteNumber={post.upvotes.length}
-			postAuthor={post.author}
+			postAuthor={profileUser.username}
 			{loggedInUser}
 			downvoteNumber={post.downvotes.length}
 			postDownvotes={post.downvotes}
