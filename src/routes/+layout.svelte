@@ -1,11 +1,16 @@
 <script>
 	import '../app.css';
 	import Navigation from '../components/navigation.svelte';
+	import TopStories from '../components/TopStories.svelte';
+	import TopEvent from '../components/TopEvent.svelte';
 	import UserNavBar from '../components/userNavBar.svelte';
 	import Footer from '../components/Footer.svelte';
 	import DailyChallenge from '../components/DailyChallenge.svelte';
+
 	export let data;
-	$: ({ currentUserUsername, challenge } = data);
+	$: ({ currentUserUsername, challenge, topStory, topRedditPost } = data);
+
+	
 </script>
 
 <div>
@@ -27,7 +32,10 @@
 			<DailyChallenge {challenge} />
 			</div>
 			<div>
-				<DailyChallenge {challenge} />
+				<TopStories {topStory} {topRedditPost} />
+			</div>
+			<div>
+				<TopEvent />
 			</div>
 		</div>
 	</div>
