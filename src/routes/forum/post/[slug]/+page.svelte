@@ -10,6 +10,7 @@
 
 <div class="pt-16 my-12">
 	<Post
+		postAvatar={data.post.avatar}
 		postAuthor={data.user.username}
 		postId={data.post._id}
 		postTitle={data.post.title}

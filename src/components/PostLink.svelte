@@ -155,7 +155,7 @@
 		<div>
 			<h2 class="text-xl font-bold pb-2 text-primary">{postTitle}</h2>
 			<p class=" pb-3">{postContent}</p>
-			<img src={postAvatar} alt="Author's avatar" />
+			<DisplayAvatar avatarUrl={postAvatar} />
 			<a href="/profile/{postAuthor}">{postAuthor}</a>
 		</div>
 	</a>
