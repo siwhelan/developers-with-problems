@@ -76,7 +76,7 @@
 	}
 </script>
 
-<div class="flex flex-row py-5 pr-28 rounded-lg shadow-md max-w-2xl text-dark">
+<div class="flex flex-row py-5 pr-28 rounded-lg shadow-md text-dark">
 	<div class="mr-1">
 		<div class="w-20 h-14">
 			{#if !userUpvoted && loggedInUser}

@@ -215,7 +215,7 @@ async function insertSampleData() {
 				description: 'Description of Event 1',
 				free: true,
 				attending: [userIds[0]],
-				interested: [userIds[1]]
+				interested: [userIds[1], userIds[2]]
 			},
 			{
 				title: 'Event 2',
