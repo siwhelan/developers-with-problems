@@ -6,6 +6,7 @@ export const actions = {
 		const username = formData.get('username');
 		const email = formData.get('email');
 		const password = formData.get('password');
+		const confirmPassword = formData.get('confirmPassword');
 
 		const existingUser = await User.findOne({ $or: [{ username: username }, { email: email }] });
 
@@ -22,31 +23,37 @@ export const actions = {
 					success: false,
 					error: 'Email already exists'
 				};
+			} else if (password != confirmPassword) {
+				console.error("Passwords don't match");
+				return {
+					success: false,
+					error: "Passwords don't match"
+				};
 			}
-		}
-		const newUser = {
-			username: username,
-			email: email,
-			password: password
-		};
-
-		try {
-			await User.create({
-				_id: generateId(15),
+			const newUser = {
 				username: username,
 				email: email,
-				hashed_password: password
-			});
-			console.log('New user added: ', newUser);
-			return {
-				success: true
+				password: password
 			};
-		} catch (error) {
-			console.error('Error creating user:', error);
-			return {
-				success: false,
-				error: 'Failed to create user'
-			};
+
+			try {
+				await User.create({
+					_id: generateId(15),
+					username: username,
+					email: email,
+					hashed_password: password
+				});
+				console.log('New user added: ', newUser);
+				return {
+					success: true
+				};
+			} catch (error) {
+				console.error('Error creating user:', error);
+				return {
+					success: false,
+					error: 'Failed to create user'
+				};
+			}
 		}
 	}
 };
