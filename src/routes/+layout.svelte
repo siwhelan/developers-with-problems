@@ -4,11 +4,11 @@
 	import UserNavBar from '../components/userNavBar.svelte';
 	import Footer from '../components/Footer.svelte';
 	export let data;
-	$: ({ currentUserUsername } = data);
+	$: ({ currentUserUsername, currentUserAvatar } = data);
 </script>
 
 <div>
-	<UserNavBar {currentUserUsername} />
+	<UserNavBar {currentUserUsername} {currentUserAvatar} />
 </div>
 <!-- <p>{posts}</p> -->
 <div class="flex flex-col min-h-screen">

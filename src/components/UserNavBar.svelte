@@ -1,6 +1,9 @@
 <script>
 	// let session = false;
 	export let currentUserUsername;
+	export let currentUserAvatar;
+	console.log('UserNavBar.svelte currentUserAvatar', currentUserAvatar);
+	console.log('UserNavBar.svelte currentUserUsername', currentUserUsername);
 </script>
 
 <div class="bg-gray-800 text-white p-4">
@@ -17,17 +20,18 @@
 		</ul>
 		<ul class="flex space-x-4">
 			<li>
-				{#if currentUserUsername}<a
+				{#if currentUserAvatar}<a
 						href="/profile/{currentUserUsername}"
-						class="text-primary hover:underline">{currentUserUsername}</a
+						class="text-primary hover:underline"
+						><img src={currentUserAvatar} alt="User Avatar" class="w-8 h-8 rounded-full" /></a
 					>{/if}
 			</li>
 			<li>
-				{#if !currentUserUsername}<a href="/signup" class="text-primary hover:underline">Sign Up</a
+				{#if !currentUserAvatar}<a href="/signup" class="text-primary hover:underline">Sign Up</a
 					>{/if}
 			</li>
 			<li>
-				{#if !currentUserUsername}<a href="/login" class="text-primary hover:underline">Login</a>
+				{#if !currentUserAvatar}<a href="/login" class="text-primary hover:underline">Login</a>
 				{:else}<a href="/logout" class="text-primary hover:underline">Logout</a>{/if}
 			</li>
 		</ul>
