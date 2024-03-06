@@ -16,7 +16,7 @@
 	<div class="flex bg-background">
 		<Navigation {currentUserUsername} />
 		<div class="flex flex-col flex-grow">
-			<!-- <slot /> -->
+			<slot />
 		</div>
 		<div
 			class="menu-container bg-background text-primary text-center font-bold my-24 rounded-lg outline-black p-1 m-10 max-w-xs h-10"
