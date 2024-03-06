@@ -15,6 +15,7 @@
 	const toggleForm = function () {
 		addSocial = !addSocial;
 	};
+	// eslint-disable-next-line
 	function onKeyDown(_e) {
 		addSocial = !addSocial;
 	}
