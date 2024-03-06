@@ -1,5 +1,5 @@
 <script>
-	let avatarUrl = '';
+	export let avatarUrl = '';
 
 	async function handleSubmit(event) {
 		event.preventDefault();

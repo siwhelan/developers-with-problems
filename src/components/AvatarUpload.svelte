@@ -1,4 +1,6 @@
 <script>
+	export let avatarUrl = '';
+
 	async function handleSubmit(event) {
 		event.preventDefault();
 		const formData = new FormData(event.target);
@@ -21,3 +23,4 @@
 	<input type="file" name="file" accept="image/*" />
 	<button type="submit">Upload Avatar</button>
 </form>
+∏
