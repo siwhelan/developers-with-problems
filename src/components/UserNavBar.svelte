@@ -2,8 +2,6 @@
 	// let session = false;
 	export let currentUserUsername;
 	export let currentUserAvatar;
-	console.log('UserNavBar.svelte currentUserAvatar', currentUserAvatar);
-	console.log('UserNavBar.svelte currentUserUsername', currentUserUsername);
 </script>
 
 <div class="bg-gray-800 text-white p-4">

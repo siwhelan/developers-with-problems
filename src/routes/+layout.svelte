@@ -1,7 +1,7 @@
 <script>
 	import '../app.css';
 	import Navigation from '../components/navigation.svelte';
-	import UserNavBar from '../components/userNavBar.svelte';
+	import UserNavBar from '../components/UserNavBar.svelte';
 	import Footer from '../components/Footer.svelte';
 	export let data;
 	$: ({ currentUserUsername, currentUserAvatar } = data);

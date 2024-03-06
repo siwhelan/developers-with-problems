@@ -27,9 +27,6 @@ export const load = async ({ locals }) => {
 		currentUserAvatar = null;
 	}
 
-	console.log('currentUserUsername:', currentUserUsername);
-	console.log('currentUserAvatar:', currentUserAvatar);
-
 	return {
 		currentUserUsername,
 		currentUserAvatar
