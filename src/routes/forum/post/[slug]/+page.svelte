@@ -10,6 +10,7 @@
 
 <div class="pt-16 my-12">
 	<Post
+		avatar={data.user.avatar}
 		postAuthor={data.user.username}
 		postId={data.post._id}
 		postTitle={data.post.title}
@@ -29,6 +30,7 @@
 			commentContent={comment.content}
 			commentTime={comment.timestamp}
 			commentUser={comment.author.username}
+			commentAvatar={comment.author.avatar}
 			commentId={comment._id}
 			commentUpvotes={comment.upvotes}
 			commentDownvotes={comment.downvotes}

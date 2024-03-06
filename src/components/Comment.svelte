@@ -1,7 +1,9 @@
 <script>
+	import DisplayAvatar from './DisplayAvatar.svelte';
 	export let commentUser;
 	export let commentContent;
 	export let commentTime;
+	export let commentAvatar;
 
 	function timeAgo(timestamp) {
 		const timeSince = new Date(timestamp).getTime();
@@ -170,8 +172,9 @@
 	<div class="flex flex-col flex-grow">
 		<div class="flex justify-between mb-2">
 			<div class="flex items-center">
+				<DisplayAvatar avatarUrl={commentAvatar} class="mr-2" />
 				<p
-					class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold"
+					class="inline-flex items-center ml-2 mr-3 text-sm text-gray-900 dark:text-white font-semibold"
 				>
 					{commentUser}
 				</p>

@@ -12,7 +12,7 @@ export const load = async ({ locals }) => {
 	try {
 		if (locals.user) {
 			const currentUserID = locals.user.id;
-			console.log(currentUserID);
+			// console.log(currentUserID);
 			const currentUser = await User.findOne({ _id: currentUserID });
 			if (currentUser) {
 				currentUserUsername = currentUser.username;

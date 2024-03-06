@@ -10,7 +10,6 @@
 		});
 		if (response.ok) {
 			const result = await response.json();
-			console.log('Avatar URL:', result.image);
 			avatarUrl = result.image; // Update the avatar URL
 		} else {
 			// Handle error scenario

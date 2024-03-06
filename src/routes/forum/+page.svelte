@@ -10,8 +10,9 @@
 <div class="pt-16 my-8">
 	<h2 class="text-3xl pb-5 font-bold">Forum</h2>
 	<a
+
 		class="text-outline hover:text-outline-hover bg-primary hover:bg-dark text-white py-2 px-4 rounded mr-4 text-outline hover:text-outline-hover"
-		href="/forum/newPost"
+		href={data.loggedInUser !== null ? '/forum/newPost' : '/login'}
 	>
 		Make a new post
 	</a>
@@ -62,6 +63,7 @@
 					postContent={post.content}
 					postUpvotes={post.upvotes}
 					postAuthor={post.author}
+					postAvatar={post.avatar}
 					loggedInUser={data.loggedInUser}
 					postDownvotes={post.downvotes}
 				/>

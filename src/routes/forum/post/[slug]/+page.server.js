@@ -10,6 +10,8 @@ export async function load({ locals, params }) {
 		let post = await Post.findById(params.slug).lean();
 		let user = await User.findById(post.userID).lean();
 
+		const avatar = user.avatar;
+
 		let comments = await Comment.find({ postID: params.slug }).lean();
 		let commentAuthors = [];
 		for (let comment of comments) {
@@ -37,7 +39,7 @@ export async function load({ locals, params }) {
 			user = JSON.parse(JSON.stringify(user));
 
 			commentsWithAuthors = JSON.parse(JSON.stringify(commentsWithAuthors)).reverse();
-			return { post, user, userID, commentsWithAuthors, loggedInUser };
+			return { post, user, userID, commentsWithAuthors, loggedInUser, avatar };
 		} else {
 			console.error('Error fetching post or user:', error);
 		}

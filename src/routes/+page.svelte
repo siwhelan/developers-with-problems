@@ -21,7 +21,7 @@
 	</div>
 	<div class="max-w-48 ml-auto mr-0">
 		<a
-			href="/forum/newPost"
+			href={data.loggedInUser !== null ? '/forum/newPost' : '/login'}
 			type="button"
 			class="text-outline hover:text-outline-hover text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary focus:outline-none dark:focus:ring-blue-800 text-outline hover:text-outline-hover"
 			>New Forum Post</a
@@ -79,7 +79,7 @@
 					postTitle={post.title}
 					postContent={post.content}
 					postUpvotes={post.upvotes}
-					upvoteNumber={post.upvotes.length}
+					postAvatar={post.avatar}
 					postAuthor={post.author}
 					loggedInUser={data.loggedInUser}
 					postDownvotes={post.downvotes}
