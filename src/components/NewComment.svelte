@@ -33,8 +33,25 @@
 		></textarea>
 	</div>
 	<button
-		class="bg-primary hover:bg-dark text-white py-2 px-4 rounded-md"
+		class="bg-primary hover:bg-dark text-white py-2 px-4 rounded-md text-outline hover:text-outline-hover"
 		type="submit"
 		aria-label="post response">Post Response</button
 	>
 </form>
+
+<style>
+	.text-outline {
+		text-shadow:
+			-1px -1px 0 #c83f00,
+			1px -1px 0 #c83f00,
+			-1px 1px 0 #c83f00,
+			1px 1px 0 #c83f00;
+	}
+	.hover\:text-outline-hover:hover {
+		text-shadow:
+			-1px -1px 0 #1a202c,
+			1px -1px 0 #1a202c,
+			-1px 1px 0 #1a202c,
+			1px 1px 0 #1a202c;
+	}
+</style>
