@@ -11,7 +11,7 @@
 	// options are forum, dev news, events. Toggling changes what appears in the feed. Default is forum posts
 </script>
 
-<div class="px-5 pt-10 flex flex-col pb-10" style="min-height: 500px;" >
+<div class="px-5 pt-10 flex flex-col pb-10" style="min-height: 500px;">
 	<div class="flex pb-10 h-24 leading-5">
 		<h1 class="mb-4 text-3xl font-extrabold text-dark dark:text-white md:text-5xl lg:text-6xl">
 			<span class="text-transparent bg-clip-text bg-gradient-to-r from-dark to-primary">

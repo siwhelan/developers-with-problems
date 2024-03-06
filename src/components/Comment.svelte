@@ -101,14 +101,24 @@
 		<div class="w-20 h-14">
 			{#if !userUpvoted && loggedInUser}
 				<div class="flex px-3">
-					<button aria-pressed="false" on:click={() => upvote(userUpvoted)} aria-label="upvote" class="max-h-1">
+					<button
+						aria-pressed="false"
+						on:click={() => upvote(userUpvoted)}
+						aria-label="upvote"
+						class="max-h-1"
+					>
 						<Upvote />
 					</button>
 					<p class="text-xl py-2">{commentUpvotes.length}</p>
 				</div>
 			{:else if userUpvoted && loggedInUser}
 				<div class="flex px-3">
-					<button aria-pressed="true" on:click={() => upvote(userUpvoted)} aria-label="upvoted" class="max-h-1">
+					<button
+						aria-pressed="true"
+						on:click={() => upvote(userUpvoted)}
+						aria-label="upvoted"
+						class="max-h-1"
+					>
 						<Upvoted />
 					</button>
 					<p class="text py-2">{commentUpvotes.length}</p>
@@ -125,14 +135,24 @@
 		<div class="w-20 h-14">
 			{#if !userDownvoted && loggedInUser}
 				<div class="flex px-3">
-					<button aria-pressed="false" on:click={() => downvote(userDownvoted)} aria-label="downvote" class="max-h-1">
+					<button
+						aria-pressed="false"
+						on:click={() => downvote(userDownvoted)}
+						aria-label="downvote"
+						class="max-h-1"
+					>
 						<Downvote />
 					</button>
 					<p class="text-xl py-2">{commentDownvotes.length}</p>
 				</div>
 			{:else if userDownvoted && loggedInUser}
 				<div class="flex px-3">
-					<button aria-pressed="true" on:click={() => downvote(userDownvoted)} aria-label="downvoted" class="max-h-1">
+					<button
+						aria-pressed="true"
+						on:click={() => downvote(userDownvoted)}
+						aria-label="downvoted"
+						class="max-h-1"
+					>
 						<Downvoted />
 					</button>
 					<p class="text py-2">{commentDownvotes.length}</p>
