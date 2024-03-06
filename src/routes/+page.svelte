@@ -79,7 +79,7 @@
 					postTitle={post.title}
 					postContent={post.content}
 					postUpvotes={post.upvotes}
-					upvoteNumber={post.upvotes.length}
+					postAvatar={post.avatar}
 					postAuthor={post.author}
 					loggedInUser={data.loggedInUser}
 					postDownvotes={post.downvotes}

@@ -5,10 +5,12 @@
 	import Upvoted from './upvoted.svelte';
 	import Downvote from './downvote.svelte';
 	import Downvoted from './downvoted.svelte';
+	import DisplayAvatar from './DisplayAvatar.svelte';
 
 	export let postTitle;
 	export let postContent;
 	export let postAuthor;
+	export let postAvatar;
 	export let postUpvotes;
 	export let postSlug;
 	export let loggedInUser;
@@ -189,7 +191,10 @@
 		<div>
 			<h2 class="text-xl font-bold pb-2 text-primary">{postTitle}</h2>
 			<p class=" pb-3">{postContent}</p>
-			<a href="/profile/{postAuthor}">{postAuthor}</a>
+			<div class="flex items-center">
+				<DisplayAvatar avatarUrl={postAvatar} />
+				<a href="/profile/{postAuthor}" class="ml-2">{postAuthor}</a>
+			</div>
 		</div>
 	</a>
 

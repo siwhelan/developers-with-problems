@@ -55,6 +55,7 @@
 				postTitle={post.title}
 				postContent={post.content}
 				postUpvotes={post.upvotes}
+				postAvatar={post.avatar}
 				postAuthor={post.author}
 				loggedInUser={data.loggedInUser}
 				postDownvotes={post.downvotes}

@@ -14,6 +14,7 @@ export async function load({ locals }) {
 		const post = eventsPosts[i];
 		const postAuthor = await User.findOne({ _id: post.userID });
 		post.author = postAuthor.username;
+		post.avatar = postAuthor.avatar;
 	}
 
 	let loggedInUser;
