@@ -8,6 +8,25 @@ export const actions = {
 		const password = formData.get('password');
 		const confirmPassword = formData.get('confirmPassword');
 
+		function validatePassword(password) {
+			const passwordRegexString =
+				'^(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+{}\\[\\]:;<>,.?~\\\\/-]).{8,}$';
+			const passwordRegex = new RegExp(passwordRegexString);
+			return passwordRegex.test(password);
+		}
+
+		// Password validation criteria using regex as a string
+		const isPasswordValid = validatePassword(password);
+
+		if (!isPasswordValid) {
+			console.error('Invalid password');
+			return {
+				success: false,
+				error:
+					'Invalid password. It must be at least 8 characters long and include one uppercase letter, one number, and one special symbol.'
+			};
+		}
+
 		const existingUser = await User.findOne({ $or: [{ username: username }, { email: email }] });
 
 		if (existingUser) {
