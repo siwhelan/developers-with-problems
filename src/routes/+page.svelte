@@ -82,6 +82,7 @@
 					upvoteNumber={post.upvotes.length}
 					postAuthor={post.author}
 					loggedInUser={data.loggedInUser}
+					postDownvotes={post.downvotes}
 				/>
 			</div>
 		{/each}
