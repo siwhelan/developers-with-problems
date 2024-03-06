@@ -1,8 +1,9 @@
 import { User } from '../lib/models/user.js';
+import { fetchEvents } from '../services/fetchEvents.js';
 import {
 	fetchTopStories,
-	fetchStoryDetails,
-	fetchTopRedditTechnology
+	fetchStoryDetails
+	// fetchTopRedditTechnology
 } from '../services/fetchNews';
 
 export const load = async ({ locals }) => {
@@ -41,31 +42,54 @@ export const load = async ({ locals }) => {
 	} catch (err) {
 		console.log(err);
 	}
-	let topStories = [];
-	let topRedditPosts = [];
-	let topRedditPost = [];
-	let topStory = [];
+	let topStories;
+	let topThreeStories;
+	// let topRedditPosts;
+	// let topRedditPost;
 
 	try {
 		const storyIds = await fetchTopStories();
 		const storyDetailsPromises = storyIds.map((id) => fetchStoryDetails(id));
 		topStories = await Promise.all(storyDetailsPromises);
-		topStory = topStories[0];
+		topThreeStories = topStories.slice(0, 3);
 	} catch (error) {
 		console.error('Failed to load top stories:', error);
 	}
 
+	// try {
+	// 	topRedditPosts = await fetchTopRedditTechnology();
+	// 	topRedditPost = topRedditPosts[0];
+	// } catch (error) {
+	// 	console.error('Failed to load top Reddit posts:', error);
+	// }
+
+	let trendingEvent;
 	try {
-		topRedditPosts = await fetchTopRedditTechnology();
-		topRedditPost = topRedditPosts[0];
+		const result = await fetchEvents();
+		const newMap = new Map();
+		for (let i = 0; i < result.length; i++) {
+			newMap.set(i, result[i].interested.length);
+		}
+		let values = Array.from(newMap.values());
+		let mostInterested = values.sort(function (a, b) {
+			return b - a;
+		})[0];
+
+		for (let i = 0; i < result.length; i++) {
+			if (newMap.get(i) == mostInterested) {
+				trendingEvent = result[i];
+				break;
+			}
+		}
 	} catch (error) {
-		console.error('Failed to load top Reddit posts:', error);
+		console.log(error);
 	}
 
 	return {
 		currentUserUsername,
 		challenge,
-		topRedditPost,
-		topStory
+		// topRedditPost,
+		topThreeStories,
+		trendingEvent
 	};
 };

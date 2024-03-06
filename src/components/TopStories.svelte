@@ -1,21 +1,23 @@
 <script>
-    export let topStory;
-    export let topRedditPost
+	export let topThreeStories;
+	// export let topRedditPost
 </script>
 
 <h6>Top Stories of the day</h6>
 <div>
-<ul class="list-inside mt-4">
-    <li class="mt-2">
-        <a
-            href={topStory.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-text hover:text-primary">🔗 {topStory.title}</a
-        >
-    </li>
-</ul>
-<ul class="list-inside mt-4">
+	{#each topThreeStories as story}
+		<ul class="list-inside mt-4">
+			<li class="mt-2">
+				<a
+					href={story.url}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="text-text hover:text-primary">🔗 {story.title}</a
+				>
+			</li>
+		</ul>
+	{/each}
+	<!-- <ul class="list-inside mt-4">
 <li class="mt-2">
     <a
         href={topRedditPost.url}
@@ -24,5 +26,5 @@
         class="text-text hover:text-primary">🔗 {topRedditPost.title}</a
     >
 </li>
-</ul>
+</ul> -->
 </div>

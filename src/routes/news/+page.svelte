@@ -8,14 +8,12 @@
 
 	let topStories = [];
 	let topRedditPosts = [];
-	let topStory = [];
 
 	async function loadTopStories() {
 		try {
 			const storyIds = await fetchTopStories();
 			const storyDetailsPromises = storyIds.map((id) => fetchStoryDetails(id));
 			topStories = await Promise.all(storyDetailsPromises);
-			topStory = topStories[0]
 		} catch (error) {
 			console.error('Failed to load top stories:', error);
 		}

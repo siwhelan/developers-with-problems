@@ -4,15 +4,17 @@
 	let currentItems = 100;
 </script>
 
-<div class="w-full bg-[#1c212c] max-w-xs text-white max-h-160 flex flex-col items-center mt-2 pt-4 pl-4 pr-4 rounded-md mb-2">
-    <h6 class="mb-1">Codewars Daily Challenge</h6>
-    <img
+<div
+	class="w-full bg-[#1c212c] max-w-xs text-white max-h-160 flex flex-col items-center mt-2 pt-4 pl-4 pr-4 rounded-md mb-2"
+>
+	<h6 class="mb-1">Codewars Daily Challenge</h6>
+	<img
 		src="/codewars.svg"
 		alt="codewars logo"
 		class="object-scale-down h-6 bg-orange-500 rounded-md mb-1"
 	/>
 	<p class="text-xl">{challenge.name}</p>
-    <!-- rank.name needs to be smaller -->
+	<!-- rank.name needs to be smaller -->
 	<p>{challenge.rank.name}</p>
 
 	<div class="list-element">
@@ -54,18 +56,6 @@
 	</div>
 	<a href="{challenge.url}/train/{chosenLang}">Click here to Train!</a>
 </div>
-
-<style>
-
-    .btn.btn-secondary {
-      transition: background-color 0.3s ease;
-    }
-  
-    .btn.btn-secondary:hover {
-      background-color: #4d4e4e;
-    }
-</style>
-  
 
 <!-- {
     "id": "57eb8fcdf670e99d9b000272",
@@ -131,3 +121,13 @@
         "suggestions": 1
     }
 } -->
+
+<style>
+	.btn.btn-secondary {
+		transition: background-color 0.3s ease;
+	}
+
+	.btn.btn-secondary:hover {
+		background-color: #4d4e4e;
+	}
+</style>

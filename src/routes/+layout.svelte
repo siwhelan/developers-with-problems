@@ -6,11 +6,10 @@
 	import UserNavBar from '../components/userNavBar.svelte';
 	import Footer from '../components/Footer.svelte';
 	import DailyChallenge from '../components/DailyChallenge.svelte';
+	import resources from './resources/resources.json';
 
 	export let data;
-	$: ({ currentUserUsername, challenge, topStory, topRedditPost } = data);
-
-	
+	$: ({ currentUserUsername, challenge, topThreeStories, trendingEvent } = data);
 </script>
 
 <div>
@@ -29,13 +28,26 @@
 		>
 			<p href="/">Highlights Reel</p>
 			<div>
-			<DailyChallenge {challenge} />
+				<DailyChallenge {challenge} />
 			</div>
 			<div>
-				<TopStories {topStory} {topRedditPost} />
+				<TopStories {topThreeStories} />
 			</div>
 			<div>
-				<TopEvent />
+				<TopEvent {trendingEvent} />
+			</div>
+			<div class="p-4 rounded-lg shadow-md max-w-2xl relative list-none">
+				<h6>Beginner Friendly Resources!</h6>
+				<hr />
+				<a href={resources[2].url}>
+					<p>{resources[2].name}</p>
+					<p>{resources[2].description}</p>
+				</a>
+				<hr />
+				<a href={resources[8].url}>
+					<p>{resources[8].name}</p>
+					<p>{resources[8].description}</p>
+				</a>
 			</div>
 		</div>
 	</div>
@@ -46,6 +58,6 @@
 <style>
 	.menu-container {
 		width: 250px; /* fixed border height and width - can be adjusted to suit contents */
-		height: 1000px;
+		height: 1300px;
 	}
 </style>
