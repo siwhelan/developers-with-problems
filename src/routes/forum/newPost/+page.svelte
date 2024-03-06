@@ -44,7 +44,7 @@
 			</label>
 
 			<label for="options">Choose a Forum Category:</label>
-			<select id="forum" name="forum" bind:value={selectedForum}>
+			<select id="forum" name="forum" aria-label="Select a forum category" bind:value={selectedForum}>
 				<option value="general">General Coding</option>
 				<option value="job">Job Hunting/Career Advice</option>
 				<option value="events">Events</option>

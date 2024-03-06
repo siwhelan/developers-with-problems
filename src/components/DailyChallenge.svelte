@@ -48,7 +48,7 @@
 	{/if}
 	<div>
 		<p>Select a Language:</p>
-		<select id="langSelect" bind:value={chosenLang} class="text-black text-center">
+		<select id="langSelect" aria-label='Select a programming language' bind:value={chosenLang} class="text-black text-center">
 			{#each challenge.languages as language}
 				<option value={language}>{language}</option>
 			{/each}
