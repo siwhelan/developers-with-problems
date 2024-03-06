@@ -8,7 +8,9 @@
 		<ul class="flex space-x-4 items-center">
 			<li>
 				<a href="/">
-					<img src="/dwp.png" alt="logo" class="hover:underline w-25 h-8" />
+					<div class="my-4 text-primary font-extrabold justify-end text-right text-4xl col-start-4 mr-24">
+						DWP
+					</div>
 					<!-- <div class="text-primary text-2xl font-extrabold">
 						<p>DWP</p>
 					</div> -->
