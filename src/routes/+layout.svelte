@@ -13,7 +13,6 @@
 	export let data;
 
 	$: ({ currentUserUsername, currentUserAvatar, challenge, topThreeStories, trendingEvent } = data);
-
 </script>
 
 <div>

@@ -89,7 +89,7 @@ export const load = async ({ locals }) => {
 
 	return {
 		currentUserUsername,
-		currentUserAvatar
+		currentUserAvatar,
 		challenge,
 		// topRedditPost,
 		topThreeStories,

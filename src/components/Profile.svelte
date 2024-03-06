@@ -24,14 +24,14 @@
 
 <div class="flex text-center justify-center flex-row">
 	<div class="menu-container text-center rounded-lg p-5 m-10 px-5 w-96 bg-stone-100">
-	<img class="avatar" src={profileUser.avatar} alt="Avatar" />
-	<AvatarUpload />
+		<!-- <img
+			class="avatar w-32 h-32 absolute right-[120px] top-[50px] rounded-full"
+			src={profileUser.avatar}
+			alt="Avatar"
+		/> -->
+		<AvatarUpload />
 		<div class=" pb-10">
-			<img
-				class="h-40 m-auto pt-5"
-				alt="profile"
-				src="https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0="
-			/>
+			<img class="h-40 m-auto pt-5" alt="profile" src={profileUser.avatar} />
 			<div class="pt-5 text-xl"><p>{profileUser.username}</p></div>
 
 			<div class="sectionStyles"><p>Bio: {profileUser.bio || 'placeholder text'}</p></div>
@@ -129,7 +129,7 @@
 		</div>
 	</div>
 
-	<p class={sectionStyles}>
+	<!-- <p class={sectionStyles}>
 		Followers: {profileUser.followers != '' ? profileUser.followers : 'No followers yet!'}
 	</p>
 	<p class={sectionStyles}>
@@ -140,7 +140,7 @@
 	{/if}
 	{#if !followBtnBool}
 		<a class={linkStyles} href="/profile/changePassword">Change Password</a>
-	{/if}
+	{/if} -->
 </div>
 {#if codewarsData}
 	<CodewarsInfo {codewarsData} />
@@ -163,24 +163,11 @@
 	{/each}
 </div>
 
-<style>
-	.menu-container {
-		position: relative; /* This allows absolute positioning of child elements */
-	}
-	.avatar {
-		width: 150px; /* Change this to the desired width */
-		height: 150px; /* Change this to the desired height */
-		position: absolute; /* This takes the image out of the normal document flow */
-		right: 120px; /* Change this to move the image to the right */
-		top: 50px; /* Change this to move the image down */
- </style>
-
 <style lang="postcss">
 	/* .sectionStyles {
 		@apply block py-2 px-4 bg-navigation text-white rounded-md mb-2 max-w-xs text-center;
 	} */
 	.linkStyles {
 		@apply block py-2 px-4 m-auto bg-green-800 text-white rounded-md mb-2 max-w-xs hover:bg-red-700 text-center;
-
 	}
 </style>
