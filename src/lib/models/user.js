@@ -13,9 +13,9 @@ const UserSchema = new mongoose.Schema(
 		following: [{ type: String, ref: 'User' }],
 		avatar: { type: String },
 		bio: { type: String },
-		social: { type: Object }
+		social: { type: Object, default: {} }
 	},
-	{ _id: false }
+	{ _id: false, minimize: false }
 );
 
 export const User = mongoose.model('User', UserSchema);

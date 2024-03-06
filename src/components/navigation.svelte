@@ -15,11 +15,11 @@
 		class="{linkStyles} {hoverStyles}">My Profile</a
 	>
 
-	<a href="/news" class={linkStyles}>News</a>
-	<a href="/forum" class={linkStyles}>Forum</a>
-	<a href="/events" class={linkStyles}>Events</a>
-	<a href="/careers" class={linkStyles}>Careers</a>
-	<a href="/resources" class={linkStyles}>Learning</a>
+	<a href="/news" class="{linkStyles} {hoverStyles}">News</a>
+	<a href="/forum" class="{linkStyles} {hoverStyles}">Forum</a>
+	<a href="/events" class="{linkStyles} {hoverStyles}">Events</a>
+	<a href="/careers" class="{linkStyles} {hoverStyles}">Careers</a>
+	<a href="/resources" class="{linkStyles} {hoverStyles}">Learning</a>
 
 	<!-- <a href="/settings" class={linkStyles}>Settings</a> -->
 	<!-- Logout will be at the top of the page -->
