@@ -10,6 +10,7 @@ export async function load({ locals }) {
 		const post = posts[i];
 		const postAuthor = await User.findOne({ _id: post.userID });
 		post.author = postAuthor.username;
+		post.avatar = postAuthor.avatar;
 	}
 	// console.log(posts);
 	let loggedInUser;

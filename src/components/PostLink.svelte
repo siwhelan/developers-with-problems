@@ -5,14 +5,17 @@
 	import Upvoted from './upvoted.svelte';
 	import Downvote from './downvote.svelte';
 	import Downvoted from './downvoted.svelte';
+	import DisplayAvatar from './DisplayAvatar.svelte';
 
 	export let postTitle;
 	export let postContent;
 	export let postAuthor;
+	export let postAvatar;
 	export let postUpvotes;
 	export let postSlug;
 	export let loggedInUser;
 	export let postDownvotes;
+	console.log('postAvatar', postAvatar);
 
 	let userUpvoted;
 	let userDownvoted;
@@ -152,6 +155,7 @@
 		<div>
 			<h2 class="text-xl font-bold pb-2 text-primary">{postTitle}</h2>
 			<p class=" pb-3">{postContent}</p>
+			<img src={postAvatar} alt="Author's avatar" />
 			<a href="/profile/{postAuthor}">{postAuthor}</a>
 		</div>
 	</a>

@@ -3,10 +3,12 @@
 	import Upvoted from './upvoted.svelte';
 	import Downvote from './downvote.svelte';
 	import Downvoted from './downvoted.svelte';
+	import DisplayAvatar from './DisplayAvatar.svelte';
 	export let postId;
 	export let postTitle;
 	export let postContent;
 	export let postAuthor;
+	export let postAvatar;
 	export let postUpvotes;
 	export let postDownvotes;
 
@@ -126,6 +128,7 @@
 		<h2 class="text-xl font-bold pb-1 text-primary">{postTitle}</h2>
 		<p class="font-bold"><a href="/profile/{postAuthor}">{postAuthor}</a></p>
 		<p class=" pb-3">{postContent}</p>
+		<DisplayAvatar avatarUrl={postAvatar} />
 	</div>
 </div>
 <div class="pb-2"></div>
