@@ -17,9 +17,9 @@ const UserSchema = new mongoose.Schema(
 				'https://res.cloudinary.com/dwunjjbau/image/upload/v1709726953/qjuhxahets6vnnn0thkn.png'
 		},
 		bio: { type: String },
-		social: { type: Object }
+		social: { type: Object, default: {} }
 	},
-	{ _id: false }
+	{ _id: false, minimize: false }
 );
 
 export const User = mongoose.model('User', UserSchema);

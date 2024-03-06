@@ -23,8 +23,10 @@
 				required
 			/>
 		</div>
-		<button class="bg-primary hover:bg-dark text-white rounded font-bold py-2 px-4" type="submit"
-			>Login</button
+		<button
+			class="bg-primary hover:bg-dark text-white rounded font-bold py-2 px-4"
+			type="submit"
+			aria-label="Log in">Login</button
 		>
 	</form>
 </div>

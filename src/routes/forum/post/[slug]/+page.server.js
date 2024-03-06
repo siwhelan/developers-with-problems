@@ -76,16 +76,5 @@ export const actions = {
 			console.error('Error getting logged in user:', error);
 			currentUserID = null;
 		}
-	},
-	upvote: async ({ locals, params, request }) => {
-		const upvoted = await request.json();
-		let post = await Post.findById(params.slug);
-		let loggedInUser = locals.user.id;
-		if (upvoted.action == false) {
-			post.upvotes.push(loggedInUser);
-		} else {
-			post.upvotes = post.upvotes.filter((like) => like.toString() !== loggedInUser);
-		}
-		await post.save();
 	}
 };

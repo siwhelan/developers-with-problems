@@ -1,6 +1,6 @@
 <script>
 	import { enhance } from '$app/forms';
-
+	let selectedForum;
 	let link = false;
 	function handleOptionChange() {
 		link = !link;
@@ -43,6 +43,13 @@
 				<span class="ml-2">Add Link</span>
 			</label>
 
+			<label for="options">Choose a Forum Category:</label>
+			<select id="forum" name="forum" bind:value={selectedForum}>
+				<option value="general">General Coding</option>
+				<option value="job">Job Hunting/Career Advice</option>
+				<option value="events">Events</option>
+				<option value="news">News</option>
+			</select>
 			{#if link == true}
 				<label class="w-full">
 					<span>Link URL</span>
@@ -63,9 +70,30 @@
 				/>
 			</label>
 
-			<button class="bg-primary hover:bg-dark text-white font-bold py-2 px-4 rounded" type="submit">
+			<button
+				class="bg-primary hover:bg-dark text-white text-outline hover:text-outline-hover font-bold py-2 px-4 rounded"
+				type="submit"
+				aria-label="New forum post"
+			>
 				New Post
 			</button>
 		</form>
 	</div>
 </div>
+
+<style>
+	.text-outline {
+		text-shadow:
+			-1px -1px 0 #c83f00,
+			1px -1px 0 #c83f00,
+			-1px 1px 0 #c83f00,
+			1px 1px 0 #c83f00;
+	}
+	.hover\:text-outline-hover:hover {
+		text-shadow:
+			-1px -1px 0 #1a202c,
+			1px -1px 0 #1a202c,
+			-1px 1px 0 #1a202c,
+			1px 1px 0 #1a202c;
+	}
+</style>

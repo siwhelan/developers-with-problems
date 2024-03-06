@@ -20,18 +20,43 @@
 			<li>
 				{#if currentUserAvatar}<a
 						href="/profile/{currentUserUsername}"
-						class="text-primary hover:underline"
+						class="text-primary hover:underline text-outline hover:text-outline-hover"
 						><img src={currentUserAvatar} alt="User Avatar" class="w-8 h-8 rounded-full" /></a
 					>{/if}
 			</li>
 			<li>
-				{#if !currentUserAvatar}<a href="/signup" class="text-primary hover:underline">Sign Up</a
+				{#if !currentUserAvatar}<a
+						href="/signup"
+						class="text-primary hover:underline text-outline hover:text-outline-hover">Sign Up</a
 					>{/if}
 			</li>
 			<li>
-				{#if !currentUserAvatar}<a href="/login" class="text-primary hover:underline">Login</a>
-				{:else}<a href="/logout" class="text-primary hover:underline">Logout</a>{/if}
+				{#if !currentUserAvatar}<a
+						href="/login"
+						class="text-primary hover:underline text-outline hover:text-outline-hover">Login</a
+					>
+				{:else}<a
+						href="/logout"
+						class="text-primary hover:underline text-outline hover:text-outline-hover">Logout</a
+					>{/if}
 			</li>
 		</ul>
 	</nav>
 </div>
+
+<style>
+	.text-outline {
+		text-shadow:
+			-1px -1px 0 #1a202c,
+			1px -1px 0 #1a202c,
+			-1px 1px 0 #1a202c,
+			1px 1px 0 #1a202c;
+	}
+	.hover\:text-outline-hover:hover {
+		text-shadow:
+			-1px -1px 0 #1a202c,
+			1px -1px 0 #1a202c,
+			-1px 1px 0 #1a202c,
+			1px 1px 0 #1a202c;
+	}
+</style>

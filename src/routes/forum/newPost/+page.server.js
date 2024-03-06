@@ -7,6 +7,7 @@ export const actions = {
 		const postTitle = formData.get('title');
 		const postContent = formData.get('textPost');
 		const postUrl = formData.get('link');
+		const tags = [formData.get('forum')];
 		const user = locals.user.id;
 		if (!postTitle || !postContent) {
 			return fail(400, { error: 'Error, missing' });
@@ -15,7 +16,8 @@ export const actions = {
 			title: postTitle,
 			content: postContent,
 			url: postUrl,
-			userID: user
+			userID: user,
+			tags: tags
 		};
 		await Post.create(newPost);
 
