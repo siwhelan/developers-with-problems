@@ -12,7 +12,7 @@
 		class="object-scale-down h-10 bg-orange-500 rounded-md"
 	/>
 	<div class="font-SansSerifLarge text-white text-l uppercase pb-2">CodeWars</div>
-	<div class="w-full flex flex-col text-gray-500 fill-gray-500 text-sm">
+	<div class="w-full flex flex-col text-white fill-gray-500 text-sm">
 		<div class="font-SansSerifLarge text-white text-m uppercase pb-2">
 			<a href="http://www.codewars.com/users/{codewarsData.username}">{codewarsData.username}</a>
 		</div>

@@ -15,6 +15,9 @@
 	const toggleForm = function () {
 		addSocial = !addSocial;
 	};
+	function onKeyDown(e) {
+		addSocial = !addSocial;
+	}
 </script>
 
 <div class="flex text-center justify-center flex-row">
@@ -104,9 +107,14 @@
 			<a
 				on:click={toggleForm}
 				alt="Share"
+				type="button"
+				aria-roledescription="add social media"
+				role="button"
 				aria-label="addSocials"
 				class="w-5 h-5 cursor-pointer ml-5 mb-5"
+				tabindex="0"
 				id="socialsIcon"
+				on:keydown|preventDefault={onKeyDown}
 			>
 				<AddIcon />
 			</a>
