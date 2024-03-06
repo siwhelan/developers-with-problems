@@ -15,7 +15,6 @@
 	export let postSlug;
 	export let loggedInUser;
 	export let postDownvotes;
-	console.log('postAvatar', postAvatar);
 
 	let userUpvoted;
 	let userDownvoted;

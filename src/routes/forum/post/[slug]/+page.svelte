@@ -30,6 +30,7 @@
 			commentContent={comment.content}
 			commentTime={comment.timestamp}
 			commentUser={comment.author.username}
+			commentAvatar={comment.author.avatar}
 			commentId={comment._id}
 			commentUpvotes={comment.upvotes}
 			commentDownvotes={comment.downvotes}
