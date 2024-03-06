@@ -30,30 +30,30 @@ export const actions = {
 					error: "Passwords don't match"
 				};
 			}
-			const newUser = {
+		}
+		const newUser = {
+			username: username,
+			email: email,
+			password: password
+		};
+
+		try {
+			await User.create({
+				_id: generateId(15),
 				username: username,
 				email: email,
-				password: password
+				hashed_password: password
+			});
+			console.log('New user added: ', newUser);
+			return {
+				success: true
 			};
-
-			try {
-				await User.create({
-					_id: generateId(15),
-					username: username,
-					email: email,
-					hashed_password: password
-				});
-				console.log('New user added: ', newUser);
-				return {
-					success: true
-				};
-			} catch (error) {
-				console.error('Error creating user:', error);
-				return {
-					success: false,
-					error: 'Failed to create user'
-				};
-			}
+		} catch (error) {
+			console.error('Error creating user:', error);
+			return {
+				success: false,
+				error: 'Failed to create user'
+			};
 		}
 	}
 };

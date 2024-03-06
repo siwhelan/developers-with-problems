@@ -24,7 +24,7 @@
 					const confirmPassword = formData.get('confirmPassword');
 
 					if (password !== confirmPassword) {
-						errorMessage = "Passwords don't match";
+						errorMessage = 'Passwords do not match';
 						cancel();
 						return;
 					}
