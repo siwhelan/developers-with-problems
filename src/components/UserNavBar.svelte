@@ -1,6 +1,7 @@
 <script>
 	// let session = false;
 	export let currentUserUsername;
+	export let currentUserAvatar;
 </script>
 
 <div class="bg-gray-800 text-white p-4">
@@ -15,22 +16,22 @@
 				</a>
 			</li>
 		</ul>
-		<ul class="flex space-x-4">
+		<ul class="flex space-x-2">
 			<li>
-				{#if currentUserUsername}<a
+				{#if currentUserAvatar}<a
 						href="/profile/{currentUserUsername}"
 						class="text-primary hover:underline text-outline hover:text-outline-hover"
-						>{currentUserUsername}</a
+						><img src={currentUserAvatar} alt="User Avatar" class="w-8 h-8 rounded-full" /></a
 					>{/if}
 			</li>
 			<li>
-				{#if !currentUserUsername}<a
+				{#if !currentUserAvatar}<a
 						href="/signup"
 						class="text-primary hover:underline text-outline hover:text-outline-hover">Sign Up</a
 					>{/if}
 			</li>
 			<li>
-				{#if !currentUserUsername}<a
+				{#if !currentUserAvatar}<a
 						href="/login"
 						class="text-primary hover:underline text-outline hover:text-outline-hover">Login</a
 					>

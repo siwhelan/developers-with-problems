@@ -1,6 +1,7 @@
 <script>
 	import FollowBtn from './FollowBtn.svelte';
 	import PostLink from './PostLink.svelte';
+	import AvatarUpload from './AvatarUpload.svelte';
 	import CodewarsInfo from './CodewarsInfo.svelte';
 	import { enhance } from '$app/forms';
 	import AddIcon from './AddIcon.svelte';
@@ -23,14 +24,14 @@
 
 <div class="flex text-center justify-center flex-row">
 	<div class="menu-container text-center rounded-lg p-5 m-10 px-5 w-96 bg-stone-100">
-		<!-- <h1 class="sectionStyles">User Profile</h1> -->
-		<!-- <img src={profileUser.avatar} alt="Avatar" /> -->
+		<!-- <img
+			class="avatar w-32 h-32 absolute right-[120px] top-[50px] rounded-full"
+			src={profileUser.avatar}
+			alt="Avatar"
+		/> -->
+		<AvatarUpload />
 		<div class=" pb-10">
-			<img
-				class="h-40 m-auto pt-5"
-				alt="profile"
-				src="https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0="
-			/>
+			<img class="h-40 m-auto pt-5" alt="profile" src={profileUser.avatar} />
 			<div class="pt-5 text-xl"><p>{profileUser.username}</p></div>
 
 			<div class="sectionStyles"><p>Bio: {profileUser.bio || 'placeholder text'}</p></div>
@@ -127,10 +128,23 @@
 			</div>
 		</div>
 	</div>
-	{#if codewarsData}
-		<CodewarsInfo {codewarsData} />
+
+	<!-- <p class={sectionStyles}>
+		Followers: {profileUser.followers != '' ? profileUser.followers : 'No followers yet!'}
+	</p>
+	<p class={sectionStyles}>
+		Following: {profileUser.following != '' ? profileUser.following : 'Not following anyone yet!'}
+	</p>
+	{#if followBtnBool}
+		<FollowBtn profileUserID={profileUser._id} {isFollowing} {onClick} />
 	{/if}
+	{#if !followBtnBool}
+		<a class={linkStyles} href="/profile/changePassword">Change Password</a>
+	{/if} -->
 </div>
+{#if codewarsData}
+	<CodewarsInfo {codewarsData} />
+{/if}
 
 <h2 class="text-center text-2xl">Posts by this user</h2>
 <div class="">

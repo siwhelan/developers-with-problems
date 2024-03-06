@@ -1,19 +1,22 @@
 <script>
 	import '../app.css';
 	import Navigation from '../components/navigation.svelte';
+
+	import UserNavBar from '../components/UserNavBar.svelte';
 	import TopStories from '../components/TopStories.svelte';
 	import TopEvent from '../components/TopEvent.svelte';
-	import UserNavBar from '../components/userNavBar.svelte';
+
 	import Footer from '../components/Footer.svelte';
 	import DailyChallenge from '../components/DailyChallenge.svelte';
 	import resources from './resources/resources.json';
 
 	export let data;
-	$: ({ currentUserUsername, challenge, topThreeStories, trendingEvent } = data);
+
+	$: ({ currentUserUsername, currentUserAvatar, challenge, topThreeStories, trendingEvent } = data);
 </script>
 
 <div>
-	<UserNavBar {currentUserUsername} />
+	<UserNavBar {currentUserUsername} {currentUserAvatar} />
 </div>
 <!-- <p>{posts}</p> -->
 <div class="flex flex-col min-h-screen text-text">

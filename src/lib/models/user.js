@@ -11,7 +11,11 @@ const UserSchema = new mongoose.Schema(
 		hashed_password: { type: String, required: true },
 		followers: [{ type: String, ref: 'User' }],
 		following: [{ type: String, ref: 'User' }],
-		avatar: { type: String },
+		avatar: {
+			type: String,
+			default:
+				'https://res.cloudinary.com/dwunjjbau/image/upload/v1709726953/qjuhxahets6vnnn0thkn.png'
+		},
 		bio: { type: String },
 		social: { type: Object, default: {} }
 	},
