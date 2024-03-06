@@ -47,5 +47,20 @@ export const actions = {
 			post.upvotes = post.upvotes.filter((like) => like.toString() !== loggedInUser);
 		}
 		await post.save();
+	},
+
+	downvote: async ({ locals, request }) => {
+		const { action, postSlug } = await request.json();
+		let post = await Post.findById(postSlug);
+		let loggedInUser = locals.user.id;
+		if (action == false) {
+			post.downvotes.push(loggedInUser);
+			if (post.upvotes.includes(loggedInUser)) {
+				post.upvotes = post.upvotes.filter((like) => like.toString() !== loggedInUser);
+			}
+		} else {
+			post.downvotes = post.downvotes.filter((like) => like.toString() !== loggedInUser);
+		}
+		await post.save();
 	}
 };
