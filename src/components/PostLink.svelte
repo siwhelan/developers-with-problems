@@ -154,8 +154,10 @@
 		<div>
 			<h2 class="text-xl font-bold pb-2 text-primary">{postTitle}</h2>
 			<p class=" pb-3">{postContent}</p>
-			<DisplayAvatar avatarUrl={postAvatar} />
-			<a href="/profile/{postAuthor}">{postAuthor}</a>
+			<div class="flex items-center">
+				<DisplayAvatar avatarUrl={postAvatar} />
+				<a href="/profile/{postAuthor}" class="ml-2">{postAuthor}</a>
+			</div>
 		</div>
 	</a>
 </div>
