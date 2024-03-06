@@ -10,9 +10,10 @@
 	style="outline: 2px solid rgba(128, 128, 128, 0.2);"
 >
 	<a href="/" class="{linkStyles} {hoverStyles}">Home</a>
-	{#if currentUserUsername}
-		<a href="/profile/{currentUserUsername}" class="{linkStyles} {hoverStyles}">My Profile</a>
-	{/if}
+	<a
+		href={currentUserUsername ? `/profile/${currentUserUsername}` : '/login'}
+		class="{linkStyles} {hoverStyles}">My Profile</a
+	>
 
 	<a href="/news" class={linkStyles}>News</a>
 	<a href="/forum" class={linkStyles}>Forum</a>
