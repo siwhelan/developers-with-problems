@@ -8,7 +8,7 @@
 	export let postTitle;
 	export let postContent;
 	export let postAuthor;
-	export let postAvatar;
+	export let avatar;
 	export let postUpvotes;
 	export let postDownvotes;
 
@@ -126,9 +126,9 @@
 	</div>
 	<div>
 		<h2 class="text-xl font-bold pb-1 text-primary">{postTitle}</h2>
+		<DisplayAvatar avatarUrl={avatar} />
 		<p class="font-bold"><a href="/profile/{postAuthor}">{postAuthor}</a></p>
 		<p class=" pb-3">{postContent}</p>
-		<DisplayAvatar avatarUrl={postAvatar} />
 	</div>
 </div>
 <div class="pb-2"></div>
