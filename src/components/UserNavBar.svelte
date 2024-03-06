@@ -18,6 +18,13 @@
 		</ul>
 		<ul class="flex space-x-2">
 			<li>
+				{#if currentUserUsername}<a
+						href="/profile/{currentUserUsername}"
+						class="text-primary hover:underline text-outline hover:text-outline-hover"
+						>{currentUserUsername}</a
+					>{/if}
+			</li>
+			<li>
 				{#if currentUserAvatar}<a
 						href="/profile/{currentUserUsername}"
 						class="text-primary hover:underline text-outline hover:text-outline-hover"
