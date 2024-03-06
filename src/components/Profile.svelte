@@ -3,10 +3,7 @@
 	import PostLink from './PostLink.svelte';
 	import CodewarsInfo from './CodewarsInfo.svelte';
 	import { enhance } from '$app/forms';
-	let sectionStyles =
-		'block py-2 px-4 bg-gray-800 text-white rounded-md mb-2 max-w-xs hover:bg-gray-700 text-center';
-	let linkStyles =
-		'block py-2 px-4 bg-green-800 text-white rounded-md mb-2 max-w-xs hover:bg-red-700 text-center';
+	import AddIcon from './AddIcon.svelte';
 	export let profileUser;
 	export let followBtnBool;
 	export let onClick;
@@ -16,15 +13,15 @@
 	export let loggedInUser;
 </script>
 
-<div class="flex flex-row">
-	<div class="menu-container text-center bg-blue-900 rounded-lg p-5 m-10">
-		<h1 class={sectionStyles}>User Profile</h1>
+<div class="flex text-center justify-center flex-row">
+	<div class="menu-container text-center rounded-lg p-5 m-10">
+		<h1 class="sectionStyles">User Profile</h1>
 		<!-- <img src={profileUser.avatar} alt="Avatar" /> -->
-		<div class={sectionStyles}><p>Name: {profileUser.username}</p></div>
-		<div class={sectionStyles}><p>Email: {profileUser.email}</p></div>
-		<div class={sectionStyles}><p>Bio: {profileUser.bio || 'placeholder text'}</p></div>
-		<div class={sectionStyles}>
-			<p class={sectionStyles}>Socials:</p>
+		<div class="sectionStyles"><p>Name: {profileUser.username}</p></div>
+		<div class="sectionStyles"><p>Email: {profileUser.email}</p></div>
+		<div class="sectionStyles"><p>Bio: {profileUser.bio || 'placeholder text'}</p></div>
+		<div class="sectionStyles">
+			<p class="sectionStyles">Socials:</p>
 			<div id="socials">
 				{#if profileUser.social.codewars}
 					<p>
@@ -66,20 +63,22 @@
 					<button type="submit" id="addSocialsButton" class="p-1">Add socials</button>
 				</form>
 			</div>
-			<img src="/share-icon.png" alt="Share" class="w-5 h-5 cursor-pointer" id="socialsIcon" />
+			<!-- <img src="/share-icon.png" alt="Share" class="w-5 h-5 cursor-pointer" id="socialsIcon" /> -->
+
+			<AddIcon alt="Share" class="w-5 h-5 cursor-pointer" id="socialsIcon" />
 		</div>
 
-		<p class={sectionStyles}>
+		<p class="sectionStyles">
 			Followers: {profileUser.followers != '' ? profileUser.followers : 'No followers yet!'}
 		</p>
-		<p class={sectionStyles}>
+		<p class="sectionStyles">
 			Following: {profileUser.following != '' ? profileUser.following : 'Not following anyone yet!'}
 		</p>
 		{#if followBtnBool}
 			<FollowBtn profileUserID={profileUser._id} {isFollowing} {onClick} />
 		{/if}
 		{#if !followBtnBool}
-			<a class={linkStyles} href="/profile/changePassword">Change Password</a>
+			<a class="linkStyles" href="/profile/changePassword">Change Password</a>
 		{/if}
 	</div>
 	{#if codewarsData}
@@ -87,8 +86,8 @@
 	{/if}
 </div>
 
-<div class="menu-container bg-blue-900 rounded-lg p-5 m-10 max-w-xs">
-	<h2 class={sectionStyles}>Posts</h2>
+<h2 class="text-center">Posts by this user</h2>
+<div class="justify-center rounded-lg p-5 m-10">
 	{#each posts as post}
 		<PostLink
 			postSlug={post._id}
@@ -98,6 +97,8 @@
 			upvoteNumber={post.upvotes.length}
 			postAuthor={post.author}
 			{loggedInUser}
+			downvoteNumber={post.downvotes.length}
+			postDownvotes={post.downvotes}
 		/>
 	{/each}
 	<script>
@@ -114,3 +115,12 @@
 		document.getElementById('addSocialsButton').addEventListener('click', toggleForm);
 	</script>
 </div>
+
+<style lang="postcss">
+	.sectionStyles {
+		@apply block py-2 px-4 bg-navigation text-white rounded-md mb-2 max-w-xs text-center;
+	}
+	.linkStyles {
+		@apply block py-2 px-4 bg-green-800 text-white rounded-md mb-2 max-w-xs hover:bg-red-700 text-center;
+	}
+</style>
