@@ -1,6 +1,7 @@
 <script>
 	import FollowBtn from './FollowBtn.svelte';
 	import PostLink from './PostLink.svelte';
+	import AvatarUpload from './AvatarUpload.svelte';
 	let sectionStyles =
 		'block py-2 px-4 bg-gray-800 text-white rounded-md mb-2 max-w-xs hover:bg-gray-700 text-center';
 	let linkStyles =
@@ -14,8 +15,9 @@
 </script>
 
 <div class="menu-container text-center bg-blue-900 rounded-lg p-5 m-10">
+	<img class="avatar" src={profileUser.avatar} alt="Avatar" />
+	<AvatarUpload />
 	<h1 class={sectionStyles}>User Profile</h1>
-	<!-- <img src={profileUser.avatar} alt="Avatar" /> -->
 	<p class={sectionStyles}>Name: {profileUser.username}</p>
 	<p class={sectionStyles}>Email: {profileUser.email}</p>
 	<p class={sectionStyles}>Bio: {profileUser.bio || 'placeholder text'}</p>
@@ -48,3 +50,16 @@
 		/>
 	{/each}
 </div>
+
+<style>
+	.menu-container {
+		position: relative; /* This allows absolute positioning of child elements */
+	}
+	.avatar {
+		width: 150px; /* Change this to the desired width */
+		height: 150px; /* Change this to the desired height */
+		position: absolute; /* This takes the image out of the normal document flow */
+		right: 120px; /* Change this to move the image to the right */
+		top: 50px; /* Change this to move the image down */
+	}
+</style>

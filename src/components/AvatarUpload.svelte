@@ -1,15 +1,17 @@
 <script>
+	let avatarUrl = '';
+
 	async function handleSubmit(event) {
 		event.preventDefault();
 		const formData = new FormData(event.target);
-		const response = await fetch('imageUpload', {
+		const response = await fetch('/imageUpload', {
 			method: 'POST',
 			body: formData // No need to set content-type header
 		});
 		if (response.ok) {
 			const result = await response.json();
 			console.log('Avatar URL:', result.image);
-			// Handle success scenario, e.g., updating the avatar URL in your UI
+			avatarUrl = result.image; // Update the avatar URL
 		} else {
 			// Handle error scenario
 			console.error('Upload failed');

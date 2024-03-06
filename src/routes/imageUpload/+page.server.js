@@ -50,9 +50,6 @@ export const actions = {
 				url: uploadResult.url,
 				secure_url: uploadResult.secure_url
 			};
-
-			// ... your existing code ...
-
 			console.log('Cloudinary URL:', result.secure_url);
 
 			let loggedInUser;
