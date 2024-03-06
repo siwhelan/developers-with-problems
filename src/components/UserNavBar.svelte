@@ -16,7 +16,7 @@
 				</a>
 			</li>
 		</ul>
-		<ul class="flex space-x-4">
+		<ul class="flex space-x-2">
 			<li>
 				{#if currentUserAvatar}<a
 						href="/profile/{currentUserUsername}"
