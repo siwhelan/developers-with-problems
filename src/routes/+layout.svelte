@@ -24,7 +24,6 @@
 		</div>
 		<div
 			class="menu-container bg-background text-primary text-center font-bold my-24 rounded-lg outline-black p-1 m-10 max-w-xs h-10"
-
 			style="outline: 2px solid rgba(128, 128, 128, 0.2)"
 		>
 			<p href="/">Highlights Reel</p>
