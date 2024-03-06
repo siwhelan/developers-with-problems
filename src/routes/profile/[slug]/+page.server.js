@@ -54,7 +54,6 @@ export const load = async ({ params, locals }) => {
 	//If codewars user exists, get codewars info from api
 
 	let codewarsData;
-	console.log(codewarsData);
 	if (profileUser.social.codewars) {
 		const response = await fetch(
 			`https://www.codewars.com/api/v1/users/${profileUser.social.codewars}`
