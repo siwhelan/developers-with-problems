@@ -1,7 +1,7 @@
 <script>
 	// export let events;
 	export let data;
-	$: ({ events } = data);
+	$: ({ events, currentUserID } = data);
 
 	// function to format the date
 	function formatDate(dateString) {
@@ -21,26 +21,27 @@
 				<p class="flex justify-start text-gray-600">{formatDate(event.startDate)}</p>
 				<p class="flex justify-start text-gray-600">{event.location}</p>
 				<p class="flex justify-start text-gray-600">{event.description}</p>
+				{#if currentUserID}
+					<div class="absolute top-0 right-0 mt-2 mr-2">
+						<label for="attending-checkbox" class="ml-2">Attending</label>
+						<input
+							id="attending-checkbox"
+							type="checkbox"
+							value=""
+							class="w-4 h-4 text-blue-400 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+						/>
+					</div>
 
-				<div class="absolute top-0 right-0 mt-2 mr-2">
-					<label for="attending-checkbox" class="ml-2">Attending</label>
-					<input
-						id="attending-checkbox"
-						type="checkbox"
-						value=""
-						class="w-4 h-4 text-blue-400 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-					/>
-				</div>
-
-				<div class="absolute top-8 right-0 mt-2 mr-2">
-					<label for="interested-checkbox" class="ml-2">Interested</label>
-					<input
-						id="interested-checkbox"
-						type="checkbox"
-						value=""
-						class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-					/>
-				</div>
+					<div class="absolute top-8 right-0 mt-2 mr-2">
+						<label for="interested-checkbox" class="ml-2">Interested</label>
+						<input
+							id="interested-checkbox"
+							type="checkbox"
+							value=""
+							class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+						/>
+					</div>
+				{/if}
 				<div class="flex justify-start space-x-2 mt-2">
 					<p class="font-semibold">Attending:</p>
 					{#each event.attending as user}

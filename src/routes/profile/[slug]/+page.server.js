@@ -3,7 +3,6 @@ import { Post } from '../../../lib/models/post.js';
 let currentUserID;
 
 export const load = async ({ params, locals }) => {
-	currentUserID;
 	try {
 		if (locals.user) {
 			currentUserID = locals.user.id;

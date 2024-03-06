@@ -3,7 +3,7 @@ import { User } from '../../lib/models/user.js';
 import { fetchEvents } from '../../services/fetchEvents.js';
 
 // Import the Event model
-export const load = async () => {
+export const load = async (locals) => {
 	// Fetch the events
 	let events = await fetchEvents();
 
@@ -30,7 +30,22 @@ export const load = async () => {
 		return event;
 	});
 
+	//Checks current user
+	let currentUserID;
+	try {
+		if (locals.user) {
+			currentUserID = locals.user.id;
+		} else {
+			console.error('User not found in database');
+			currentUserID = null;
+		}
+	} catch (error) {
+		console.error('Error getting logged in user:', error);
+		currentUserID = null;
+	}
+
 	return {
-		events
+		events,
+		currentUserID
 	};
 };
