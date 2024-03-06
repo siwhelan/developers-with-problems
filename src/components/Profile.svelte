@@ -15,7 +15,7 @@
 	const toggleForm = function () {
 		addSocial = !addSocial;
 	};
-	function onKeyDown(e) {
+	function onKeyDown(_e) {
 		addSocial = !addSocial;
 	}
 </script>
