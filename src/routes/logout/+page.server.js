@@ -9,9 +9,9 @@ export const actions = {
 		//just kick to homepage
 	},
 	continue: async ({ locals }) => {
-		console.log('This is the locals: ', locals);
-		console.log(locals);
-		console.log('This is new locals: ', locals);
+		// console.log('This is the locals: ', locals);
+		// console.log(locals);
+		// console.log('This is new locals: ', locals);
 		await _lucia.invalidateSession(locals.session.id);
 		console.log('successfully logged out');
 		redirect(302, '/');
