@@ -4,7 +4,6 @@
 	let currentItems = 110;
 </script>
 
-<!-- <div class="pt-3 pb-4 px-2 text-center rounded-lg shadow-md max-w-2xl relative border-t-1 border-gray-300 flex flex-col items-center"> -->
 <div
 	class="p-4 text-center rounded-lg shadow-md max-w-2xl relative border-t-1 border-gray-300 items-center"
 >
@@ -15,8 +14,8 @@
 		class="mx-auto object-scale-down h-6 bg-orange-500 rounded-md mb-4"
 	/>
 	<hr class="mb-4" />
-	<p class="text-xl text-[#202937] text-text font-bold">{challenge.name}</p>
-	<p class="text-text text-[#202937] font-bold pb-2">{challenge.rank.name}</p>
+	<p class="text-xl text-[#202937] font-bold">{challenge.name}</p>
+	<p class="text-[#202937] font-bold pb-2">{challenge.rank.name}</p>
 
 	<div class="list-element">
 		<p class="text-xs text-text pb-2">

@@ -14,7 +14,7 @@
 	<hr class="mb-2 mx-4" />
 	<a href="/events" class="block text-decoration-none">
 		<li key={trendingEvent._id} class="p-2 rounded-lg shadow-md max-w-2xl relative list-none">
-			<h2 class="text-xl text-primary text-[#202937] font-bold mb-2">{trendingEvent.title}</h2>
+			<h2 class="text-xl text-[#202937] font-bold mb-2">{trendingEvent.title}</h2>
 			<p class="text-text hover:text-primary font-medium">{formatDate(trendingEvent.startDate)}</p>
 			<p class="text-text hover:text-primary font-medium">{trendingEvent.location}</p>
 			<p class="text-text hover:text-primary font-medium">{trendingEvent.description}</p>
