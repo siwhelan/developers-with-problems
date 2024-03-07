@@ -49,9 +49,10 @@
 			{/each}
 		</select>
 	</div>
-	<a
-		href="{challenge.url}/train/{chosenLang}"
+
+	<a href="{challenge.url}/train/{chosenLang}" target="_blank" rel="noopener noreferrer"
 		class="btn btn-primary text-[#202937] py-1 px-4 rounded-md mt-2 hover:text-primary"
+
 		>Click here to Train!</a
 	>
 </div>
