@@ -14,7 +14,7 @@
 						href={story.url}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="text-text text-[#202937] hover:text-primary font-medium">🔗 {story.title}</a
+						class="text-[#202937] hover:text-primary font-medium">🔗 {story.title}</a
 					>
 				</li>
 			</ul>
