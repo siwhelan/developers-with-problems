@@ -7,6 +7,7 @@ export const actions = {
 		const email = formData.get('email');
 		const password = formData.get('password');
 		const confirmPassword = formData.get('confirmPassword');
+		console.log(confirmPassword);
 
 		function validatePassword(password) {
 			const passwordRegexString =
@@ -27,6 +28,14 @@ export const actions = {
 			};
 		}
 
+		if (password != confirmPassword) {
+			console.error("Passwords don't match");
+			return {
+				success: false,
+				error: "Passwords don't match"
+			};
+		}
+
 		const existingUser = await User.findOne({ $or: [{ username: username }, { email: email }] });
 
 		if (existingUser) {
@@ -41,12 +50,6 @@ export const actions = {
 				return {
 					success: false,
 					error: 'Email already exists'
-				};
-			} else if (password != confirmPassword) {
-				console.error("Passwords don't match");
-				return {
-					success: false,
-					error: "Passwords don't match"
 				};
 			}
 		}
