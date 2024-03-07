@@ -5,7 +5,7 @@
 </script>
 
 <div
-	class="w-full bg-[#1c212c] max-w-xs text-white max-h-160 flex flex-col items-center mt-2 pt-4 pl-4 pr-4 rounded-md mb-2"
+	class="w-full bg-[#1c212c] max-w-xs text-white max-h-160 flex flex-col items-center mt-2 pt-4 pl-4 pr-4 rounded-md"
 >
 	<h6 class="mb-1">Codewars Daily Challenge</h6>
 	<img
