@@ -22,114 +22,137 @@
 	}
 </script>
 
-<div class="flex text-center justify-center flex-row">
-	<div class="menu-container text-center rounded-lg p-5 m-10 px-5 w-96 bg-stone-100">
-		<!-- <img
-			class="avatar w-32 h-32 absolute right-[120px] top-[50px] rounded-full"
-			src={profileUser.avatar}
-			alt="Avatar"
-		/> -->
-		<AvatarUpload />
-		<div class=" pb-10">
-			<img class="h-40 m-auto pt-5" alt="profile" src={profileUser.avatar} />
-			<div class="pt-5 text-xl"><p>{profileUser.username}</p></div>
-
-			<div class="sectionStyles"><p>Bio: {profileUser.bio || 'placeholder text'}</p></div>
-		</div>
-		<div class="">
-			<p class="sectionStyles">
-				Followers: {profileUser.followers != '' ? profileUser.followers : 'No followers yet!'}
-			</p>
-			<p class="sectionStyles">
-				Following: {profileUser.following != ''
-					? profileUser.following
-					: 'Not following anyone yet!'}
-			</p>
-			{#if followBtnBool}
-				<div class="m-auto w-full pt-3">
-					<FollowBtn profileUserID={profileUser._id} {isFollowing} {onClick} />
-				</div>
-			{/if}
-		</div>
-		<div class="flex flex-col pt-5">
-			<!-- <p class="sectionStyles pt-5">Socials:</p> -->
-			<div id="socials" class="flex flex-col">
-				<div><p>Email: {profileUser.email}</p></div>
-
-				{#if profileUser.social.codewars}
-					<p>
-						Codewars : <a href="http://www.codewars.com/users/{profileUser.social.codewars}"
-							>{profileUser.social.codewars}</a
-						>
-					</p>
-				{:else}
-					<p>
-						Codewars : <em>Add Username</em>
-					</p>
-				{/if}
-				{#if profileUser.social.linkedin}
-					<p>
-						LinkedIn : <a href="http://www.linkedin.com/in/{profileUser.social.linkedin}"
-							>{profileUser.social.linkedin}</a
-						>
-					</p>
-				{:else}
-					<p>
-						LinkedIn : <em>Add User</em>
-					</p>
+<div class="flex justify-center text-center my-24">
+	<div class="rounded-lg bg-stone-100 p-5 m-10 flex sm:flex-wrap md:flex-nowrap">
+		<div class="menu-container px-5 sm:w-full md:w-1/2 lg:max-w-lg">
+			<div class="pb-10">
+				<img class="h-40 m-auto pt-5" alt="profile" src={profileUser.avatar} />
+				<div class="pt-5 text-xl"><p>{profileUser.username}</p></div>
+				<div class="sectionStyles"><p>Bio: {profileUser.bio || 'placeholder text'}</p></div>
+			</div>
+			<div>
+				<p class="sectionStyles">
+					Followers: {profileUser.followers != '' ? profileUser.followers : 'No followers yet!'}
+				</p>
+				<p class="sectionStyles">
+					Following: {profileUser.following != ''
+						? profileUser.following
+						: 'Not following anyone yet!'}
+				</p>
+				{#if followBtnBool}
+					<div class="pt-3 w-full">
+						<FollowBtn profileUserID={profileUser._id} {isFollowing} {onClick} />
+					</div>
 				{/if}
 			</div>
-			{#if addSocial}
-				<div id="socialsMenu" class="flex flex-col">
-					<form method="POST" action="?/addSocials" use:enhance class="flex flex-col">
-						<span class="pr-3">LinkedIn: </span><input
-							class="text-black m-1"
-							id="linkedin"
-							name="linkedinUser"
-							placeholder="url"
-						/>
-						<span>Codewars: </span><input
-							class="text-black m-1"
-							id="codewars"
-							name="codewarsUser"
-							placeholder="username"
-						/>
-						<div class="w-50 pt-3">
-							<button
-								type="submit"
-								id="addSocialsButton"
-								class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-								>Add socials</button
+			<div class="flex flex-col pt-5">
+				<div id="socials" class="flex flex-col">
+					<div><p>Email: {profileUser.email}</p></div>
+
+					{#if profileUser.social.codewars}
+						<p>
+							Codewars : <a href="http://www.codewars.com/users/{profileUser.social.codewars}"
+								>{profileUser.social.codewars}</a
 							>
-						</div>
-					</form>
+						</p>
+					{:else}
+						<p>
+							Codewars : <em>Add Username</em>
+						</p>
+					{/if}
+					{#if profileUser.social.linkedin}
+						<p>
+							LinkedIn : <a href="http://www.linkedin.com/in/{profileUser.social.linkedin}"
+								>{profileUser.social.linkedin}</a
+							>
+						</p>
+					{:else}
+						<p>
+							LinkedIn : <em>Add User</em>
+						</p>
+					{/if}
 				</div>
-			{/if}
-			<!-- <img src="/share-icon.png" alt="Share" class="w-5 h-5 cursor-pointer" id="socialsIcon" /> -->
-			<a
-				on:click={toggleForm}
-				alt="Share"
-				type="button"
-				aria-roledescription="add social media"
-				role="button"
-				aria-label="addSocials"
-				class="w-5 h-5 cursor-pointer ml-5 mb-5"
-				tabindex="0"
-				id="socialsIcon"
-				on:keydown|preventDefault={onKeyDown}
-			>
-				<AddIcon />
-			</a>
-			<div class="pt-5">
-				<a class="linkStyles" href="/profile/changePassword">Change Profile Picture</a>
-				{#if !followBtnBool}
-					<a class="linkStyles" href="/profile/changePassword">Change Password</a>
+				{#if addSocial}
+					<div id="socialsMenu" class="flex flex-col">
+						<form method="POST" action="?/addSocials" use:enhance class="flex flex-col">
+							<span class="pr-3">LinkedIn: </span><input
+								class="text-black m-1"
+								id="linkedin"
+								name="linkedinUser"
+								placeholder="url"
+							/>
+							<span>Codewars: </span><input
+								class="text-black m-1"
+								id="codewars"
+								name="codewarsUser"
+								placeholder="username"
+							/>
+							<div class="w-50 pt-3">
+								<button
+									type="submit"
+									id="addSocialsButton"
+									class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+									>Add socials</button
+								>
+							</div>
+						</form>
+					</div>
 				{/if}
+				<!-- <img src="/share-icon.png" alt="Share" class="w-5 h-5 cursor-pointer" id="socialsIcon" /> -->
+				<a
+					on:click={toggleForm}
+					class="cursor-pointer ml-5 mb-5 w-5 h-5"
+					role="button"
+					aria-label="addSocials"
+					alt="Share"
+					type="button"
+					aria-roledescription="add social media"
+					tabindex="0"
+					id="socialsIcon"
+					on:keydown|preventDefault={onKeyDown}
+				>
+					<AddIcon />
+				</a>
+				<div class="pt-5 space-y-2">
+					<AvatarUpload />
+					{#if !followBtnBool}
+						<a
+							href="/profile/changePassword"
+							class="inline-block px-4 py-2 text-white text-outline bg-primary rounded hover:bg-dark hover:text-outline-hover focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50"
+						>
+							Change Password
+						</a>
+					{/if}
+				</div>
 			</div>
 		</div>
+		{#if codewarsData}
+			<div class="codewars-info-container px-5 sm:w-full md:w-1/2 lg:max-w-lg">
+				<CodewarsInfo {codewarsData} />
+			</div>
+		{/if}
 	</div>
+</div>
 
-	<!-- <p class={sectionStyles}>
+<h2 class="text-2xl text-center">Posts by this user</h2>
+<div>
+	{#each posts as post}
+		<PostLink
+			postSlug={post._id}
+			postTitle={post.title}
+			postContent={post.content}
+			postUpvotes={post.upvotes}
+			upvoteNumber={post.upvotes.length}
+			postAvatar={profileUser.avatar}
+			postAuthor={profileUser.username}
+			{loggedInUser}
+			downvoteNumber={post.downvotes.length}
+			postDownvotes={post.downvotes}
+		/>
+	{/each}
+</div>
+
+<!-- <p class={sectionStyles}>
 		Followers: {profileUser.followers != '' ? profileUser.followers : 'No followers yet!'}
 	</p>
 	<p class={sectionStyles}>
@@ -141,33 +164,27 @@
 	{#if !followBtnBool}
 		<a class={linkStyles} href="/profile/changePassword">Change Password</a>
 	{/if} -->
-</div>
-{#if codewarsData}
-	<CodewarsInfo {codewarsData} />
-{/if}
-
-<h2 class="text-center text-2xl">Posts by this user</h2>
-<div class="">
-	{#each posts as post}
-		<PostLink
-			postSlug={post._id}
-			postTitle={post.title}
-			postContent={post.content}
-			postUpvotes={post.upvotes}
-			upvoteNumber={post.upvotes.length}
-			postAuthor={profileUser.username}
-			{loggedInUser}
-			downvoteNumber={post.downvotes.length}
-			postDownvotes={post.downvotes}
-		/>
-	{/each}
-</div>
 
 <style lang="postcss">
 	/* .sectionStyles {
 		@apply block py-2 px-4 bg-navigation text-white rounded-md mb-2 max-w-xs text-center;
 	} */
-	.linkStyles {
+	/* .linkStyles {
 		@apply block py-2 px-4 m-auto bg-green-800 text-white rounded-md mb-2 max-w-xs hover:bg-red-700 text-center;
+	} */
+
+	.text-outline {
+		text-shadow:
+			-1px -1px 0 #c83f00,
+			1px -1px 0 #c83f00,
+			-1px 1px 0 #c83f00,
+			1px 1px 0 #c83f00;
+	}
+	.hover\:text-outline-hover:hover {
+		text-shadow:
+			-1px -1px 0 #1a202c,
+			1px -1px 0 #1a202c,
+			-1px 1px 0 #1a202c,
+			1px 1px 0 #1a202c;
 	}
 </style>
