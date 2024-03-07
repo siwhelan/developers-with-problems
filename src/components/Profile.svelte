@@ -30,6 +30,7 @@
 				<div class="pt-5 text-xl"><p>{profileUser.username}</p></div>
 				<div class="sectionStyles">
 					<p>{profileUser.bio || 'Apprentice Software Engineer'}</p>
+					<!-- Feel free to change this! -->
 				</div>
 			</div>
 			<div>
