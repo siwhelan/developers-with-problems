@@ -6,7 +6,7 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
-		"test": "NODE_ENV=test vitest",
+		"test": "NODE_ENV=test vitest --maxWorkers=1",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write ."
 	},
