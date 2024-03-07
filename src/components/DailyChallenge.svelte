@@ -54,7 +54,7 @@
 			{/each}
 		</select>
 	</div>
-	<a href="{challenge.url}/train/{chosenLang}">Click here to Train!</a>
+	<a href="{challenge.url}/train/{chosenLang}" target="_blank" rel="noopener noreferrer">Click here to Train!</a>
 </div>
 
 <!-- {
