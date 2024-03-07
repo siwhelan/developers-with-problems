@@ -9,7 +9,7 @@
 	{#if isFollowing}
 		<button
 			aria-label="unfollow"
-			class="py-2 px-4 bg-green-800 text-white rounded-md mb-2 hover:bg-red-700 text-center"
+			class="py-2 px-4 bg-primary text-white rounded-md mb-2 hover:bg-dark text-center"
 			on:click={() => onClick(profileUserID, isFollowing)}
 		>
 			Unfollow
@@ -17,7 +17,7 @@
 	{:else}
 		<button
 			aria-label="follow"
-			class="py-2 px-4 bg-green-800 text-white rounded-md mb-2 hover:bg-red-700 text-center"
+			class="py-2 px-4 bg-primary text-white rounded-md mb-2 hover:bg-dark text-center"
 			on:click={() => onClick(profileUserID, isFollowing)}
 		>
 			Follow

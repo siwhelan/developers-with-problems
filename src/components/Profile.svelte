@@ -62,7 +62,7 @@
 						</p>
 					{:else}
 						<p>
-							Codewars : <em>Add Username</em>
+							Codewars : <em>No Username</em>
 						</p>
 					{/if}
 					{#if profileUser.social.linkedin}
@@ -75,62 +75,64 @@
 						</p>
 					{:else}
 						<p>
-							LinkedIn : <em>Add User</em>
+							LinkedIn : <em>No User</em>
 						</p>
 					{/if}
 				</div>
-				{#if addSocial}
-					<div id="socialsMenu" class="flex flex-col">
-						<form method="POST" action="?/addSocials" use:enhance class="flex flex-col">
-							<span class="pr-3">LinkedIn: </span><input
-								class="text-black m-1"
-								id="linkedin"
-								name="linkedinUser"
-								placeholder="url"
-							/>
-							<span>Codewars: </span><input
-								class="text-black m-1"
-								id="codewars"
-								name="codewarsUser"
-								placeholder="username"
-							/>
-							<div class="w-50 pt-3">
-								<button
-									type="submit"
-									id="addSocialsButton"
-									class="bg-primary hover:bg-dark text-outline hover:text-outline-hover text-white font-bold py-2 px-4 rounded"
-									>Add socials</button
-								>
-							</div>
-						</form>
+				{#if !followBtnBool}
+					{#if addSocial}
+						<div id="socialsMenu" class="flex flex-col">
+							<form method="POST" action="?/addSocials" use:enhance class="flex flex-col">
+								<span class="pr-3">LinkedIn: </span><input
+									class="text-black m-1"
+									id="linkedin"
+									name="linkedinUser"
+									placeholder="url"
+								/>
+								<span>Codewars: </span><input
+									class="text-black m-1"
+									id="codewars"
+									name="codewarsUser"
+									placeholder="username"
+								/>
+								<div class="w-50 pt-3">
+									<button
+										type="submit"
+										id="addSocialsButton"
+										class="bg-primary hover:bg-dark text-outline hover:text-outline-hover text-white font-bold py-2 px-4 rounded"
+										>Add socials</button
+									>
+								</div>
+							</form>
+						</div>
+					{/if}
+					<!-- <img src="/share-icon.png" alt="Share" class="w-5 h-5 cursor-pointer" id="socialsIcon" /> -->
+					<a
+						on:click={toggleForm}
+						class="cursor-pointer ml-5 mb-5 w-5 h-5"
+						role="button"
+						aria-label="addSocials"
+						alt="Share"
+						type="button"
+						aria-roledescription="add social media"
+						tabindex="0"
+						id="socialsIcon"
+						on:keydown|preventDefault={onKeyDown}
+					>
+						<AddIcon />
+					</a>
+					<div class="pt-5 space-y-2">
+						{#if !followBtnBool}
+							<AvatarUpload />
+							<a
+								href="/profile/changePassword"
+								class="inline-block px-4 py-2 text-white text-outline bg-primary rounded hover:bg-dark hover:text-outline-hover focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50"
+							>
+								Change Password
+							</a>
+						{/if}
 					</div>
 				{/if}
-				<!-- <img src="/share-icon.png" alt="Share" class="w-5 h-5 cursor-pointer" id="socialsIcon" /> -->
-				<a
-					on:click={toggleForm}
-					class="cursor-pointer ml-5 mb-5 w-5 h-5"
-					role="button"
-					aria-label="addSocials"
-					alt="Share"
-					type="button"
-					aria-roledescription="add social media"
-					tabindex="0"
-					id="socialsIcon"
-					on:keydown|preventDefault={onKeyDown}
-				>
-					<AddIcon />
-				</a>
-				<div class="pt-5 space-y-2">
-					<AvatarUpload />
-					{#if !followBtnBool}
-						<a
-							href="/profile/changePassword"
-							class="inline-block px-4 py-2 text-white text-outline bg-primary rounded hover:bg-dark hover:text-outline-hover focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50"
-						>
-							Change Password
-						</a>
-					{/if}
-				</div>
 			</div>
 		</div>
 		{#if codewarsData}
@@ -173,13 +175,13 @@
 	{/if} -->
 
 <style lang="postcss">
-	/* .sectionStyles {
-		@apply block py-2 px-4 bg-navigation text-white rounded-md mb-2 max-w-xs text-center;
-	} */
-	/* .linkStyles {
-		@apply block py-2 px-4 m-auto bg-green-800 text-white rounded-md mb-2 max-w-xs hover:bg-red-700 text-center;
-	} */
-
+	.menu-container {
+		display: flex;
+		flex-direction: column;
+		min-width: 300px; /* Adjust as needed */
+		min-height: 400px; /* Adjust as needed */
+		flex-grow: 1; /* Allows the container to grow to fit content */
+	}
 	.text-outline {
 		text-shadow:
 			-1px -1px 0 #c83f00,
