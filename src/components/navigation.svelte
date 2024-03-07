@@ -9,14 +9,12 @@
 	class="menu-container bg-background my-24 rounded-lg outline-black p-5 m-10 max-w-xs"
 	style="outline: 2px solid rgba(128, 128, 128, 0.2); min-height: 380px; max-height: 380px; width:190px"
 >
-
 	<a href="/" class="{linkStyles} {hoverStyles}">Home</a>
 	<a
 		href={currentUserUsername ? `/profile/${currentUserUsername}` : '/login'}
 		class="{linkStyles} {hoverStyles}"
-    style="min-height: 42px; max-height: 42px; min-width: 150px; max-width: 150px">My Profile</a
+		style="min-height: 42px; max-height: 42px; min-width: 150px; max-width: 150px">My Profile</a
 	>
-
 
 	<a
 		href="/news"
