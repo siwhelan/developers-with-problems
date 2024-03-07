@@ -29,7 +29,6 @@
 			class="menu-container bg-background text-alttext text-center font-bold my-24 rounded-lg outline-black p-1 m-10 max-w-xs h-10"
 			style="outline: 2px solid rgba(128, 128, 128, 0.2)"
 		>
-			<p href="/">Highlights Reel</p>
 			<div>
 				<DailyChallenge {challenge} />
 			</div>
@@ -39,18 +38,20 @@
 			<div>
 				<TopEvent {trendingEvent} />
 			</div>
-			<div class="p-4 rounded-lg shadow-md max-w-2xl relative list-none">
-				<h6>Beginner Friendly Resources!</h6>
-				<hr />
-				<a href={resources[2].url}>
-					<p>{resources[2].name}</p>
-					<p>{resources[2].description}</p>
-				</a>
-				<hr />
-				<a href={resources[8].url}>
-					<p>{resources[8].name}</p>
-					<p>{resources[8].description}</p>
-				</a>
+			<div class="text-center rounded-lg shadow-md max-w-2xl relative border-t-2 border-gray-300">
+				<div class="p-4 rounded-lg shadow-md max-w-2xl relative list-none">
+					<h6 class="mb-4 mt-1 font-bold text-lg">Beginner Friendly Resources</h6>
+					<hr class="mb-4" />
+					<a href={resources[2].url} class="text-decoration-none">
+						<p class="mb-2">{resources[2].name}</p>
+						<p class="mb-2 text-text hover:text-primary font-medium">{resources[2].description}</p>
+					</a>
+					<hr class="mb-4" />
+					<a href={resources[8].url} class="text-decoration-none">
+						<p class="mb-2">{resources[8].name}</p>
+						<p class="mb-2 text-text hover:text-primary font-medium">{resources[8].description}</p>
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -61,6 +62,6 @@
 <style>
 	.menu-container {
 		width: 250px; /* fixed border height and width - can be adjusted to suit contents */
-		height: 1300px;
+		height: 1155px;
 	}
 </style>
