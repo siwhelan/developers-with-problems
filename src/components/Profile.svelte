@@ -58,8 +58,10 @@
 
 				{#if profileUser.social.codewars}
 					<p>
-						Codewars : <a href="http://www.codewars.com/users/{profileUser.social.codewars}"
-							>{profileUser.social.codewars}</a
+						Codewars : <a
+							href="http://www.codewars.com/users/{profileUser.social.codewars}"
+							target="_blank"
+							rel="noopener noreferrer">{profileUser.social.codewars}</a
 						>
 					</p>
 				{:else}
@@ -69,8 +71,10 @@
 				{/if}
 				{#if profileUser.social.linkedin}
 					<p>
-						LinkedIn : <a href="http://www.linkedin.com/in/{profileUser.social.linkedin}"
-							>{profileUser.social.linkedin}</a
+						LinkedIn : <a
+							href="http://www.linkedin.com/in/{profileUser.social.linkedin}"
+							target="_blank"
+							rel="noopener noreferrer">{profileUser.social.linkedin}</a
 						>
 					</p>
 				{:else}
