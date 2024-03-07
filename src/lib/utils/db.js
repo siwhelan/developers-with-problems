@@ -12,7 +12,7 @@ if (process.env.NODE_ENV === 'test') {
 export async function connectDB() {
 	const uri = process.env.MONGO_URI;
 	try {
-		await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+		await mongoose.connect(uri);
 		console.log('MongoDB connected successfully');
 	} catch (error) {
 		console.error('Error connecting to MongoDB:', error);
