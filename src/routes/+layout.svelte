@@ -42,8 +42,7 @@
 			<div class="p-4 rounded-lg shadow-md max-w-2xl relative list-none">
 				<h6>Beginner Friendly Resources!</h6>
 				<hr />
-				<a href={resources[2].url}
-				target="_blank" rel="noopener noreferrer">
+				<a href={resources[2].url} target="_blank" rel="noopener noreferrer">
 					<p>{resources[2].name}</p>
 					<p>{resources[2].description}</p>
 				</a>
