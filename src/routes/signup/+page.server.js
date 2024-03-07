@@ -1,5 +1,6 @@
 import { User } from '../../lib/models/user.js';
 import { generateId } from 'lucia';
+import { Argon2id } from 'oslo/password';
 export const actions = {
 	create: async ({ request }) => {
 		const formData = await request.formData();
@@ -50,10 +51,11 @@ export const actions = {
 				};
 			}
 		}
+		const hashedPassword = await new Argon2id().hash(password);
 		const newUser = {
 			username: username,
 			email: email,
-			password: password
+			hashedPassword: hashedPassword
 		};
 
 		try {
@@ -61,7 +63,7 @@ export const actions = {
 				_id: generateId(15),
 				username: username,
 				email: email,
-				hashed_password: password
+				hashed_password: hashedPassword
 			});
 			console.log('New user added: ', newUser);
 			return {

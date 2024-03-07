@@ -1,8 +1,9 @@
 import { User } from '../../lib/models/user.js';
-import { redirect } from '@sveltejs/kit';
+import { fail, redirect } from '@sveltejs/kit';
 import mongoose from 'mongoose';
 import { Lucia, TimeSpan } from 'lucia';
 import { MongodbAdapter } from '@lucia-auth/adapter-mongodb';
+import { Argon2id } from 'oslo/password';
 
 // eslint-disable-next-line no-unused-vars
 const Session = mongoose.model(
@@ -50,8 +51,12 @@ export const actions = {
 		const existingUser = await User.findOne({ email: email });
 
 		if (existingUser) {
-			const hashedPassword = password;
-			if (hashedPassword === existingUser.hashed_password) {
+			const validPassword = await new Argon2id().verify(existingUser.hashed_password, password);
+			if (!validPassword) {
+				return fail(400, {
+					message: 'Incorrect username or password'
+				});
+			} else if (validPassword) {
 				console.log('User logged in successfully');
 
 				// Convert userId to string
