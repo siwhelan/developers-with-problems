@@ -43,12 +43,12 @@
 					<h6 class="mb-4 mt-1 font-bold text-lg">Beginner Friendly Resources</h6>
 					<hr class="mb-4" />
 					<a href={resources[2].url} class="text-decoration-none">
-						<p class="mb-2">{resources[2].name}</p>
+						<p class="mb-2 text-[#202937]">{resources[2].name}</p>
 						<p class="mb-2 text-text hover:text-primary font-medium">{resources[2].description}</p>
 					</a>
 					<hr class="mb-4" />
 					<a href={resources[8].url} class="text-decoration-none">
-						<p class="mb-2">{resources[8].name}</p>
+						<p class="mb-2 text-[#202937]">{resources[8].name}</p>
 						<p class="mb-2 text-text hover:text-primary font-medium">{resources[8].description}</p>
 					</a>
 				</div>
@@ -62,6 +62,6 @@
 <style>
 	.menu-container {
 		width: 250px; /* fixed border height and width - can be adjusted to suit contents */
-		height: 1155px;
+		height: 1265px;
 	}
 </style>

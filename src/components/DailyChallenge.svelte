@@ -1,41 +1,31 @@
 <script>
 	export let challenge;
 	let chosenLang;
-	let currentItems = 100;
+	let currentItems = 110;
 </script>
 
+<!-- <div class="pt-3 pb-4 px-2 text-center rounded-lg shadow-md max-w-2xl relative border-t-1 border-gray-300 flex flex-col items-center"> -->
 <div
-	class="w-full bg-[#1c212c] max-w-xs text-white max-h-160 flex flex-col items-center mt-2 pt-4 pl-4 pr-4 rounded-md"
+	class="p-4 text-center rounded-lg shadow-md max-w-2xl relative border-t-1 border-gray-300 items-center"
 >
-	<h6 class="mb-1">Codewars Daily Challenge</h6>
+	<h6 class="mb-1 font-bold text-lg">Codewars Daily Challenge</h6>
 	<img
 		src="/codewars.svg"
 		alt="codewars logo"
-		class="object-scale-down h-6 bg-orange-500 rounded-md mb-1"
+		class="mx-auto object-scale-down h-6 bg-orange-500 rounded-md mb-4"
 	/>
-	<p class="text-xl">{challenge.name}</p>
-	<!-- rank.name needs to be smaller -->
-	<p>{challenge.rank.name}</p>
+	<hr class="mb-4" />
+	<p class="text-xl text-[#202937] text-text font-bold">{challenge.name}</p>
+	<p class="text-text text-[#202937] font-bold pb-2">{challenge.rank.name}</p>
 
 	<div class="list-element">
-		<p class="text-xs">
+		<p class="text-xs text-text pb-2">
 			{challenge.description.slice(
 				0,
 				currentItems
 			)}{#if currentItems < challenge.description.length}...{/if}
 		</p>
 	</div>
-
-	{#if currentItems < challenge.description.length}
-		<button
-			on:click={() => (currentItems = challenge.description.length)}
-			id="loadmore"
-			type="button"
-			class="btn btn-secondary text-xs font-extrabold"
-		>
-			Show more
-		</button>
-	{/if}
 	{#if currentItems == challenge.description.length}
 		<button
 			on:click={() => (currentItems = 100)}
@@ -46,20 +36,24 @@
 			Show less
 		</button>
 	{/if}
-	<div>
-		<p>Select a Language:</p>
+	<div class="mb-2">
+		<p class="text-[#202937] pb-2 text-small">Select a Language:</p>
 		<select
 			id="langSelect"
 			aria-label="Select a programming language"
 			bind:value={chosenLang}
-			class="text-black text-center"
+			class="text-black text-center border border-gray-400 rounded p-0.5"
 		>
 			{#each challenge.languages as language}
 				<option value={language}>{language}</option>
 			{/each}
 		</select>
 	</div>
-	<a href="{challenge.url}/train/{chosenLang}">Click here to Train!</a>
+	<a
+		href="{challenge.url}/train/{chosenLang}"
+		class="btn btn-primary text-[#202937] py-1 px-4 rounded-md mt-2 hover:text-primary"
+		>Click here to Train!</a
+	>
 </div>
 
 <!-- {
