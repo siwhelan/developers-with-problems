@@ -28,7 +28,9 @@
 			<div class="pb-10">
 				<img class="h-40 m-auto pt-5" alt="profile" src={profileUser.avatar} />
 				<div class="pt-5 text-xl"><p>{profileUser.username}</p></div>
-				<div class="sectionStyles"><p>Bio: {profileUser.bio || 'placeholder text'}</p></div>
+				<div class="sectionStyles">
+					<p>{profileUser.bio || 'Apprentice Software Engineer'}</p>
+				</div>
 			</div>
 			<div>
 				<p class="sectionStyles">
@@ -51,7 +53,9 @@
 
 					{#if profileUser.social.codewars}
 						<p>
-							Codewars : <a href="http://www.codewars.com/users/{profileUser.social.codewars}"
+							Codewars : <a
+								class="hover:text-primary"
+								href="http://www.codewars.com/users/{profileUser.social.codewars}"
 								>{profileUser.social.codewars}</a
 							>
 						</p>
@@ -62,7 +66,9 @@
 					{/if}
 					{#if profileUser.social.linkedin}
 						<p>
-							LinkedIn : <a href="http://www.linkedin.com/in/{profileUser.social.linkedin}"
+							LinkedIn : <a
+								class="hover:text-primary"
+								href="http://www.linkedin.com/in/{profileUser.social.linkedin}"
 								>{profileUser.social.linkedin}</a
 							>
 						</p>
@@ -91,7 +97,7 @@
 								<button
 									type="submit"
 									id="addSocialsButton"
-									class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+									class="bg-primary hover:bg-dark text-outline hover:text-outline-hover text-white font-bold py-2 px-4 rounded"
 									>Add socials</button
 								>
 							</div>
