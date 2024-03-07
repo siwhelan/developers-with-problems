@@ -1,16 +1,21 @@
 <script>
-import { enhance } from '$app/forms';
-let resultMessage;
+	import { enhance } from '$app/forms';
+	let resultMessage;
 </script>
 
 <div class="pt-3 mr-12 text-center">
 	<h1 class="my-24 text-2xl text-text font-bold mb-4">Log In To DWP</h1>
-	<form class="max-w-md mx-auto p-4 bg-white shadow-md" method="POST" action="?/authorisation" use:enhance={() => {
-		return async ({result}) => {
-			console.log(result.data.body)
-			resultMessage = result.data.body;
-		}
-	}}>
+	<form
+		class="max-w-md mx-auto p-4 bg-white shadow-md"
+		method="POST"
+		action="?/authorisation"
+		use:enhance={() => {
+			return async ({ result }) => {
+				console.log(result.data.body);
+				resultMessage = result.data.body;
+			};
+		}}
+	>
 		<div class="mb-4">
 			<label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email:</label>
 			<input
