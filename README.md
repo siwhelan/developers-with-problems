@@ -1,31 +1,21 @@
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
 
 <h3 align="center">Developers With Problems</h3>
 
-
 </div>
 
-
-
-
-
 ### Built With
-
 
 [![Sveltekit][Sveltekit.dev]][Sveltekit-url]
 [![Mongodb][Mongodb]][Mongodb-url]
 [![Tailwindcss][Tailwindcss]][Tailwindcss-url]
 
-
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- GETTING STARTED -->
+
 ## Getting Started
 
 Install dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
@@ -45,30 +35,27 @@ To create a production version of your app:
 npm run build
 ```
 
-
 See the [open issues](https://trello.com/b/Rprsjxaa/developers-with-problems) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- ACKNOWLEDGMENTS -->
+
 ## Acknowledgments
 
-* [Lucia Auth](https://lucia-auth.com/)
-* [Hacker News API](https://github.com/HackerNews/API)
-* [Codewars API](https://dev.codewars.com/#content-type)
-* [Reddit API](https://github.com/gustavocadev/mongoose-sveltekit-example)
-* [Colour Theme Inspiration](https://dribbble.com/shots/16251909-ANZ-Social-Media-Website-Light-Mode)
-*  [Sveltekit and Mongoose example repo](https://github.com/gustavocadev/mongoose-sveltekit-example)
-*  [Mongoose](https://mongoosejs.com/docs/)
+- [Lucia Auth](https://lucia-auth.com/)
+- [Hacker News API](https://github.com/HackerNews/API)
+- [Codewars API](https://dev.codewars.com/#content-type)
+- [Reddit API](https://github.com/gustavocadev/mongoose-sveltekit-example)
+- [Colour Theme Inspiration](https://dribbble.com/shots/16251909-ANZ-Social-Media-Website-Light-Mode)
+- [Sveltekit and Mongoose example repo](https://github.com/gustavocadev/mongoose-sveltekit-example)
+- [Mongoose](https://mongoosejs.com/docs/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
 [contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
@@ -99,7 +86,7 @@ See the [open issues](https://trello.com/b/Rprsjxaa/developers-with-problems) fo
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
+[JQuery-url]: https://jquery.com
 [Tailwindcss]: https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
 [Tailwindcss-url]: https://tailwindcss.com/
 [Mongodb]: https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white
