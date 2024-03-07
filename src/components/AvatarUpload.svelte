@@ -19,7 +19,7 @@
 </script>
 
 <form on:submit={handleSubmit}>
-	<input type="file" name="file" accept="image/*" />
+	<input type="file" name="file" aria-label="Upload a personal avatar" accept="image/*" />
 	<button type="submit">Upload Avatar</button>
 </form>
 ∏

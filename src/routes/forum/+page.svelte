@@ -10,7 +10,8 @@
 <div class="pt-16 my-8">
 	<h2 class="text-3xl pb-5 font-bold">Forum</h2>
 	<a
-		class="bg-primary hover:bg-dark text-white py-2 px-4 rounded mr-4 text-outline hover:text-outline-hover"
+
+		class="text-outline hover:text-outline-hover bg-primary hover:bg-dark text-white py-2 px-4 rounded mr-4 text-outline hover:text-outline-hover"
 		href={data.loggedInUser !== null ? '/forum/newPost' : '/login'}
 	>
 		Make a new post
@@ -20,14 +21,16 @@
 			class:active={feedChoice == 'general'}
 			on:click={() => (feedChoice = 'general')}
 			type="button"
-			class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-accent font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-dark dark:hover:bg-primary focus:outline-none dark:focus:ring-accent"
+			aria-label="General"
+			class="text-outline hover:text-outline-hover text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary focus:outline-none dark:focus:ring-blue-800 text-outline hover:text-outline-hover"
 			>General</button
 		>
 		<a href="/forum/jobs">
 			<button
 				class:active={feedChoice === 'job'}
 				type="button"
-				class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-accent font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-dark dark:hover:bg-primary focus:outline-none dark:focus:ring-accent"
+				aria-label="Job hunting and career advice"
+				class="text-outline hover:text-outline-hover text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-accent font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-dark dark:hover:bg-primary focus:outline-none dark:focus:ring-accent"
 				>Job Hunting/Career Advice</button
 			>
 		</a>
@@ -35,7 +38,8 @@
 			<button
 				class:active={feedChoice === 'news'}
 				type="button"
-				class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-accent font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-dark dark:hover:bg-primary focus:outline-none dark:focus:ring-accent"
+				aria-label="News discussion"
+				class="text-outline hover:text-outline-hover text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-accent font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-dark dark:hover:bg-primary focus:outline-none dark:focus:ring-accent"
 				>News Discussion</button
 			>
 		</a>
@@ -43,7 +47,8 @@
 			<button
 				class:active={feedChoice === 'events'}
 				type="button"
-				class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-accent font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-dark dark:hover:bg-primary focus:outline-none dark:focus:ring-accent"
+				aria-label="Events"
+				class="text-outline hover:text-outline-hover text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-accent font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-dark dark:hover:bg-primary focus:outline-none dark:focus:ring-accent"
 				>Events Discussion</button
 			>
 		</a>
@@ -68,15 +73,20 @@
 </div>
 
 <style>
-	.active {
-		background-color: #202937;
-	}
 	.text-outline {
 		text-shadow:
 			-1px -1px 0 #c83f00,
 			1px -1px 0 #c83f00,
 			-1px 1px 0 #c83f00,
 			1px 1px 0 #c83f00;
+	}
+	.active {
+		text-shadow:
+			-1px -1px 0 #1a202c,
+			1px -1px 0 #1a202c,
+			-1px 1px 0 #1a202c,
+			1px 1px 0 #1a202c;
+		background-color: #202937;
 	}
 	.hover\:text-outline-hover:hover {
 		text-shadow:
