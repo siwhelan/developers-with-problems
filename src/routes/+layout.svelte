@@ -43,17 +43,26 @@
 				<div class="p-4 rounded-lg shadow-md max-w-2xl relative list-none">
 					<h6 class="mb-4 mt-1 font-bold text-lg">Beginner Friendly Resources</h6>
 					<hr class="mb-4" />
-					<a href={resources[2].url} target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+					<a
+						href={resources[2].url}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="text-decoration-none"
+					>
 						<p class="mb-2 text-[#202937]">{resources[2].name}</p>
 						<p class="mb-2 text-text hover:text-primary font-medium">{resources[2].description}</p>
 					</a>
 					<hr class="mb-4" />
-					<a href={resources[8].url} target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+					<a
+						href={resources[8].url}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="text-decoration-none"
+					>
 						<p class="mb-2 text-[#202937]">{resources[8].name}</p>
 						<p class="mb-2 text-text hover:text-primary font-medium">{resources[8].description}</p>
 					</a>
 				</div>
-
 			</div>
 		</div>
 	</div>
