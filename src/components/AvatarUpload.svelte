@@ -34,7 +34,6 @@
 </form>
 
 <style lang="postcss">
-
 	.text-outline {
 		text-shadow:
 			-1px -1px 0 #c83f00,

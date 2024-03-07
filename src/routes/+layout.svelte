@@ -26,7 +26,7 @@
 			<slot />
 		</div>
 		<div
-			class="menu-container bg-background text-primary text-center font-bold my-24 rounded-lg outline-black p-1 m-10 max-w-xs h-10"
+			class="menu-container bg-background text-alttext text-center font-bold my-24 rounded-lg outline-black p-1 m-10 max-w-xs h-10"
 			style="outline: 2px solid rgba(128, 128, 128, 0.2)"
 		>
 			<p href="/">Highlights Reel</p>
@@ -42,12 +42,12 @@
 			<div class="p-4 rounded-lg shadow-md max-w-2xl relative list-none">
 				<h6>Beginner Friendly Resources!</h6>
 				<hr />
-				<a href={resources[2].url}>
+				<a href={resources[2].url} target="_blank" rel="noopener noreferrer">
 					<p>{resources[2].name}</p>
 					<p>{resources[2].description}</p>
 				</a>
 				<hr />
-				<a href={resources[8].url}>
+				<a href={resources[8].url} target="_blank" rel="noopener noreferrer">
 					<p>{resources[8].name}</p>
 					<p>{resources[8].description}</p>
 				</a>

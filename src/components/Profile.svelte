@@ -55,9 +55,9 @@
 					{#if profileUser.social.codewars}
 						<p>
 							Codewars : <a
-								class="hover:text-primary"
 								href="http://www.codewars.com/users/{profileUser.social.codewars}"
-								>{profileUser.social.codewars}</a
+								target="_blank"
+								rel="noopener noreferrer">{profileUser.social.codewars}</a
 							>
 						</p>
 					{:else}
@@ -68,9 +68,9 @@
 					{#if profileUser.social.linkedin}
 						<p>
 							LinkedIn : <a
-								class="hover:text-primary"
 								href="http://www.linkedin.com/in/{profileUser.social.linkedin}"
-								>{profileUser.social.linkedin}</a
+								target="_blank"
+								rel="noopener noreferrer">{profileUser.social.linkedin}</a
 							>
 						</p>
 					{:else}

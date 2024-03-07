@@ -11,7 +11,7 @@
 	// options are forum, dev news, events. Toggling changes what appears in the feed. Default is forum posts
 </script>
 
-<div class="px-5 pt-10 flex flex-col pb-10">
+<div class="px-5 pt-10 flex flex-col pb-10" style="min-height: 500px;">
 	<div class="flex pb-10 h-24 leading-5">
 		<h1 class="mb-4 text-3xl font-extrabold text-dark dark:text-white md:text-5xl lg:text-6xl">
 			<span class="text-transparent bg-clip-text bg-gradient-to-r from-dark to-primary">
@@ -23,7 +23,7 @@
 		<a
 			href={data.loggedInUser !== null ? '/forum/newPost' : '/login'}
 			type="button"
-			class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary focus:outline-none dark:focus:ring-blue-800 text-outline hover:text-outline-hover"
+			class="text-outline hover:text-outline-hover text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary focus:outline-none dark:focus:ring-blue-800 text-outline hover:text-outline-hover"
 			>New Forum Post</a
 		>
 	</div>
@@ -37,7 +37,7 @@
 			on:click={() => (feedChoice = 'forum')}
 			type="button"
 			aria-label="Forum Posts"
-			class="text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary focus:outline-none dark:focus:ring-blue-800 text-outline hover:text-outline-hover"
+			class="text-outline hover:text-outline-hover text-white bg-primary hover:bg-dark focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary focus:outline-none dark:focus:ring-blue-800 text-outline hover:text-outline-hover"
 			>Forum Posts</button
 		>
 
