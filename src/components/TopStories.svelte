@@ -4,7 +4,7 @@
 </script>
 
 <h6>Top Stories of the day</h6>
-<div>
+<div data-testid="topStories">
 	{#each topThreeStories as story}
 		<ul class="list-inside mt-4">
 			<li class="mt-2">

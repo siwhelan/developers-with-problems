@@ -100,7 +100,7 @@
 	</div>
 </div>
 
-<div class="flex flex-row py-5 pr-28 rounded-lg shadow-md text-dark">
+<div data-testid="postLink" class="flex flex-row py-5 pr-28 rounded-lg shadow-md text-dark">
 	<div class="mr-1">
 		<div class="w-20 h-14">
 			{#if !userUpvoted && loggedInUser}

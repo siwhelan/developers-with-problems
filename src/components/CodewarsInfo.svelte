@@ -5,6 +5,7 @@
 <!-- max-h-40 is the magic number -->
 <aside
 	class="w-72 bg-[#1c212c] max-h-72 flex flex-col items-center mt-10 pt-10 pl-4 pr-4 rounded-md mb-2"
+	data-testid="codewars-info"
 >
 	<img
 		src="/codewars.svg"

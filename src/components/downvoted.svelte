@@ -1,4 +1,4 @@
-<svg fill="#8fd4ff" viewBox="0 0 24 24" height="40px" xmlns="http://www.w3.org/2000/svg"
+<svg data-testid="downvoted-icon" fill="#8fd4ff" viewBox="0 0 24 24" height="40px" xmlns="http://www.w3.org/2000/svg"
 	><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
 		id="SVGRepo_tracerCarrier"
 		stroke-linecap="round"

@@ -4,7 +4,7 @@
 	export let onClick;
 </script>
 
-<form method="POST" action="?/create">
+<form data-testid="socials" method="POST" action="?/create">
 	Facebook: <input type="hidden" name="profileUserID" value={profileUserID} />
 	X: <input type="hidden" name="profileUserID" value={profileUserID} />
 	LinkedIn: <input type="hidden" name="profileUserID" value={profileUserID} />

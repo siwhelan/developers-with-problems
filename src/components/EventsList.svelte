@@ -7,7 +7,7 @@
 	}
 </script>
 
-<div class="pt-3 text-center">
+<div data-testid="eventsList" class="pt-3 text-center">
 	<ul>
 		{#each events as event}
 			<li key={event._id} class="p-4 rounded-lg shadow-md max-w-2xl relative">

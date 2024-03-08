@@ -9,7 +9,7 @@
 <!-- <p>
     {trendingEvent.description}
 </p> -->
-<div>
+<div data-testid="topEvent">
 	<a href="/events">
 		<li key={trendingEvent._id} class="p-4 rounded-lg shadow-md max-w-2xl relative list-none">
 			<h2 class="flex justify-start text-xl text-primary font-bold">{trendingEvent.title}</h2>

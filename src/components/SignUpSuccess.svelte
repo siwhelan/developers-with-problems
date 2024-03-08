@@ -1,4 +1,4 @@
-<div class="flex flex-col items-center justify-start h-screen pt-20">
+<div data-testid="signUpSuccess" class="flex flex-col items-center justify-start h-screen pt-20">
 	<p class="text-text">You have signed up successfully!</p>
 	<br />
 	<div class="flex flex-row space-x-4">

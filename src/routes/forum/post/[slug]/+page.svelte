@@ -24,7 +24,7 @@
 	<div class="flex justify-between items-center mb-6">
 		<h2 class="text-lg mt-8 font-semibold lg:text-2xl text-text dark:text-white">Discussion</h2>
 	</div>
-	<NewComment />
+	<NewComment loggedInUser={data.loggedInUser}/>
 	{#each data.commentsWithAuthors as comment}
 		<Comment
 			commentContent={comment.content}

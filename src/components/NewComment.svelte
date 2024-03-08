@@ -1,6 +1,6 @@
 <script>
 	import { enhance } from '$app/forms';
-
+	export let loggedInUser
 	// let link = false;
 	// function handleOptionChange() {
 	// 	link = !link;
@@ -9,6 +9,8 @@
 </script>
 
 <form
+	id = "commentsForm"
+	data-testid="commentsForm"
 	class="mb-6"
 	method="POST"
 	action="?/create"
@@ -20,6 +22,7 @@
 	}}
 >
 	<div
+	
 		class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700"
 	>
 		<label for="comment" class="sr-only">Your comment</label>
@@ -32,11 +35,19 @@
 			required
 		></textarea>
 	</div>
+	{#if loggedInUser}
 	<button
 		class="bg-primary hover:bg-dark text-white py-2 px-4 rounded-md text-outline hover:text-outline-hover"
 		type="submit"
 		aria-label="post response">Post Response</button
 	>
+	{:else}
+	<a 
+	class="bg-primary hover:bg-dark text-white py-2 px-4 rounded-md text-outline hover:text-outline-hover"
+	href = "/login">
+	Post Response
+	</a>
+	{/if}
 </form>
 
 <style>

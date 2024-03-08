@@ -1,4 +1,5 @@
 <svg
+data-testid="upvoted"
 	fill="#FFA500"
 	viewBox="0 0 24 24"
 	height="40px"

@@ -22,7 +22,7 @@
 	}
 </script>
 
-<div class="flex text-center justify-center flex-row">
+<div data-testid="profile" class="flex text-center justify-center flex-row">
 	<div class="menu-container text-center rounded-lg p-5 m-10 px-5 w-96 bg-stone-100">
 		<!-- <img
 			class="avatar w-32 h-32 absolute right-[120px] top-[50px] rounded-full"

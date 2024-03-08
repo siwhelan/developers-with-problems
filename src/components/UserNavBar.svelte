@@ -4,7 +4,7 @@
 	export let currentUserAvatar;
 </script>
 
-<div class="bg-gray-800 text-white p-4">
+<div data-testid="navbar" class="bg-gray-800 text-white p-4">
 	<nav class="flex justify-between">
 		<ul class="flex space-x-4 items-center">
 			<li>

@@ -1,4 +1,4 @@
-<footer class="footer p-10 bg-dark text-accent text-base-content grid grid-cols-3 gap-4">
+<footer data-testid="footer" class="footer p-10 bg-dark text-accent text-base-content grid grid-cols-3 gap-4">
 	<nav>
 		<h6 class="footer-title mb-2">Services</h6>
 		<a href="http://localhost:5173/" class="link link-hover block mb-1 hover:text-primary"

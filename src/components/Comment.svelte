@@ -94,7 +94,32 @@
 		}
 		userDownvoted = !userDownvoted;
 	}
+
+	const loginPopup = function () {
+		const modal = document.getElementById('loginModal');
+		const popup = modal.querySelector('#popup');
+
+		modal.classList.remove('hidden');
+		modal.classList.remove('opacity-0');
+		popup.classList.remove('opacity-0');
+		setTimeout(() => {
+			modal.classList.add('opacity-0');
+			popup.classList.add('opacity-0');
+
+			setTimeout(() => {
+				modal.classList.add('hidden');
+			}, 3000);
+		}, 2000);
+	};
 </script>
+
+<div id="loginModal" class="fixed inset-0 z-10 overflow-y-auto hidden">
+	<div class="flex items-center justify-center min-h-screen p-4">
+		<div class="bg-white rounded-lg shadow-lg p-6">
+			<span id="popup" class="opacity-0">Please signup or login to vote!</span>
+		</div>
+	</div>
+</div>
 
 <article
 	class="p-6 text-base bg-background shadow-sm border-t flex flex-row border-gray-200 dark:border-gray-700 dark:bg-gray-800"
@@ -117,7 +142,7 @@
 				</div>
 			{:else}
 				<div class="flex px-3">
-					<button aria-pressed="false" class="max-h-1">
+					<button aria-pressed="false" on:click={() => loginPopup()} class="max-h-1">
 						<Upvote />
 					</button>
 					<p class="text-xl py-2">{commentUpvotes.length}</p>
@@ -141,7 +166,7 @@
 				</div>
 			{:else}
 				<div class="flex px-3">
-					<button aria-pressed="false" class="max-h-1">
+					<button aria-pressed="false" on:click={() => loginPopup()} class="max-h-1">
 						<Downvote />
 					</button>
 					<p class="text-xl py-2">{commentDownvotes.length}</p>
