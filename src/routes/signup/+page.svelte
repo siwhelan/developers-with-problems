@@ -18,14 +18,10 @@
 			class="max-w-md mx-auto p-4 bg-white shadow-md"
 			method="POST"
 			action="?/create"
-			use:enhance={({ formData, cancel }) => {
+			use:enhance={() => {
 				return async ({ result, update }) => {
-					const password = formData.get('password');
-					const confirmPassword = formData.get('confirmPassword');
-
-					if (password !== confirmPassword) {
-						errorMessage = 'Passwords do not match';
-						cancel();
+					if (result.data.success == false) {
+						errorMessage = result.data.error;
 						return;
 					}
 
